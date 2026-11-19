@@ -12,6 +12,7 @@ export default defineConfig({
   integrations: [
     sitemap({
       filter: (page) => !page.includes('/thank-you/'),
+      customSitemaps: [`${SITE_URL}/sitemap-images.xml`],
     }),
   ],
   vite: { plugins: [tailwindcss()] },

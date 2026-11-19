@@ -94,3 +94,20 @@ export function serviceSchema(s: { name: string; serviceType: string; url: strin
     areaServed: B.areas.map((t) => ({ '@type': 'City', name: `${t.name}, NC` })),
   };
 }
+
+/** ImageGallery of real project photos (home slider, projects page). */
+export function imageGallerySchema(name: string, url: string, images: { url: string; caption: string; alt: string }[]) {
+  return {
+    '@type': 'ImageGallery',
+    name,
+    url,
+    associatedMedia: images.map((i) => ({
+      '@type': 'ImageObject',
+      contentUrl: i.url,
+      caption: i.caption,
+      description: i.alt,
+      creator: { '@id': ORG_ID },
+      copyrightHolder: { '@id': ORG_ID },
+    })),
+  };
+}

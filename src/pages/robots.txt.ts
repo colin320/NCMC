@@ -11,6 +11,7 @@ export const GET: APIRoute = ({ site }) => {
     'Disallow: /api/',
     '',
     `Sitemap: ${new URL('/sitemap-index.xml', site)}`,
+    `Sitemap: ${new URL('/sitemap-images.xml', site)}`,
   ];
   return new Response(lines.join('\n'), { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
 };

@@ -5,12 +5,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import { gallery } from '../../data/gallery';
+import { imageGallerySchema } from '../../lib/schema';
+import { galleryImageUrls } from '../../lib/gallery-images';
 const projects = await getCollection('projects');
+const galleryLd = imageGallerySchema('NC Marine Construction project photos', new URL('/projects/', Astro.site).toString(), await galleryImageUrls(Astro.site!));
 ---
 <BaseLayout
   title="Dock, Lift & Seawall Projects | NC Marine Construction"
   description="Real docks, boat lifts and seawalls built by NC Marine Construction on the southeastern NC coast, with specs. Call (910) 465-1712 for an estimate."
   breadcrumbs={[{ name: 'Projects', href: '/projects/' }]}
+  schema={[galleryLd]}
 >
   <section class="container-x py-10 md:py-14">
     <h1 class="text-4xl md:text-6xl">Our Projects</h1>

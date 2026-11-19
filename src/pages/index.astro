@@ -14,13 +14,19 @@ import GallerySlider from '../components/GallerySlider.astro';
 import { business, telHref, isConfirmed } from '../data/business';
 import { homeFaqs } from '../data/faqs';
 import { gallery } from '../data/gallery';
-import { faqSchema } from '../lib/schema';
+import { faqSchema, imageGallerySchema } from '../lib/schema';
+import { galleryImageUrls } from '../lib/gallery-images';
 
 const B = business;
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 const hero = gallery[0];
 // Slider order: strongest wide shots first; the hero photo goes last since it opens the page.
-const slides = [...gallery.slice(4), ...gallery.slice(1, 4), hero];
+const byFile = (name: string) => gallery.find((g) => g.src.src.includes(name))!;
+const slides = [
+  'long-pier-covered-platform', 'twin-boat-lifts', 'fixed-pier-gangway', 'boat-lifts-side-view', 'pier-bench-railing',
+  'pier-walkway-decking', 'pier-gazebo-marsh', 'covered-pier-composite', 'custom-dock-cabinet', 'covered-pier-gazebo-vinyl',
+].map(byFile);
+const galleryLd = imageGallerySchema('Recent work by NC Marine Construction', new URL('/', Astro.site).toString(), await galleryImageUrls(Astro.site!));
 
 const proof = [
   { k: 'Licensed & insured', v: isConfirmed(B.license.number) ? `NC GC #${B.license.number}` : null },
@@ -39,7 +45,7 @@ const steps = [
 <BaseLayout
   title="Dock, Boat Lift & Seawall Builder in Wilmington, NC | NCMC"
   description="Licensed and insured marine contractor building docks, boat lifts, floating docks and seawalls in Wilmington and coastal NC. Call (910) 465-1712."
-  schema={[faqSchema(homeFaqs)]}
+  schema={[faqSchema(homeFaqs), galleryLd]}
 >
   <!-- 1. Full-bleed hero -->
   <section class="relative isolate flex min-h-[560px] items-end overflow-hidden bg-ink md:min-h-[640px]">
