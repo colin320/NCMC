@@ -30,7 +30,7 @@ Launch gate: `npm run build && npm run check:placeholders` must report zero `TOD
 | Dredging still offered? | `src/content/services/dredging.md` | If no, delete the file (links update automatically) |
 | North Topsail project: year, photos, permission to name town, challenge/solution/timeline | `src/content/projects/north-topsail-beach-seawall-dock-lifts.md` | Client quote only if real |
 | Tide Tamer as the lift brand on that project | `boat-lifts.md` FAQ | Brief lists Tide Tamer as a supplier credit; confirm |
-| "Recent work" photos: confirm all are NCMC's own work. Optional: if the client names the real town for a photo, swap REGION for it in that entry | `src/data/gallery.ts` (home slider + projects page) | 7 photos supplied in chat; confirm all are NCMC's own work. The long-pier-with-two-lifts photo looks professionally shot: confirm photographer permission or credit |
+| "Recent work" photos: confirm all are NCMC's own work. Towns per photo were provided by Dyno on 2026-11-19 (Hampstead: seawall pier, cabinet, composite covered pier; Topsail Beach: marsh gazebo, walkway build, gangway/floating dock; Surf City: long pier with lifts, twin lifts x2, pier bench); have the client verify | `src/data/gallery.ts` (home slider + projects page) | 7 photos supplied in chat; confirm all are NCMC's own work. The long-pier-with-two-lifts photo looks professionally shot: confirm photographer permission or credit |
 
 ## 2. Other decisions (not rendered as placeholders)
 

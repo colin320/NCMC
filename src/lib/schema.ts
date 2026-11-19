@@ -96,7 +96,7 @@ export function serviceSchema(s: { name: string; serviceType: string; url: strin
 }
 
 /** ImageGallery of real project photos (home slider, projects page). */
-export function imageGallerySchema(name: string, url: string, images: { url: string; caption: string; alt: string }[]) {
+export function imageGallerySchema(name: string, url: string, images: { url: string; caption: string; alt: string; town?: string }[]) {
   return {
     '@type': 'ImageGallery',
     name,
@@ -108,6 +108,7 @@ export function imageGallerySchema(name: string, url: string, images: { url: str
       description: i.alt,
       creator: { '@id': ORG_ID },
       copyrightHolder: { '@id': ORG_ID },
+      ...(i.town ? { contentLocation: { '@type': 'Place', name: `${i.town}, NC` } } : {}),
     })),
   };
 }

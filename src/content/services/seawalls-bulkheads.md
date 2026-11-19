@@ -8,7 +8,7 @@ metaDescription: Vinyl seawalls and bulkhead replacement in Wilmington and coast
 cardSummary: Vinyl seawalls and bulkhead replacement that hold your shoreline in place.
 answer: NC Marine Construction builds and replaces vinyl seawalls and bulkheads for waterfront properties in Wilmington and coastal North Carolina. A bulkhead holds the shoreline in place and stops erosion from tides, wakes and storms. We build to engineered plans using vinyl sheet piling, including CMI vinyl on a recent project, and explain the CAMA permit path up front.
 image: ../../assets/photos/covered-pier-gazebo-vinyl-seawall.webp
-imageAlt: White vinyl seawall along a sandy waterfront yard with a covered pier and gazebo-style roof in southeastern NC
+imageAlt: White vinyl seawall along a sandy waterfront yard with a covered pier and gazebo-style roof in Hampstead, NC
 included:
   - Site visit and shoreline assessment
   - Engineered plans for the wall, tiebacks and returns
