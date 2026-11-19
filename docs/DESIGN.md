@@ -5,7 +5,7 @@
 Reviewer asked for a less "AI" feel, closer to a SaaS landing page (reference: automotive SaaS hero).
 - Home hero: rounded inset photo (22px radius, 8 to 12px page margin), nav overlaid on the photo, uppercase Outfit headline bottom-left, frosted-glass quick-estimate bar (project + town selects, lime CTA) that prefills the contact form via `?project=&town=`, floating glass project tag.
 - Type: UI/UX Pro Max "Geometric Modern" pairing, Outfit + Work Sans (replaces Playfair + Inter).
-- Accent: sea-glass lime `#d9f05a` as a fill only (ink text 13:1). Brass removed. Ink buttons on light grounds, teal for labels and links.
+- Accent: light gold `#e7c989` (from v3) as a fill only, ink text 10.9:1. Lime was tried and rejected by the reviewer. Ink buttons on light grounds, teal for labels and links.
 - Radius 10px controls, 18 to 22px cards and panels. Glass only on photo overlays (skill rule: blur 10 to 20px, white 15 to 30%, 1px light border, contrast checked).
 - Sections: proof row, service bento (3 photo cards + 5 compact), slider, numbered process cards, teal town panel, FAQ, inset ink estimate card.
 

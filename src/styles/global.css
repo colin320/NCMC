@@ -11,8 +11,8 @@
  *   Surface  Glassmorphism for photo overlays only (blur 16px, white 16%, 1px white/25 border)
  *   Color    Stone ink + deep teal (Real Estate/Property row); one bright CTA fill. No orange.
  *
- * Contrast (WCAG): ink/paper 16.7; ink/marker 13+; white/teal 9.5; teal/paper 9; muted/paper 7.3.
- * The lime marker is a fill color only: never use it as text on light grounds.
+ * Contrast (WCAG): ink/paper 16.7; ink/marker 10.9; white/teal 9.5; teal/paper 9; muted/paper 7.3.
+ * The gold marker is a fill color only: never use it as text on light grounds.
  */
 @theme {
   --color-ink: #1c1917;          /* text, dark bands */
@@ -20,8 +20,8 @@
   --color-shallow: #f2f1ef;      /* alternate section ground */
   --color-rule: #e2e0dd;         /* borders */
   --color-muted: #57534e;        /* secondary text */
-  --color-marker: #d9f05a;       /* sea-glass lime: primary CTA fill, ink text */
-  --color-marker-dark: #c6e03f;
+  --color-marker: #e7c989;       /* light brass/gold: primary CTA fill, ink text (10.9:1) */
+  --color-marker-dark: #dcb66a;
   --color-tide: #134e4a;         /* deep teal: labels, links, accents on light */
   --color-tide-soft: #0f766e;
   --color-todo: #ffb3e6;         /* review-only placeholder highlight */
@@ -73,7 +73,7 @@
   @apply btn bg-ink text-white hover:bg-tide;
 }
 
-/* Primary CTA (lime fill, ink text): hero, dark bands, mobile bar */
+/* Primary CTA (gold fill, ink text): hero, dark bands, mobile bar */
 @utility btn-marker {
   @apply btn bg-marker text-ink hover:bg-marker-dark;
 }
