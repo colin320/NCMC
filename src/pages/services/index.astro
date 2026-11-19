@@ -12,7 +12,7 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
 >
   <section class="container-x py-10 md:py-14">
     <h1 class="text-4xl md:text-6xl">Marine Construction Services</h1>
-    <p class="answer-first mt-5">We build and repair docks, piers, boat lifts and vinyl seawalls for waterfront homes around Topsail Island and Hampstead. The aim is a dock that looks right with the house, an easy way to the boat, and a yard that stays put.</p>
+    <p class="answer-first mt-5">We build and repair docks, piers, boat lifts and vinyl seawalls for waterfront homes around Topsail Island and Hampstead. Tell us how you want to use the water, and we'll build something that makes that easy.</p>
     <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {services.map((s) => <ServiceCard href={`/services/${s.id}/`} name={s.data.name} summary={s.data.cardSummary} />)}
     </div>

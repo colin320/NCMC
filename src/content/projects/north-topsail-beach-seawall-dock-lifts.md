@@ -3,7 +3,7 @@ title: 300 ft Vinyl Seawall & Dock with Elevator Lift, North Topsail Beach
 metaTitle: Vinyl Seawall, Dock & Lifts in North Topsail Beach, NC
 metaDescription: "300 ft of CMI vinyl seawall, a 250 ft dock with a bridge section, an elevator boat lift and a PWC lift, built in North Topsail Beach, NC."
 town: North Topsail Beach
-summary: A North Topsail Beach place with the yard held in place, a dock out to the water, and the boat and jet skis kept up between trips.
+summary: On this North Topsail Beach property we put in a 300 ft vinyl seawall to hold the yard, then ran a dock out to the water with a lift for the boat and spots for two jet skis.
 services: [seawalls-bulkheads, docks-piers, boat-lifts, jet-ski-lifts]
 specs:
   - label: Seawall
