@@ -56,10 +56,10 @@ const heroSpecs = [
 ];
 
 const steps = [
-  { t: 'Site visit', d: 'We walk the shoreline with you, check the depth at low tide and see how equipment will get in. We also want to hear how you use the water.', tag: 'Free' },
-  { t: 'Plans & permits', d: 'You get engineered plans, a written estimate and a plain explanation of the CAMA and local permits.' },
-  { t: 'Build', d: 'Pilings go in first. Then framing, decking, any lifts, and the finish work.' },
-  { t: 'Walk-through', d: 'We go over the finished work with you and explain how to look after it.' },
+  { t: 'Site visit', d: 'We walk the shoreline with you. We check the depth at low tide, see how the equipment gets in, and ask how you use the boat.', tag: 'Free' },
+  { t: 'Price and permits', d: 'You get a written price. We also explain the CAMA and local permit steps before you commit.' },
+  { t: 'Build', d: 'Pilings go in first. Then the framing, the deck, and whatever the boat needs on top.' },
+  { t: 'Walk-through', d: 'We walk the finished dock with you and show you what to watch for.' },
 ];
 
 // Comparison facts: same statements as the Floating Docks and Docks & Piers pages.
@@ -74,7 +74,7 @@ const quickTypes = projectTypes.filter((p) => p.value !== 'other');
 ---
 <BaseLayout
   title="Dock & Boat Lift Builder | Topsail Island & Hampstead, NC"
-  description="Docks, piers, boat lifts and vinyl seawalls in Surf City, Hampstead, Topsail Beach and North Topsail Beach. Licensed and insured. (910) 465-1712"
+  description="Dock and boat lift builder in Surf City, Hampstead, Topsail Beach and North Topsail Beach. Licensed and insured. (910) 465-1712"
   schema={[faqSchema(homeFaqs), galleryLd]}
   overlayHeader
 >
@@ -93,8 +93,8 @@ const quickTypes = projectTypes.filter((p) => p.value !== 'other');
 
     <div class="container-x grid gap-10 pb-16 pt-14 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:pb-24 lg:pt-28">
       <div class="min-w-0">
-        <h1 class="text-[2.6rem] font-semibold leading-[1.02] text-white sm:text-6xl lg:text-[4.1rem]">Docks, lifts &amp; seawalls for Topsail Island and Hampstead</h1>
-        <p class="mt-6 max-w-[46ch] text-lg text-white/85">Licensed and insured marine contractor serving Surf City, Hampstead, Topsail Beach and North Topsail Beach. Engineered plans. Drawn before we build.</p>
+        <h1 class="text-[2.6rem] font-semibold leading-[1.02] text-white sm:text-6xl lg:text-[4.1rem]">Dock builder for Topsail Island and Hampstead</h1>
+        <p class="mt-6 max-w-[46ch] text-lg text-white/85">Low tide is the test. Your boat needs water under it, and the pier has to hold. We build docks and boat lifts in Surf City, Hampstead, Topsail Beach and North Topsail Beach. Call us. We'll walk the shoreline with you.</p>
 
         <form action="/contact/" method="get" class="glass mt-8 grid gap-1 rounded-[16px] p-2 text-white sm:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)_auto] sm:items-stretch lg:max-w-[640px]" aria-label="Start a free estimate">
           <label for="hero-project" class="flex flex-col px-3 py-2 sm:border-r sm:border-white/20">
@@ -156,7 +156,7 @@ const quickTypes = projectTypes.filter((p) => p.value !== 'other');
   <!-- 3. Services: feature cards with clean photos -->
   <section class="container-x py-20 md:py-24">
     <div class="flex flex-wrap items-end justify-between gap-6">
-      <h2 class="max-w-[18ch] text-4xl md:text-5xl">Marine construction services</h2>
+      <h2 class="max-w-[18ch] text-4xl md:text-5xl">Work we do at your place</h2>
       <a href="/services/" class="btn-secondary">All services</a>
     </div>
     <ul class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -185,9 +185,9 @@ const quickTypes = projectTypes.filter((p) => p.value !== 'other');
       })}
       <li class="lg:col-span-2">
         <a href="#estimate" class="flex h-full min-h-56 flex-col justify-between rounded-[18px] bg-night p-6 text-white no-underline" data-event="estimate_cta" data-location="services_card">
-          <span class="font-display text-2xl font-semibold leading-tight">Not sure what you need?</span>
+          <span class="font-display text-2xl font-semibold leading-tight">Not sure if it's a repair?</span>
           <span>
-            <span class="block text-white/80">We'll look at the site and tell you. The estimate is free.</span>
+            <span class="block text-white/80">We'll look and tell you. No charge.</span>
             <span class="btn-marker mt-5">Book a site visit</span>
           </span>
         </a>
@@ -200,7 +200,7 @@ const quickTypes = projectTypes.filter((p) => p.value !== 'other');
     <div class="container-x grid gap-10 py-20 md:py-24 lg:grid-cols-[0.8fr_1.4fr] lg:items-start">
       <div>
         <h2 class="text-4xl md:text-5xl">Fixed dock or floating dock?</h2>
-        <p class="mt-4 max-w-[40ch] text-muted">The most common question we get. Many properties use both: a fixed pier with a floating dock on a gangway.</p>
+        <p class="mt-4 max-w-[40ch] text-muted">People ask us this first. A lot of places end up with both: a fixed pier, and a floating dock on a gangway.</p>
         <div class="mt-6 flex flex-wrap gap-3">
           <a href="/services/docks-piers/" class="link">Fixed docks &amp; piers</a>
           <a href="/services/floating-docks/" class="link">Floating docks</a>
@@ -245,7 +245,7 @@ const quickTypes = projectTypes.filter((p) => p.value !== 'other');
   <!-- 6. Process -->
   <section class="border-t border-rule">
     <div class="container-x py-20 md:py-24">
-      <h2 class="max-w-[20ch] text-4xl md:text-5xl">From first call to finished dock</h2>
+      <h2 class="max-w-[20ch] text-4xl md:text-5xl">After you call</h2>
       <ol class="relative mt-12 grid gap-4 md:grid-cols-4">
         {steps.map((s, i) => (
           <li class="rounded-[18px] border border-rule bg-card p-6">
@@ -266,7 +266,7 @@ const quickTypes = projectTypes.filter((p) => p.value !== 'other');
     <div class="grid gap-8 rounded-[22px] bg-tide px-6 py-12 text-white sm:px-10 md:grid-cols-[1fr_1.4fr] md:py-14">
       <div>
         <h2 class="text-3xl text-white md:text-4xl">Where we build</h2>
-        <p class="mt-4 max-w-[40ch] text-white/85">We work on Topsail Sound, the Intracoastal Waterway, and the creeks and canals around Hampstead and Topsail Island.</p>
+        <p class="mt-4 max-w-[40ch] text-white/85">We work Topsail Sound, the ICW, and the canals around Hampstead and Topsail Island.</p>
       </div>
       <ul class="grid gap-x-8 sm:grid-cols-2">
         {B.areas.map((a) => (
@@ -311,8 +311,8 @@ const quickTypes = projectTypes.filter((p) => p.value !== 'other');
     <section class="chart-grid rounded-[22px] bg-night text-white">
       <div class="container-x grid gap-12 py-16 lg:grid-cols-[1fr_1.1fr] lg:py-20">
         <div>
-          <h2 class="text-4xl text-white md:text-5xl">Tell us what you want to do with your waterfront</h2>
-          <p class="mt-5 max-w-[46ch] text-white/80">We'll come out, walk the shoreline with you, check the water depth and explain the permit path. There's no charge for the estimate.</p>
+          <h2 class="text-4xl text-white md:text-5xl">Tell us about the boat and the dock</h2>
+          <p class="mt-5 max-w-[46ch] text-white/80">We'll walk the shoreline with you, check the depth, and tell you which permits apply. The visit is free.</p>
           <a href={telHref()} class="btn-marker mt-8 text-lg" data-event="click_to_call" data-location="home_form"><Icon name="phone" /><span class="tabular-nums">Call {B.phones.office.display}</span></a>
           <p class="mt-3 text-sm text-white/70">Calling is the fastest way to reach us.</p>
         </div>

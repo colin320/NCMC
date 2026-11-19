@@ -7,13 +7,13 @@ import { faqSchema } from '../lib/schema';
 ---
 <BaseLayout
   title="Dock, Lift & CAMA Permit FAQ | Topsail Island & Hampstead"
-  description="Answers on docks, boat lifts, seawalls and CAMA permits for homes in Hampstead and on Topsail Island, NC. Free estimates: (910) 465-1712."
+  description="Questions we hear about docks, boat lifts and CAMA permits in Hampstead and on Topsail Island. (910) 465-1712."
   breadcrumbs={[{ name: 'FAQ', href: '/faq/' }]}
   schema={[faqSchema([...generalFaqs, ...permitFaqs, ...processFaqs])]}
 >
   <section class="container-x py-10 md:py-14">
     <h1 class="text-4xl md:text-6xl">Dock, Lift &amp; Permit Questions</h1>
-    <p class="answer-first mt-5">These are the questions homeowners in Hampstead, Surf City, Topsail Beach and North Topsail Beach ask us most about docks, boat lifts, seawalls, permits and estimates. If yours isn't here, give us a call.</p>
+    <p class="answer-first mt-5">Wondering about a CAMA permit, or whether the dock is worth fixing? Start here. These are the questions we hear in Hampstead, Surf City, Topsail Beach and North Topsail Beach. If yours isn't here, call.</p>
     <div class="mt-12 space-y-14">
       <FaqList faqs={generalFaqs} heading="General" />
       <div id="permits">

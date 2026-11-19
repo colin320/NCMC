@@ -9,7 +9,7 @@ export const GET: APIRoute = async ({ site }) => {
   const addr = [B.address.street, B.address.city, B.address.postalCode].every(isConfirmed) ? fullAddress() : null;
   const body = `# ${B.name}
 
-> ${B.legalName} is a ${B.positioning.toLowerCase()} building docks, piers, floating docks, boat lifts, jet ski lifts and vinyl seawalls/bulkheads for waterfront homes in ${B.serviceAreaSummary}. ${B.differentiator}. Free on-site estimates.
+> ${B.legalName} is a ${B.positioning.toLowerCase()} building docks and boat lifts for waterfront homes in ${B.serviceAreaSummary}. ${B.differentiator}.
 
 - Phone: ${B.phones.office.display}
 - Email: ${B.email}

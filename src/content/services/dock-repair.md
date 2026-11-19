@@ -5,8 +5,8 @@ order: 6
 h1: Dock & Pier Repair in Hampstead & Topsail Island, NC
 metaTitle: Dock Repair | Topsail Island & Hampstead, NC | NCMC
 metaDescription: "Dock and pier repair after storms or years of wear in Surf City, Hampstead and Topsail Beach, NC. Free on-site estimates. Call (910) 465-1712."
-cardSummary: Storm damage, soft boards and failing pilings, repaired or rebuilt.
-answer: We repair docks and piers damaged by storms or years of wear in Surf City, Hampstead, Topsail Beach and North Topsail Beach. That can mean new decking, framing, railings or pilings, or a rebuild when patching no longer makes sense. We will tell you which is the better value, and if the rebuild needs a CAMA permit.
+cardSummary: Soft boards after a storm, or pilings that won't hold. Repair it, or rebuild.
+answer: Stay off a dock that wobbles. We repair storm damage and worn-out piers in Surf City, Hampstead, Topsail Beach and North Topsail Beach. Sometimes that's new boards. Sometimes the pilings are gone and a rebuild is the honest answer. We'll tell you which, and whether that rebuild needs a CAMA permit.
 included:
   - Inspection of the decking, framing, hardware and pilings
   - A plain recommendation on repair or replacement
@@ -20,25 +20,25 @@ costDrivers:
   - How hard it is to reach the damaged section
 faqs:
   - q: Should I repair or replace my dock?
-    a: If the pilings and framing are sound, replacing boards and hardware is often the better value. If the pilings are failing or the framing is rotten, a rebuild usually costs less in the long run. We inspect the dock and give you a straight answer.
+    a: If the pilings and framing are sound, new boards and hardware are often the better spend. If the pilings are failing or the framing is rotten, a rebuild usually costs less over time. We look at the dock and give you a straight answer.
   - q: Do I need a CAMA permit to replace a storm-damaged dock?
     a: Under 2024 changes to North Carolina law, rebuilding a dock or pier to its prior footprint after storm damage or normal wear generally no longer needs a CAMA permit, with some exceptions such as larger structures or docks next to federal channels. Other state, federal and local rules still apply. This is general information, not legal advice. We confirm the rules for your property during the site visit.
   - q: Can you fix just a few pilings?
-    a: Yes. Damaged pilings can often be replaced or reinforced without rebuilding the rest of the dock.
+    a: Yes. A bad piling can often be replaced or reinforced without rebuilding the rest of the dock.
   - q: Do you work with insurance after a storm?
     a: We can give you a written estimate and photos of the damage for your claim. Questions about coverage should go to your insurance company.
 related: [docks-piers, pilings, seawalls-bulkheads]
 projectTags: [dock-repair]
 ---
 
-## Signs your dock needs repair
+## Signs the dock needs work
 
 - Deck boards that are soft, cracked or loose
-- Sections that wobble or lean
+- A section that wobbles or leans
 - Pilings with heavy rot or borer damage at the waterline
-- Bolts and hardware that are rusted through or missing
-- Railings that give when you lean on them
+- Bolts that are rusted through, or missing
+- A railing that gives when you lean on it
 
 ## After a storm
 
-Stay off a dock that looks damaged until it has been inspected, and take photos for your insurance company. Then call us. We will inspect it, secure anything unsafe and give you a written estimate for the repair or the rebuild. If the pilings are the problem, our [dock pilings](/services/pilings/) page explains the options.
+Stay off a dock that looks hurt until someone has inspected it. Take photos for the insurance company. Then call us. We'll look, secure anything unsafe, and write an estimate for the repair or the rebuild. If the pilings are the problem, our [dock pilings](/services/pilings/) page explains the options.

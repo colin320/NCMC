@@ -4,9 +4,9 @@ serviceType: Personal watercraft lift installation
 order: 4
 h1: Jet Ski & PWC Lifts in Hampstead & Topsail Island, NC
 metaTitle: Jet Ski Lifts | Topsail Island & Hampstead, NC | NCMC
-metaDescription: "Swinger lifts and drive-on floats for jet skis and PWCs in Surf City, Hampstead and Topsail Beach, NC. Free on-site estimates. (910) 465-1712"
-cardSummary: Swinger lifts and drive-on floats that keep jet skis out of the water.
-answer: We install jet ski and PWC lifts in Surf City, Hampstead, Topsail Beach and North Topsail Beach. That includes swinger lifts that mount to a dock or piling, and drive-on floats you ride straight onto. Keeping the machine out of salt water is easier on the hull and the engine. We match the lift to the machine and the dock.
+metaDescription: "Jet ski lifts and drive-on floats in Surf City, Hampstead and Topsail Beach, NC. Free on-site estimates. (910) 465-1712"
+cardSummary: Get the jet ski out of the salt water, on a lift or a drive-on float.
+answer: A jet ski left in salt water pays for it. Hull and engine both. We install PWC lifts in Surf City, Hampstead, Topsail Beach and North Topsail Beach. A swinger lift mounts to the dock. A drive-on float is one you ride onto. We match it to the machine and the pier.
 included:
   - A recommendation on swinger lift or drive-on float for your site
   - A lift or float rated for your PWC's weight
@@ -16,16 +16,16 @@ costDrivers:
   - How many watercraft you have
   - Lift style (swinger lift or drive-on float)
   - Capacity rating
-  - Whether it needs a new piling or floating dock
+  - A new piling or a floating dock, if the mount needs one
 faqs:
   - q: What is a swinger lift?
-    a: A swinger lift mounts to a dock or piling and uses a winch or motor to swing the jet ski up and out of the water. It suits fixed docks.
+    a: It mounts to a dock or a piling. A winch or a motor swings the jet ski up and out of the water. It suits a fixed dock.
   - q: What is a drive-on jet ski float?
-    a: It is a floating platform you ride the jet ski onto. It rises and falls with the tide and attaches to a floating or fixed dock. A recent project of ours used a WaveArmor float.
+    a: A floating platform you ride the jet ski onto. It rises and falls with the tide and ties to a floating or fixed dock. A recent project of ours used a WaveArmor float.
   - q: How much weight does a PWC lift need to hold?
     a: Size it to the jet ski's dry weight plus fuel and gear, with a margin on top. A recent project used a 1,500 lb swinger lift. We confirm the right rating for your machine.
   - q: Can I add a jet ski lift to my existing dock?
-    a: Usually. We check the part of the dock where the lift mounts and reinforce it if needed.
+    a: Usually. We check the part of the dock where the lift mounts and reinforce it if it needs it.
 related: [boat-lifts, floating-docks, docks-piers]
 projectTags: [jet-ski-lifts]
 ---
@@ -39,4 +39,4 @@ projectTags: [jet-ski-lifts]
 | Launch | Winch or motor lowers the PWC | Ride on, push off |
 | Best for | Fixed piers | Floating dock setups and frequent riders |
 
-On a fixed pier, a swinger lift is usually the simpler option. If you already have a floating dock, or you ride often and want to get on the water quickly, a drive-on float tends to work better. Our [North Topsail Beach project](/projects/north-topsail-beach-seawall-dock-lifts/) used both: a 1,500 lb swinger lift for one jet ski and a WaveArmor float for the second. For the boat itself, see [boat lifts](/services/boat-lifts/).
+On a fixed pier, a swinger lift is usually the simpler option. If you already have a floating dock, or you ride often and want to get on the water quickly, a drive-on float tends to fit better. Our [North Topsail Beach project](/projects/north-topsail-beach-seawall-dock-lifts/) used both: a 1,500 lb swinger lift for one jet ski and a WaveArmor float for the second. For the boat itself, see [boat lifts](/services/boat-lifts/).

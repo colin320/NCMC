@@ -3,7 +3,7 @@ title: 300 ft Vinyl Seawall & Dock with Elevator Lift, North Topsail Beach
 metaTitle: Vinyl Seawall, Dock & Lifts in North Topsail Beach, NC
 metaDescription: "300 ft of CMI vinyl seawall, a 250 ft dock with a bridge section, an elevator boat lift and a PWC lift, built in North Topsail Beach, NC."
 town: North Topsail Beach
-summary: One waterfront job that covered 300 ft of CMI vinyl seawall, a 250 ft dock with a bridge section for navigation, an elevator dock lift, a 1,500 lb PWC swinger lift and a WaveArmor jet ski float.
+summary: A North Topsail Beach job with 300 ft of CMI vinyl seawall, a 250 ft dock and a bridge section so boats can still pass, plus an elevator lift and two ways to keep the jet skis up.
 services: [seawalls-bulkheads, docks-piers, boat-lifts, jet-ski-lifts]
 specs:
   - label: Seawall
@@ -24,11 +24,11 @@ confirmNote: Confirm year, photos, and permission to name the town. Add the chal
 
 ## The project
 
-This North Topsail Beach property needed its shoreline held in place and a way out to the water. NC Marine Construction built 300 ft of vinyl seawall with CMI sheet piling, then ran a 250 ft dock out from it. Part of the dock is a bridge section, so boats can still get past.
+The yard needed to stay put, and they still needed a way out to the water. We built 300 ft of vinyl seawall with CMI sheet piling, then ran a 250 ft dock off it. Part of that dock is a bridge, so boats can still get past.
 
-At the water end, the dock carries an elevator lift for the boat and a 1,500 lb swinger lift for one jet ski. A second jet ski sits on a WaveArmor drive-on float.
+Out at the end there's an elevator lift for the boat and a 1,500 lb swinger for one jet ski. The second jet ski sits on a WaveArmor drive-on float.
 
-The services on this job are covered in more detail on our [seawalls and bulkheads](/services/seawalls-bulkheads/), [boat lifts](/services/boat-lifts/) and [jet ski lifts](/services/jet-ski-lifts/) pages.
+More on the pieces is on our [seawalls and bulkheads](/services/seawalls-bulkheads/), [boat lifts](/services/boat-lifts/) and [jet ski lifts](/services/jet-ski-lifts/) pages.
 
 ## The challenge
 
