@@ -79,10 +79,15 @@ const quickTypes = projectTypes.filter((p) => p.value !== 'other');
   overlayHeader
 >
   <!-- 1. Photo hero with overlay nav -->
-  <section class="relative isolate overflow-hidden bg-night">
-    <Image src={hero.src} alt={hero.alt} widths={[828, 1280, 1600, 2000]} sizes="100vw" loading="eager" fetchpriority="high" class="absolute inset-0 -z-10 h-full w-full object-cover" />
-    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-night/65 via-night/30 to-paper" aria-hidden="true"></div>
-    <div class="absolute inset-0 -z-10 hidden bg-gradient-to-r from-night/80 via-night/30 to-transparent lg:block" aria-hidden="true"></div>
+  <!-- Mobile: the photo is a fixed-height band behind the nav + headline (a full-height
+       background would crop a 4:3 photo into a tall strip and upscale it past its
+       resolution). Desktop (lg): photo fills the whole hero. -->
+  <section class="relative isolate overflow-hidden bg-paper lg:bg-night">
+    <div class="absolute inset-x-0 top-0 -z-10 h-[34rem] sm:h-[38rem] lg:inset-0 lg:h-auto">
+      <Image src={hero.src} alt={hero.alt} widths={[828, 1280, 1600, 2000]} sizes="(min-width: 1024px) 100vw, (min-width: 640px) 820px, 740px" loading="eager" fetchpriority="high" class="h-full w-full object-cover object-[50%_45%]" />
+      <div class="absolute inset-0 bg-gradient-to-b from-night/60 via-night/30 to-paper" aria-hidden="true"></div>
+      <div class="absolute inset-0 hidden bg-gradient-to-r from-night/80 via-night/30 to-transparent lg:block" aria-hidden="true"></div>
+    </div>
 
     <Header variant="overlay" />
 
