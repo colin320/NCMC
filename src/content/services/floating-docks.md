@@ -6,7 +6,7 @@ h1: Floating Dock Installation in Hampstead & Topsail Island, NC
 metaTitle: Floating Docks | Topsail Island & Hampstead, NC | NCMC
 metaDescription: "Floating docks and gangways for waterfront homes in Surf City, Hampstead and Topsail Beach, NC. Free estimates. (910) 465-1712"
 cardSummary: Floating docks that rise and fall with the tide, so the step to the boat stays the same.
-answer: We install floating docks, and the gangway from a fixed pier, in Surf City, Hampstead, Topsail Beach and North Topsail Beach. The dock sits on sealed floats and moves with the tide, so the step to the boat stays the same at high water and low. The free estimate covers depth and current at your site.
+answer: A floating dock sits on sealed floats and rises and falls with the tide, so the step onto the boat stays the same. We install the dock and the gangway from a fixed pier for homes on Topsail Sound, the ICW, and the canals around Hampstead and Topsail Island, including Surf City, Topsail Beach and North Topsail Beach. The free estimate covers depth and current at your site.
 included:
   - A site visit to check depth, tidal range and current
   - A float and frame layout sized for your boats
