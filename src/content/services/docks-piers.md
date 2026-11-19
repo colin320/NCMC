@@ -2,11 +2,11 @@
 name: Docks & Piers
 serviceType: Dock and pier construction
 order: 1
-h1: Docks & Piers in Wilmington & Coastal NC
-metaTitle: Dock Builder in Wilmington, NC | NC Marine Construction
-metaDescription: Fixed docks, piers and covered platforms built to engineered plans in Wilmington and coastal NC. Free on-site estimates. Call (910) 465-1712.
+h1: Docks & Piers in Hampstead & Topsail Island, NC
+metaTitle: Dock Builder | Topsail Island & Hampstead, NC | NCMC
+metaDescription: Docks, piers and covered platforms built to engineered plans in Hampstead, Surf City & Topsail Beach, NC. Free estimates. Call (910) 465-1712.
 cardSummary: Fixed docks, piers, walkways and covered platforms built on engineered plans.
-answer: NC Marine Construction builds fixed docks and piers for waterfront homeowners in Wilmington and southeastern North Carolina. We handle the full job, from site visit and engineered plans to pilings, framing, decking and finish details like covered platforms and benches. Every project starts with a free on-site estimate, and we explain the CAMA permit path up front.
+answer: NC Marine Construction builds fixed docks and piers for homeowners in Hampstead, Surf City, Topsail Beach and North Topsail Beach. We handle the full job, from site visit and engineered plans to pilings, framing, decking and finish details like covered platforms and benches. Every project starts with a free on-site estimate, and we explain the CAMA permit path up front.
 image: ../../assets/photos/pier-gazebo-marsh-view.webp
 imageAlt: Covered pier platform with a hip roof, built-in benches and composite decking overlooking a coastal marsh in Topsail Beach, NC
 included:
@@ -24,7 +24,7 @@ costDrivers:
   - Water access for equipment (barge work vs. land access)
   - Add-ons such as lifts, lighting, water and power
 faqs:
-  - q: How long does it take to build a dock in Wilmington?
+  - q: How long does it take to build a dock on Topsail Island or in Hampstead?
     a: Most of the timeline is permitting and scheduling, not construction. Once permits are in hand, a typical residential pier is usually built in a matter of weeks. We give you a realistic schedule for your property at the estimate visit.
   - q: Do I need a permit to build a new dock in North Carolina?
     a: Yes. New docks and piers in the 20 coastal counties go through the NC Division of Coastal Management (CAMA), usually under a general permit for standard residential docks. Local building permits may also apply. We walk you through the process during the estimate.
@@ -44,7 +44,7 @@ A good coastal dock reaches water that is deep enough at low tide for your boat,
 
 ## Fixed dock or floating dock?
 
-A fixed dock stays at one height and works well for piers, platforms and lifts on most of the Intracoastal Waterway and sounds around Wilmington. A floating dock rises and falls with the tide so the boarding height never changes. Many properties use both: a fixed pier and platform with a floating dock attached by a gangway. See our [floating docks](/services/floating-docks/) page for more.
+A fixed dock stays at one height and works well for piers, platforms and lifts on the Intracoastal Waterway and Topsail Sound. A floating dock rises and falls with the tide so the boarding height never changes. Many properties use both: a fixed pier and platform with a floating dock attached by a gangway. See our [floating docks](/services/floating-docks/) page for more.
 
 ## How does the process work?
 

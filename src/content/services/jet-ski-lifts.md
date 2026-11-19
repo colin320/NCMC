@@ -2,11 +2,11 @@
 name: Jet Ski & PWC Lifts
 serviceType: Personal watercraft lift installation
 order: 4
-h1: Jet Ski & PWC Lifts in Wilmington & Coastal NC
-metaTitle: Jet Ski Lift Installation in Wilmington, NC | NCMC
-metaDescription: Swinger lifts, drive-on floats and PWC lifts for jet skis in Wilmington and coastal NC. Free on-site estimates. Call (910) 465-1712.
+h1: Jet Ski & PWC Lifts in Hampstead & Topsail Island, NC
+metaTitle: Jet Ski Lifts | Topsail Island & Hampstead, NC | NCMC
+metaDescription: Swinger lifts, drive-on floats and PWC lifts for jet skis in Hampstead, Surf City & Topsail Beach, NC. Free on-site estimates. Call (910) 465-1712.
 cardSummary: Swinger lifts and drive-on floats that keep jet skis dry and ready.
-answer: NC Marine Construction installs jet ski and personal watercraft lifts in Wilmington and coastal North Carolina, including swinger lifts that mount to a dock and drive-on floats. A PWC lift keeps your jet ski out of salt water, protects the hull and engine, and makes launching quick. We match the lift to your machine and your dock.
+answer: NC Marine Construction installs jet ski and personal watercraft lifts in Hampstead, Surf City, Topsail Beach and North Topsail Beach, including swinger lifts that mount to a dock and drive-on floats. A PWC lift keeps your jet ski out of salt water, protects the hull and engine, and launches fast. We match the lift to your machine and your dock.
 included:
   - Recommendation of swinger lift vs. drive-on float for your site
   - Lift or float sized to your PWC's weight

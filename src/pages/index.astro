@@ -43,19 +43,19 @@ const steps = [
 ];
 ---
 <BaseLayout
-  title="Dock, Boat Lift & Seawall Builder in Wilmington, NC | NCMC"
-  description="Licensed and insured marine contractor building docks, boat lifts, floating docks and seawalls in Wilmington and coastal NC. Call (910) 465-1712."
+  title="Dock & Boat Lift Builder | Topsail Island & Hampstead, NC"
+  description="Licensed, insured marine contractor building docks, boat lifts and seawalls in Surf City, Hampstead, Topsail Beach & North Topsail. Call (910) 465-1712."
   schema={[faqSchema(homeFaqs), galleryLd]}
 >
   <!-- 1. Full-bleed hero -->
-  <section class="relative isolate flex min-h-[560px] items-end overflow-hidden bg-ink md:min-h-[640px]">
+  <section class="relative isolate flex min-h-[520px] items-end overflow-hidden bg-ink md:min-h-[640px]">
     <Image src={hero.src} alt={hero.alt} widths={[740]} sizes="100vw" loading="eager" fetchpriority="high" class="absolute inset-0 -z-10 h-full w-full object-cover" />
-    <div class="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/60 to-ink/10 md:bg-gradient-to-r md:from-ink/90 md:via-ink/55 md:to-transparent"></div>
-    <div class="container-x pb-12 pt-32 md:pb-20">
-      <p class="label-note text-marker">Marine contractor · Wilmington to Topsail</p>
-      <h1 class="mt-4 max-w-[17ch] text-[2.6rem] text-white sm:text-6xl lg:text-[4.5rem]">Docks, lifts &amp; seawalls built for the Carolina coast</h1>
-      <p class="mt-5 max-w-[48ch] text-lg text-white/85">Licensed and insured. Engineered plans and quality marine craftsmanship, from the first piling to the last deck board.</p>
-      <div class="mt-8 flex flex-wrap gap-3">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/75 to-ink/30 md:bg-gradient-to-r md:from-ink/90 md:via-ink/55 md:to-transparent"></div>
+    <div class="container-x pb-10 pt-24 md:pb-20 md:pt-32">
+      <p class="label-note text-marker">Licensed &amp; insured marine contractor</p>
+      <h1 class="mt-3 max-w-[17ch] text-[2.3rem] text-white sm:text-6xl lg:text-[4.5rem]">Docks, lifts &amp; seawalls for Topsail Island and Hampstead</h1>
+      <p class="mt-4 max-w-[48ch] text-base text-white/90 sm:text-lg">Serving Surf City, Hampstead, Topsail Beach and North Topsail Beach. Engineered plans and quality craftsmanship on every build.</p>
+      <div class="mt-6 flex flex-wrap gap-3 sm:mt-8">
         <a href={telHref()} class="btn-marker text-base" data-event="click_to_call" data-location="hero"><Icon name="phone" /><span class="tabular-nums">Call {B.phones.office.display}</span></a>
         <a href="#estimate" class="btn-ghost-light text-base" data-event="estimate_cta" data-location="hero">Get a free estimate</a>
       </div>
@@ -138,8 +138,8 @@ const steps = [
     <div class="container-x grid gap-10 py-20 md:grid-cols-[1fr_1.3fr] md:py-24">
       <div>
         <p class="label-note">Service area</p>
-        <h2 class="mt-3 text-4xl md:text-5xl">Cape Fear River to the New River</h2>
-        <p class="mt-4 max-w-[46ch] text-muted">We build on the Intracoastal Waterway, the sounds and the tidal creeks of southeastern North Carolina.</p>
+        <h2 class="mt-3 text-4xl md:text-5xl">From Hampstead to North Topsail Beach</h2>
+        <p class="mt-4 max-w-[46ch] text-muted">We build along Topsail Sound, the Intracoastal Waterway and the creeks and canals of Hampstead and Topsail Island.</p>
       </div>
       <div>
         <ul class="flex flex-wrap gap-2">

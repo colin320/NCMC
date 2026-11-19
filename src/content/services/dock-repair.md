@@ -2,11 +2,11 @@
 name: Dock Repair
 serviceType: Dock and pier repair
 order: 6
-h1: Dock & Pier Repair in Wilmington & Coastal NC
-metaTitle: Dock Repair in Wilmington, NC | NC Marine Construction
-metaDescription: Dock and pier repair and replacement after storms or age in Wilmington and coastal NC. Free on-site estimates. Call (910) 465-1712.
+h1: Dock & Pier Repair in Hampstead & Topsail Island, NC
+metaTitle: Dock Repair | Topsail Island & Hampstead, NC | NCMC
+metaDescription: Dock and pier repair and replacement after storms or age in Hampstead, Surf City & Topsail Beach, NC. Free on-site estimates. Call (910) 465-1712.
 cardSummary: Storm damage, rotted boards and failing pilings repaired or replaced.
-answer: NC Marine Construction repairs and replaces docks and piers damaged by storms or age in Wilmington and coastal North Carolina. We replace decking, framing, railings and pilings, and rebuild sections or whole docks when repair no longer makes sense. We tell you honestly which is the better value and explain whether your rebuild needs a CAMA permit.
+answer: NC Marine Construction repairs and replaces docks and piers damaged by storms or age in Hampstead, Surf City, Topsail Beach and North Topsail Beach. We replace decking, framing, railings and pilings, and rebuild sections or whole docks when repair no longer makes sense. We tell you which is the better value and whether your rebuild needs a CAMA permit.
 included:
   - Inspection of decking, framing, hardware and pilings
   - A clear repair vs. replace recommendation

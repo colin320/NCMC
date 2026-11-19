@@ -8,7 +8,7 @@ export type Faq = { q: string; a: string };
 export const generalFaqs: Faq[] = [
   {
     q: 'What areas do you serve?',
-    a: 'We build docks, lifts and seawalls in Wilmington and southeastern North Carolina, including Wrightsville Beach, Hampstead, Topsail Island, Sneads Ferry and nearby waterfront communities. Call to confirm we cover your property.',
+    a: 'We build docks, lifts and seawalls in Hampstead, Surf City, Topsail Beach and North Topsail Beach. Call to confirm we cover your property.',
   },
   {
     q: 'Do you offer free estimates?',

@@ -26,7 +26,7 @@ export const business = {
   name: 'NC Marine Construction',
   shortName: 'NCMC',
   url: SITE_URL,
-  tagline: 'Docks, boat lifts, floating docks and seawalls for the Greater Wilmington area.',
+  tagline: 'Docks, boat lifts, floating docks and seawalls for Hampstead and Topsail Island.',
   positioning: 'Licensed and insured marine contractor',
   differentiator: 'Engineered plans and quality marine craftsmanship',
 
@@ -89,23 +89,18 @@ export const business = {
   },
 
   /**
-   * Service area from current site: "Wilmington and southeastern NC".
-   * Town list is the proposed list from the brief. [CONFIRM] all towns and priority with client.
+   * Target market (Dyno decision, 2026-11-19): own Hampstead and the Topsail Island towns.
+   * Wilmington is intentionally NOT targeted. Order = priority.
    * `areaPage` is filled in only once a town has a real, unique area page (phase 3).
    */
-  serviceAreaSummary: 'Wilmington and southeastern North Carolina',
+  serviceAreaSummary: 'Hampstead and Topsail Island, NC',
   areas: [
-    { name: 'Wilmington', areaPage: null },
-    { name: 'Wrightsville Beach', areaPage: null },
+    { name: 'Surf City', areaPage: null },
     { name: 'Hampstead', areaPage: null },
-    { name: 'Topsail Island', note: 'Surf City, Topsail Beach, North Topsail Beach', areaPage: null },
-    { name: 'Sneads Ferry', areaPage: null },
-    { name: 'Carolina Beach', areaPage: null },
-    { name: 'Porters Neck & Ogden', areaPage: null },
-    { name: 'Figure Eight Island', areaPage: null },
-    { name: 'Southport & Oak Island', areaPage: null },
+    { name: 'Topsail Beach', areaPage: null },
+    { name: 'North Topsail Beach', areaPage: null },
   ] as { name: string; note?: string; areaPage: string | null }[],
-  areasConfirmed: false,
+  areasConfirmed: true,
 
   /** Brands seen on verified project credits (Facebook). [CONFIRM] what else they install. */
   brands: ['CMI (vinyl sheet piling)', 'WaveArmor', 'Tide Tamer'],

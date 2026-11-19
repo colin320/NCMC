@@ -21,7 +21,7 @@ Launch gate: `npm run build && npm run check:placeholders` must report zero `TOD
 | Financing | `business.ts` > `financing` | Not rendered yet |
 | Schema priceRange | `business.ts` > `priceRange` | |
 | Google Business Profile URL | `business.ts` > `social.googleBusinessProfile` | |
-| Town list + priority | `business.ts` > `areas`, then set `areasConfirmed: true` | Also used in form town dropdown and FAQ "What areas do you serve?" (`src/data/faqs.ts`) |
+| Town list + priority | `business.ts` > `areas` | Set by Dyno 2026-11-19: Surf City, Hampstead, Topsail Beach, North Topsail Beach (no Wilmington). Confirm the client is happy to drop the other towns |
 | Permits: do they handle CAMA + sealed drawings? | `business.ts` > `handlesPermits`, then update `faqs.ts` "Who applies for the permit?" and service copy | |
 | Lead time | `business.ts` > `leadTime` | Not rendered yet |
 | Publishable price ranges | Service page template `src/pages/services/[slug].astro` ("How much does it cost?") | Per-service figures; consider a `priceRange` field in each service file |
@@ -33,6 +33,9 @@ Launch gate: `npm run build && npm run check:placeholders` must report zero `TOD
 | "Recent work" photos: confirm all are NCMC's own work. Towns per photo were provided by Dyno on 2026-11-19 (Hampstead: seawall pier, cabinet, composite covered pier; Topsail Beach: marsh gazebo, walkway build, gangway/floating dock; Surf City: long pier with lifts, twin lifts x2, pier bench); have the client verify | `src/data/gallery.ts` (home slider + projects page) | 7 photos supplied in chat; confirm all are NCMC's own work. The long-pier-with-two-lifts photo looks professionally shot: confirm photographer permission or credit |
 
 ## 2. Other decisions (not rendered as placeholders)
+
+- [ ] Keyword research for the new target towns (e.g. "dock builder Topsail Island", "boat lift Surf City", "bulkhead Hampstead NC") before launch; brief section 7 keyword map targets Wilmington and is outdated.
+- [ ] GBP service areas: set to Surf City, Hampstead, Topsail Beach, North Topsail Beach to match the site.
 
 - [ ] Mobile (808) 443-9412: publish? Set `phones.publishMobile` in `business.ts`. 808 is a Hawaii area code.
 - [ ] Can the office line (910) 465-1712 receive texts? It powers the "Text" button (`phones.text`). If not, point it at a textable number.

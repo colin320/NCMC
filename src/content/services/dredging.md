@@ -2,11 +2,11 @@
 name: Dredging
 serviceType: Residential dredging
 order: 8
-h1: Dredging in Wilmington & Coastal NC
-metaTitle: Dock Dredging in Wilmington, NC | NC Marine Construction
-metaDescription: Residential dredging around docks and boat slips in Wilmington and coastal NC. Free on-site estimates. Call (910) 465-1712.
+h1: Dredging in Hampstead & Topsail Island, NC
+metaTitle: Dock Dredging | Topsail Island & Hampstead, NC | NCMC
+metaDescription: Residential dredging around docks and boat slips in Hampstead, Surf City & Topsail Beach, NC. Free on-site estimates. Call (910) 465-1712.
 cardSummary: Restoring water depth at docks and slips that have silted in.
-answer: Dredging removes sediment that has built up around a dock, slip or boat lift so your boat has enough water at low tide. NC Marine Construction offers residential dredging in Wilmington and coastal North Carolina. Dredging in coastal waters requires permits, so we start with a site visit and explain what approvals your project needs.
+answer: Dredging removes sediment that has built up around a dock, slip or boat lift so your boat has enough water at low tide. NC Marine Construction offers residential dredging in Hampstead, Surf City, Topsail Beach and North Topsail Beach. Dredging in coastal waters requires permits, so we start with a site visit and explain what approvals your project needs.
 confirmNote: Confirm the client still offers dredging before this page launches. If not, remove this file and its links.
 included:
   - Site visit and depth check

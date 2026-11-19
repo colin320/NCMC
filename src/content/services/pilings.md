@@ -2,11 +2,11 @@
 name: Pilings
 serviceType: Piling installation
 order: 7
-h1: Dock Piling Installation in Wilmington & Coastal NC
-metaTitle: Dock Piling Installation in Wilmington, NC | NCMC
-metaDescription: Dock and lift piling installation and replacement in Wilmington and coastal NC. Free on-site estimates. Call (910) 465-1712.
+h1: Dock Piling Installation in Hampstead & Topsail Island, NC
+metaTitle: Dock Pilings | Topsail Island & Hampstead, NC | NCMC
+metaDescription: Dock and lift piling installation and replacement in Hampstead, Surf City & Topsail Beach, NC. Free on-site estimates. Call (910) 465-1712.
 cardSummary: New and replacement pilings for docks, lifts and platforms.
-answer: Pilings are the posts driven into the bottom that hold up a dock, lift or platform. NC Marine Construction installs new pilings and replaces damaged ones for docks, boat lifts and floating docks in Wilmington and coastal North Carolina. We set each piling to the depth the soil and load require so your structure stays solid.
+answer: Pilings are the posts driven into the bottom that hold up a dock, lift or platform. NC Marine Construction installs new pilings and replaces damaged ones for docks, boat lifts and floating docks in Hampstead, Surf City, Topsail Beach and North Topsail Beach. We set each piling to the depth the soil and load require so your structure stays solid.
 included:
   - Piling layout for new docks, lifts and floating docks
   - Replacement of damaged or rotted pilings

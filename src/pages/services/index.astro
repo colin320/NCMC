@@ -6,13 +6,13 @@ import CtaBand from '../../components/CtaBand.astro';
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 ---
 <BaseLayout
-  title="Marine Construction Services in Wilmington, NC | NCMC"
-  description="Docks, piers, floating docks, boat lifts, jet ski lifts, seawalls, pilings and dock repair in Wilmington and coastal NC. Call (910) 465-1712."
+  title="Marine Construction | Topsail Island & Hampstead, NC"
+  description="Docks, floating docks, boat lifts, jet ski lifts, seawalls, pilings and dock repair in Hampstead, Surf City & Topsail Beach, NC. Call (910) 465-1712."
   breadcrumbs={[{ name: 'Services', href: '/services/' }]}
 >
   <section class="container-x py-10 md:py-14">
     <h1 class="text-4xl md:text-6xl">Marine Construction Services</h1>
-    <p class="answer-first mt-5">NC Marine Construction builds fixed docks and piers, floating docks, boat lifts, jet ski lifts and vinyl seawalls, and repairs docks and pilings, for waterfront homes in Wilmington and southeastern North Carolina. Every project starts with a free on-site estimate and engineered plans, and one crew handles the job from pilings to finish work.</p>
+    <p class="answer-first mt-5">NC Marine Construction builds fixed docks and piers, floating docks, boat lifts, jet ski lifts and vinyl seawalls, and repairs docks and pilings, for waterfront homes in Hampstead, Surf City, Topsail Beach and North Topsail Beach. Every project starts with a free on-site estimate and engineered plans, and one crew handles the job from pilings to finish work.</p>
     <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {services.map((s) => <ServiceCard href={`/services/${s.id}/`} name={s.data.name} summary={s.data.cardSummary} />)}
     </div>

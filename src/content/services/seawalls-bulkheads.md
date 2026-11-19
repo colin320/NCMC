@@ -2,11 +2,11 @@
 name: Seawalls & Bulkheads
 serviceType: Seawall and bulkhead construction
 order: 5
-h1: Seawalls & Bulkheads in Wilmington & Coastal NC
-metaTitle: Seawall & Bulkhead Contractor in Wilmington, NC | NCMC
-metaDescription: Vinyl seawalls and bulkhead replacement in Wilmington and coastal NC, built to engineered plans. Free estimates. Call (910) 465-1712.
+h1: Seawalls & Bulkheads in Hampstead & Topsail Island, NC
+metaTitle: Seawalls & Bulkheads | Topsail Island & Hampstead, NC
+metaDescription: Vinyl seawalls and bulkhead replacement in Hampstead, Surf City & Topsail Beach, NC, built to engineered plans. Free estimates. Call (910) 465-1712.
 cardSummary: Vinyl seawalls and bulkhead replacement that hold your shoreline in place.
-answer: NC Marine Construction builds and replaces vinyl seawalls and bulkheads for waterfront properties in Wilmington and coastal North Carolina. A bulkhead holds the shoreline in place and stops erosion from tides, wakes and storms. We build to engineered plans using vinyl sheet piling, including CMI vinyl on a recent project, and explain the CAMA permit path up front.
+answer: NC Marine Construction builds and replaces vinyl seawalls and bulkheads for waterfront properties in Hampstead, Surf City, Topsail Beach and North Topsail Beach. A bulkhead holds the shoreline against tides, wakes and storms. We build to engineered plans using vinyl sheet piling, including CMI vinyl on a recent project, and explain the CAMA permit path up front.
 image: ../../assets/photos/covered-pier-gazebo-vinyl-seawall.webp
 imageAlt: White vinyl seawall along a sandy waterfront yard with a covered pier and gazebo-style roof in Hampstead, NC
 included:

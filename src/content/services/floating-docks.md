@@ -2,11 +2,11 @@
 name: Floating Docks
 serviceType: Floating dock installation
 order: 2
-h1: Floating Docks in Wilmington & Coastal NC
-metaTitle: Floating Dock Installation in Wilmington, NC | NCMC
-metaDescription: Floating docks that rise and fall with the tide, built and installed in Wilmington and coastal NC. Free on-site estimates. Call (910) 465-1712.
+h1: Floating Docks in Hampstead & Topsail Island, NC
+metaTitle: Floating Docks | Topsail Island & Hampstead, NC | NCMC
+metaDescription: Floating docks that rise and fall with the tide, built in Hampstead, Surf City & Topsail Beach, NC. Free on-site estimates. Call (910) 465-1712.
 cardSummary: Docks that rise and fall with the tide so boarding height never changes.
-answer: A floating dock rides on sealed floats and moves up and down with the tide, so the step from dock to boat stays the same at high and low water. NC Marine Construction designs and installs floating docks, gangways and drive-on floats for homes in Wilmington and coastal North Carolina. Free estimates include a look at depth and current.
+answer: A floating dock rides on sealed floats and moves up and down with the tide, so the step to your boat stays the same at every tide. NC Marine Construction designs and installs floating docks, gangways and drive-on floats for homes in Hampstead, Surf City, Topsail Beach and North Topsail Beach. Free estimates include a look at depth and current.
 included:
   - Site visit to check depth, tidal range and current
   - Float and frame layout sized for your boats

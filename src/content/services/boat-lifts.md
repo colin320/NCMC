@@ -2,13 +2,13 @@
 name: Boat Lifts
 serviceType: Boat lift installation
 order: 3
-h1: Boat Lift Installation in Wilmington & Coastal NC
-metaTitle: Boat Lift Installation in Wilmington, NC | NCMC
-metaDescription: Elevator, 4-post and cradle boat lifts installed on new or existing docks in Wilmington and coastal NC. Free estimates. Call (910) 465-1712.
+h1: Boat Lift Installation in Hampstead & Topsail Island, NC
+metaTitle: Boat Lifts | Topsail Island & Hampstead, NC | NCMC
+metaDescription: Elevator, 4-post and cradle boat lifts installed on new or existing docks in Hampstead, Surf City & Topsail Beach, NC. Free estimates. Call (910) 465-1712.
 cardSummary: Elevator, 4-post and cradle lifts sized and installed for your boat.
 image: ../../assets/photos/twin-boat-lifts-composite-dock-grated-walkway.webp
 imageAlt: Two center console boats raised on boat lifts on either side of a gray composite dock with a grated walkway in Surf City, NC
-answer: NC Marine Construction installs boat lifts on new and existing docks in Wilmington and coastal North Carolina, including elevator lifts, 4-post lifts and cradle lifts. A lift keeps your hull out of salt water, which reduces growth, corrosion and bottom painting. We size the lift to your boat and confirm the dock and pilings can carry it.
+answer: NC Marine Construction installs boat lifts on new and existing docks in Hampstead, Surf City, Topsail Beach and North Topsail Beach, including elevator lifts, 4-post lifts and cradle lifts. A lift keeps your hull out of salt water, reducing growth and corrosion. We size the lift to your boat and confirm the dock and pilings can carry it.
 included:
   - Lift sizing based on boat weight, beam and length
   - Lift type recommendation for your dock and water depth
