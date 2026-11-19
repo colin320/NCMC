@@ -24,7 +24,7 @@ export function businessSchema(logoUrl: string, imageUrl: string) {
     image: imageUrl,
     telephone: B.phones.office.e164,
     email: B.email,
-    description: `${B.positioning} building docks, piers, floating docks, boat lifts, jet ski lifts and vinyl seawalls in ${B.serviceAreaSummary}.`,
+    description: `${B.positioning} building docks and boat lifts in ${B.serviceAreaSummary}.`,
     address: addressConfirmed
       ? {
           '@type': 'PostalAddress',

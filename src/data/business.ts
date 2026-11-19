@@ -28,7 +28,7 @@ export const business = {
   url: SITE_URL,
   tagline: 'Docks, boat lifts, floating docks and seawalls for Hampstead and Topsail Island.',
   positioning: 'Licensed and insured marine contractor',
-  differentiator: 'Engineered plans and quality marine craftsmanship',
+  differentiator: 'Free on-site estimates',
 
   phones: {
     /** Primary, shown everywhere. Source: current site + Facebook. */
@@ -108,8 +108,8 @@ export const business = {
   /** Real reviews only. { name: 'First L.', town: 'Hampstead', text: '...', source: 'Google' } */
   reviews: [] as { name: string; town: string; text: string; source: string }[],
 
-  /** Does the company handle CAMA permits and sealed drawings for the client? */
-  handlesPermits: TODO('do they handle CAMA permits + engineered/sealed drawings for the client?'),
+  /** Does the company file the CAMA permit for the client, or only explain the steps? */
+  handlesPermits: TODO('do they file the CAMA permit for the customer, or only explain the steps?'),
   leadTime: TODO('typical lead time from deposit to build'),
 } as const;
 

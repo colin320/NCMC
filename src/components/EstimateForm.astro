@@ -25,7 +25,7 @@ const label = 'block text-sm font-semibold text-ink';
 <form id={id} action="/api/estimate" method="post" class="estimate-form space-y-5 rounded-sm border border-rule bg-card p-5  md:p-7" novalidate>
   <div>
     <h2 class="text-3xl">Request a free estimate</h2>
-    <p class="mt-1 text-sm text-muted">Takes about a minute. Prefer to talk? Call <a href={telHref()} class="font-semibold text-sea underline" data-event="click_to_call" data-location="form">{business.phones.office.display}</a>.</p>
+    <p class="mt-1 text-sm text-muted">This takes about a minute. If you'd rather talk, call <a href={telHref()} class="font-semibold text-sea underline" data-event="click_to_call" data-location="form">{business.phones.office.display}</a>.</p>
   </div>
 
   <div class="grid gap-5 sm:grid-cols-2">

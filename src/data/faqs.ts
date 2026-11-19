@@ -8,30 +8,30 @@ export type Faq = { q: string; a: string };
 export const generalFaqs: Faq[] = [
   {
     q: 'What areas do you serve?',
-    a: 'We build docks, lifts and seawalls in Hampstead, Surf City, Topsail Beach and North Topsail Beach. Call to confirm we cover your property.',
+    a: 'We build docks, lifts and seawalls in Hampstead, Surf City, Topsail Beach and North Topsail Beach. If your property is just outside that, call and we\'ll tell you whether we can cover it.',
   },
   {
     q: 'Do you offer free estimates?',
-    a: 'Yes. We visit your property, look at the shoreline, water depth and access, and give you a written estimate at no cost.',
+    a: 'Yes. We come out, look at the shoreline and the water depth, and give you a written estimate at no charge.',
   },
   {
     q: 'Are you licensed and insured?',
-    a: 'Yes. NC Marine Construction is a licensed and insured marine contractor. Ask us for our license number and certificate of insurance at any time.',
+    a: 'Yes. We\'re licensed and insured. Ask, and we\'ll send the license number and a certificate of insurance.',
   },
   {
     q: 'What is the difference between a floating dock and a fixed dock?',
-    a: 'A fixed dock stays at one height on pilings. A floating dock rides on floats and rises and falls with the tide, so the step to your boat stays the same. Many waterfront homes use a fixed pier with a floating dock attached.',
+    a: 'A fixed dock stays at one height. A floating dock rides the tide, so the step onto the boat doesn\'t change. A lot of homes here use a fixed pier with a float on a gangway.',
   },
   {
     q: 'What is the best material for a bulkhead on the NC coast?',
-    a: 'Many property owners now choose vinyl sheet piling because it does not rot and is not attacked by marine borers the way wood can be. Wood can cost less up front. We will price both so you can compare.',
+    a: 'Vinyl doesn\'t rot, and borers leave it alone. Wood can cost less at the start. We\'ll price both if you want to see the difference.',
   },
 ];
 
 export const permitFaqs: Faq[] = [
   {
     q: 'Do I need a CAMA permit to build a new dock in North Carolina?',
-    a: 'Generally, yes. New docks, piers, boat lifts and bulkheads in the 20 coastal counties go through the NC Division of Coastal Management under the Coastal Area Management Act (CAMA). Many residential docks qualify for a general permit. This is general information, not legal advice.',
+    a: 'Generally, yes. New docks, piers, boat lifts and bulkheads in the 20 coastal counties go through the NC Division of Coastal Management under CAMA. A lot of residential docks qualify for a general permit. This is general information, not legal advice.',
   },
   {
     q: 'Do I need a CAMA permit to replace my dock?',
@@ -39,18 +39,18 @@ export const permitFaqs: Faq[] = [
   },
   {
     q: 'Who applies for the permit?',
-    a: 'We explain the permit path for your project during the estimate visit and can help you through the process. Ask us how we handle permits for your specific project.',
+    a: 'We explain which permit applies when we come out, and we can help you through it. Ask us who files the paperwork on your job.',
   },
 ];
 
 export const processFaqs: Faq[] = [
   {
     q: 'How long does a dock or seawall project take?',
-    a: 'Permitting and scheduling usually take longer than construction itself. After the site visit we give you a realistic timeline for your property.',
+    a: 'Permits and scheduling usually take longer than the construction. After we see the property, we give you a timeline for your job.',
   },
   {
     q: 'What happens at the estimate visit?',
-    a: 'We walk the shoreline with you, check water depth and access, talk through how you want to use the water, and explain options, permits and next steps. You get a written estimate afterward.',
+    a: 'We come out to the property, check the water depth and how equipment will get in, and talk about how you use the boat. We also go over the permits. You get a written estimate afterward.',
   },
 ];
 
