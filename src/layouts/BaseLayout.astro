@@ -1,0 +1,103 @@
+---
+import '../styles/global.css';
+import { getCollection } from 'astro:content';
+import { getImage } from 'astro:assets';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileCtaBar from '../components/MobileCtaBar.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import JsonLd from '../components/JsonLd.astro';
+import { business, integrations } from '../data/business';
+import { businessSchema, websiteSchema, breadcrumbSchema, offerCatalog } from '../lib/schema';
+import logo from '../assets/brand/ncmc-logo.png';
+import ogDefault from '../assets/photos/covered-pier-gazebo-vinyl-seawall.webp';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Breadcrumb trail below Home; omit on the home page */
+  breadcrumbs?: { name: string; href: string }[];
+  schema?: Record<string, unknown>[];
+  noindex?: boolean;
+  ogImage?: ImageMetadata;
+}
+const { title, description, breadcrumbs, schema = [], noindex = false, ogImage } = Astro.props;
+const site = Astro.site!.toString().replace(/\/$/, '');
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+
+const logoPng = await getImage({ src: logo, format: 'png', width: 400 });
+const og = await getImage({ src: ogImage ?? ogDefault, format: 'jpeg', width: 1200 });
+const ogUrl = new URL(og.src, Astro.site).toString();
+
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const biz = {
+  ...businessSchema(new URL(logoPng.src, Astro.site).toString(), ogUrl),
+  hasOfferCatalog: offerCatalog(services.map((s) => ({ name: s.data.name, url: `${site}/services/${s.id}/` }))),
+};
+const crumbs = breadcrumbs ? [{ name: 'Home', href: '/' }, ...breadcrumbs] : null;
+const graph = [
+  biz,
+  websiteSchema(),
+  ...(crumbs ? [breadcrumbSchema(crumbs.map((c) => ({ name: c.name, url: new URL(c.href, Astro.site).toString() })))] : []),
+  ...schema,
+];
+const { ga4Id, clarityId } = integrations;
+---
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    <meta name="theme-color" content="#0b1f36" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={business.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <JsonLd data={graph} />
+    {ga4Id && (
+      <Fragment>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}></script>
+        <script is:inline define:vars={{ ga4Id }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', ga4Id);
+        </script>
+      </Fragment>
+    )}
+    {clarityId && (
+      <script is:inline define:vars={{ clarityId }}>
+        (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script",clarityId);
+      </script>
+    )}
+  </head>
+  <body>
+    <Header />
+    {crumbs && <Breadcrumbs items={crumbs} />}
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <MobileCtaBar />
+    <script>
+      // GA4 events for click-to-call, click-to-text and estimate CTAs (no-op until GA4 is configured).
+      document.addEventListener('click', (e) => {
+        const el = (e.target as HTMLElement).closest<HTMLElement>('[data-event]');
+        const gtag = (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag;
+        if (!el || !gtag) return;
+        gtag('event', el.dataset.event, { cta_location: el.dataset.location ?? '', page_path: location.pathname });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { business, telHref } from '../data/business';
+---
+<BaseLayout title="Thank You | NC Marine Construction" description="Thanks for your estimate request. Here is what happens next." noindex>
+  <section class="container-x py-16 md:py-24">
+    <h1 class="text-4xl md:text-6xl">Thanks. We got your request.</h1>
+    <p class="answer-first mt-5">Here is what happens next:</p>
+    <ol class="mt-4 max-w-2xl list-decimal space-y-2 pl-6 text-lg">
+      <li>We review your project details.</li>
+      <li>We reach out by your preferred contact method to schedule a free on-site visit.</li>
+      <li>After the visit, you get a written estimate and a clear picture of the permit path.</li>
+    </ol>
+    <p class="mt-8 text-lg">Need us sooner? Call now.</p>
+    <a href={telHref()} class="btn-primary mt-3 text-lg" data-event="click_to_call" data-location="thank_you"><Icon name="phone" />Call {business.phones.office.display}</a>
+  </section>
+  <script>
+    // Conversion event for GA4 (no-op until GA4 is configured). Fires once per session.
+    const g = (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag;
+    try {
+      if (g && !sessionStorage.getItem('ncmc_lead_fired')) {
+        g('event', 'generate_lead', { form_name: 'estimate' });
+        sessionStorage.setItem('ncmc_lead_fired', '1');
+      }
+    } catch { g?.('event', 'generate_lead', { form_name: 'estimate' }); }
+  </script>
+</BaseLayout>

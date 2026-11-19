@@ -1,0 +1,11 @@
+---
+/**
+ * Renders a business fact. Unconfirmed placeholders render as a visible yellow
+ * TODO_CONFIRM tag so they are impossible to miss in review.
+ */
+import { isConfirmed } from '../data/business';
+interface Props { value: unknown; }
+const { value } = Astro.props;
+const ok = isConfirmed(value);
+---
+{ok ? <Fragment>{String(value)}</Fragment> : <span class="todo">{String(value ?? 'TODO_CONFIRM')}</span>}

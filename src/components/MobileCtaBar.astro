@@ -1,0 +1,9 @@
+---
+import Icon from './Icon.astro';
+import { telHref, smsHref } from '../data/business';
+---
+<nav aria-label="Quick contact" class="fixed inset-x-0 bottom-0 z-40 grid grid-cols-3 border-t border-navy-800 bg-navy-900 pb-[env(safe-area-inset-bottom)] text-white md:hidden">
+  <a href={telHref()} class="flex min-h-14 flex-col items-center justify-center gap-0.5 text-sm font-semibold text-white no-underline" data-event="click_to_call" data-location="mobile_bar"><Icon name="phone" />Call</a>
+  <a href={smsHref()} class="flex min-h-14 flex-col items-center justify-center gap-0.5 border-x border-navy-800 text-sm font-semibold text-white no-underline" data-event="click_to_text" data-location="mobile_bar"><Icon name="text" />Text</a>
+  <a href="/contact/#estimate" class="flex min-h-14 flex-col items-center justify-center gap-0.5 bg-accent text-sm font-semibold text-white no-underline" data-event="estimate_cta" data-location="mobile_bar"><Icon name="clipboard" />Estimate</a>
+</nav>

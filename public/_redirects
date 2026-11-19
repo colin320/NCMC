@@ -1,0 +1,13 @@
+# 301s from the old GoDaddy site. These are the URLs named in the brief; the old site
+# could not be crawled from the build environment. Crawl nc-marineconstruction.com
+# before cutover and add every remaining URL here (see docs/LAUNCH-CHECKLIST.md).
+/services        /services/         301
+/gallery         /projects/         301
+/gallery/        /projects/         301
+/testimonials    /contact/          301
+/testimonials/   /contact/          301
+/contact-us      /contact/          301
+/contact-us/     /contact/          301
+/home            /                  301
+/about-us        /about/            301
+/about-us/       /about/            301

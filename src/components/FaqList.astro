@@ -1,0 +1,17 @@
+---
+/** Visible FAQ. Pair with faqSchema() using the SAME array so schema matches visible text exactly. */
+interface Props { faqs: { q: string; a: string }[]; heading?: string; headingLevel?: 'h2' | 'h3'; }
+const { faqs, heading = 'Frequently asked questions', headingLevel = 'h2' } = Astro.props;
+const H = headingLevel;
+---
+<section aria-labelledby="faq-heading">
+  <H id="faq-heading" class="text-3xl md:text-4xl">{heading}</H>
+  <div class="mt-6 divide-y divide-sand-200 border-y border-sand-200">
+    {faqs.map((f) => (
+      <div class="py-5">
+        <h3 class="font-sans text-lg font-semibold tracking-normal text-navy-900">{f.q}</h3>
+        <p class="mt-2 max-w-3xl leading-relaxed">{f.a}</p>
+      </div>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,155 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import Fact from '../components/Fact.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import FaqList from '../components/FaqList.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { business, telHref, isConfirmed } from '../data/business';
+import { homeFaqs } from '../data/faqs';
+import { faqSchema } from '../lib/schema';
+import hero from '../assets/photos/covered-pier-gazebo-vinyl-seawall.webp';
+
+const B = business;
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const projects = await getCollection('projects');
+const featured = projects.find((p) => p.id === 'north-topsail-beach-seawall-dock-lifts')!;
+
+const steps = [
+  { t: 'Site visit', d: 'We walk the shoreline with you, check water depth and access, and talk about how you use the water.' },
+  { t: 'Design & permits', d: 'Engineered plans, a written estimate, and a clear path through CAMA and local permits.' },
+  { t: 'Build', d: 'Our crew builds your dock, lift or seawall, keeping you updated along the way.' },
+  { t: 'Walk-through', d: 'We review the finished work with you and cover care and maintenance.' },
+];
+---
+<BaseLayout
+  title="Dock, Boat Lift & Seawall Builder in Wilmington, NC | NCMC"
+  description="Licensed and insured marine contractor building docks, boat lifts, floating docks and seawalls in Wilmington and coastal NC. Call (910) 465-1712."
+  schema={[faqSchema(homeFaqs)]}
+>
+  <!-- Hero -->
+  <section class="relative isolate overflow-hidden bg-navy-950 text-white">
+    <Image src={hero} alt="Covered pier with a hip roof and stairs down to a dock, built in front of a white vinyl seawall on the coast" widths={[740]} sizes="100vw" loading="eager" fetchpriority="high" class="absolute inset-0 -z-10 h-full w-full object-cover opacity-45" />
+    <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950/95 via-navy-950/75 to-navy-950/30"></div>
+    <div class="container-x py-16 md:py-28">
+      <p class="eyebrow text-orange-300">Licensed &amp; insured marine contractor</p>
+      <h1 class="mt-3 max-w-3xl text-5xl leading-[1.02] text-white md:text-7xl">Dock, Boat Lift &amp; Seawall Builders in Wilmington, NC</h1>
+      <p class="mt-5 max-w-2xl text-lg text-navy-100 md:text-xl">
+        Engineered plans and quality marine craftsmanship for waterfront homes from Wilmington to Topsail.
+        {!isConfirmed(B.yearFounded) && <span class="todo ml-1">TODO_CONFIRM: years in business</span>}
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href={telHref()} class="btn-primary text-lg" data-event="click_to_call" data-location="hero"><Icon name="phone" />Call {B.phones.office.display}</a>
+        <a href="/contact/#estimate" class="btn-ghost-light text-lg" data-event="estimate_cta" data-location="hero">Get a Free Estimate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust bar -->
+  <section aria-label="Why homeowners choose us" class="border-b border-sand-200 bg-white">
+    <ul class="container-x grid grid-cols-2 gap-x-4 gap-y-3 py-5 text-sm font-semibold text-navy-900 md:grid-cols-5">
+      <li class="flex items-center gap-2"><Icon name="check" class="h-5 w-5 shrink-0 text-accent" />NC License #<Fact value={B.license.number} /></li>
+      <li class="flex items-center gap-2"><Icon name="check" class="h-5 w-5 shrink-0 text-accent" />Licensed &amp; insured</li>
+      <li class="flex items-center gap-2"><Icon name="check" class="h-5 w-5 shrink-0 text-accent" />{B.googleRating ? `${B.googleRating.rating} stars on Google` : <span class="todo">TODO_CONFIRM: Google rating</span>}</li>
+      <li class="flex items-center gap-2"><Icon name="check" class="h-5 w-5 shrink-0 text-accent" />Since <Fact value={B.yearFounded} /></li>
+      <li class="flex items-center gap-2"><Icon name="check" class="h-5 w-5 shrink-0 text-accent" />Free on-site estimates</li>
+    </ul>
+  </section>
+
+  <!-- Services -->
+  <section class="container-x py-16">
+    <p class="eyebrow">What we build</p>
+    <h2 class="mt-2 text-4xl md:text-5xl">Marine construction services</h2>
+    <p class="mt-3 max-w-2xl text-muted">From the first piling to the last deck board, one crew handles your whole waterfront.</p>
+    <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {services.map((s) => <ServiceCard href={`/services/${s.id}/`} name={s.data.name} summary={s.data.cardSummary} />)}
+    </div>
+  </section>
+
+  <!-- Featured project -->
+  <section class="bg-sand-100">
+    <div class="container-x grid gap-10 py-16 md:grid-cols-2 md:items-center">
+      <div>
+        <p class="eyebrow">Featured project</p>
+        <h2 class="mt-2 text-4xl">{featured.data.title}</h2>
+        <p class="mt-4 text-muted">{featured.data.summary}</p>
+        <a href={`/projects/${featured.id}/`} class="btn-secondary mt-6">See the full project</a>
+      </div>
+      <div class="rounded-xl bg-white p-6 shadow-sm">
+        <h3 class="text-2xl">Project specs</h3>
+        <table class="mt-3 w-full text-left text-sm">
+          <tbody>
+            {featured.data.specs.map((s) => (
+              <tr class="border-b border-sand-200 last:border-0"><th scope="row" class="py-2 pr-4 font-semibold text-navy-900">{s.label}</th><td class="py-2">{s.value}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="container-x py-16">
+    <p class="eyebrow">How it works</p>
+    <h2 class="mt-2 text-4xl md:text-5xl">Four steps from first call to finished dock</h2>
+    <ol class="mt-8 grid gap-5 md:grid-cols-4">
+      {steps.map((s, i) => (
+        <li class="rounded-lg border border-sand-200 bg-white p-5">
+          <span class="font-display text-4xl font-bold text-accent">{i + 1}</span>
+          <h3 class="mt-1 text-2xl">{s.t}</h3>
+          <p class="mt-2 text-[0.95rem] text-muted">{s.d}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <!-- Service area -->
+  <section class="bg-navy-900 text-white">
+    <div class="container-x grid gap-10 py-16 md:grid-cols-2">
+      <div>
+        <p class="eyebrow text-orange-300">Service area</p>
+        <h2 class="mt-2 text-4xl text-white">Serving Wilmington and the southeastern NC coast</h2>
+        <p class="mt-3 text-navy-100">We build on the Intracoastal Waterway, the sounds and the tidal creeks from the Cape Fear River up to Topsail and Sneads Ferry.</p>
+        <ul class="mt-6 grid grid-cols-2 gap-2 text-navy-100">
+          {B.areas.map((a) => <li>{a.areaPage ? <a href={a.areaPage} class="text-white underline">{a.name}</a> : a.name}</li>)}
+        </ul>
+        {!B.areasConfirmed && <p class="mt-3 text-sm"><span class="todo">TODO_CONFIRM: town list and priority</span></p>}
+      </div>
+      <div class="overflow-hidden rounded-xl">
+        <iframe
+          title="Map of the NC Marine Construction service area around Wilmington, NC"
+          src="https://maps.google.com/maps?q=Wilmington%2C%20NC&z=9&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="h-80 w-full border-0 md:h-full md:min-h-80"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews: only rendered once real reviews exist in business.ts -->
+  {B.reviews.length > 0 && (
+    <section class="container-x py-16">
+      <p class="eyebrow">Reviews</p>
+      <h2 class="mt-2 text-4xl">What waterfront homeowners say</h2>
+      <div class="mt-8 grid gap-5 md:grid-cols-3">
+        {B.reviews.slice(0, 5).map((r) => (
+          <figure class="rounded-lg border border-sand-200 bg-white p-5">
+            <blockquote class="text-[0.95rem]">"{r.text}"</blockquote>
+            <figcaption class="mt-3 text-sm font-semibold">{r.name}, {r.town} <span class="font-normal text-muted">via {r.source}</span></figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- FAQ -->
+  <div class="container-x py-16">
+    <FaqList faqs={homeFaqs} />
+    <p class="mt-4 text-sm text-muted">Permit answers are general information, not legal advice. <a href="/faq/" class="underline">See all FAQs</a>.</p>
+  </div>
+
+  <CtaBand />
+</BaseLayout>

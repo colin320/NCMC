@@ -1,0 +1,7 @@
+# Cloudflare Pages project config. Build: `npm run build`, output: dist/.
+# Pages Functions live in /functions (lead endpoint: functions/api/estimate.ts).
+# Secrets (GHL_WEBHOOK_URL, LEAD_COPY_*, RESEND_API_KEY, TURNSTILE_SECRET_KEY) are set in the
+# Cloudflare dashboard, never in this file.
+name = "ncmc-website"
+compatibility_date = "2026-11-01"
+pages_build_output_dir = "dist"

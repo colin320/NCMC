@@ -1,0 +1,18 @@
+---
+import Icon from './Icon.astro';
+import { business, telHref } from '../data/business';
+interface Props { heading?: string; text?: string; }
+const { heading = 'Ready to talk about your waterfront?', text = 'Call for a free on-site estimate. We will walk the shoreline with you, talk through options, and explain the permit path before you commit to anything.' } = Astro.props;
+---
+<section class="bg-navy-900 text-white">
+  <div class="container-x flex flex-col gap-6 py-12 md:flex-row md:items-center md:justify-between">
+    <div class="max-w-2xl">
+      <h2 class="text-3xl text-white md:text-4xl">{heading}</h2>
+      <p class="mt-2 text-navy-100">{text}</p>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      <a href={telHref()} class="btn-primary text-lg" data-event="click_to_call" data-location="cta_band"><Icon name="phone" />Call {business.phones.office.display}</a>
+      <a href="/contact/#estimate" class="btn-ghost-light text-lg" data-event="estimate_cta" data-location="cta_band">Request an Estimate</a>
+    </div>
+  </div>
+</section>

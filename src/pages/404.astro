@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { business, telHref } from '../data/business';
+---
+<BaseLayout title="Page Not Found | NC Marine Construction" description="That page could not be found." noindex>
+  <section class="container-x py-20">
+    <h1 class="text-5xl">Page not found</h1>
+    <p class="mt-4 text-lg">That page moved or no longer exists. Try our <a class="underline" href="/services/">services</a>, <a class="underline" href="/projects/">projects</a>, or call <a class="underline" href={telHref()}>{business.phones.office.display}</a>.</p>
+  </section>
+</BaseLayout>

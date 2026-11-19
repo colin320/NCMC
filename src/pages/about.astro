@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Fact from '../components/Fact.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { business } from '../data/business';
+const B = business;
+---
+<BaseLayout
+  title="About NC Marine Construction | Wilmington, NC"
+  description="NC Marine Construction is a licensed and insured marine contractor building docks, lifts and seawalls on the southeastern NC coast. Call (910) 465-1712."
+  breadcrumbs={[{ name: 'About', href: '/about/' }]}
+>
+  <section class="container-x py-10 md:py-14">
+    <h1 class="text-4xl md:text-6xl">About NC Marine Construction</h1>
+    <p class="answer-first mt-5">NC Marine Construction Inc. is a licensed and insured marine contractor serving Wilmington and southeastern North Carolina. We build docks, piers, floating docks, boat lifts, jet ski lifts and vinyl seawalls, working from engineered plans and finishing every job with the care of a crew that works on the water every day.</p>
+
+    <div class="mt-12 grid gap-10 md:grid-cols-3">
+      <div class="md:col-span-2">
+        <h2 class="text-3xl">Our story</h2>
+        <p class="mt-3"><Fact value={B.owner.bio} /></p>
+        <p class="mt-3">Owner: <Fact value={B.owner.name} /></p>
+        <div class="mt-6 flex aspect-[16/9] items-center justify-center rounded-lg bg-navy-800 text-navy-100">Owner or crew photo <span class="todo ml-1">TODO_CONFIRM: headshot or crew photo</span></div>
+
+        <h2 class="mt-12 text-3xl">How we work</h2>
+        <ul class="mt-3 list-disc space-y-2 pl-6">
+          <li><strong>Engineered plans.</strong> We build from engineered plans, not guesswork.</li>
+          <li><strong>Straight answers.</strong> We tell you when a repair makes more sense than a rebuild.</li>
+          <li><strong>Permits explained up front.</strong> You know the CAMA and local permit path before you commit.</li>
+          <li><strong>Real photos.</strong> Every project on this site is our own work.</li>
+        </ul>
+      </div>
+      <aside class="rounded-xl border border-sand-200 bg-white p-6">
+        <h2 class="text-2xl">Credentials</h2>
+        <dl class="mt-3 space-y-3 text-sm">
+          <div><dt class="font-semibold">Legal name</dt><dd>{B.legalName}</dd></div>
+          <div><dt class="font-semibold">NC General Contractor license</dt><dd>#<Fact value={B.license.number} /> (<Fact value={B.license.classification} />)</dd></div>
+          <div><dt class="font-semibold">Insurance</dt><dd>Licensed &amp; insured. Carrier: <Fact value={B.insuranceCarrier} /></dd></div>
+          <div><dt class="font-semibold">Founded</dt><dd><Fact value={B.yearFounded} /></dd></div>
+          <div><dt class="font-semibold">Warranty</dt><dd><Fact value={B.warranty} /></dd></div>
+          <div><dt class="font-semibold">Service area</dt><dd>{B.serviceAreaSummary}</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+  <CtaBand />
+</BaseLayout>

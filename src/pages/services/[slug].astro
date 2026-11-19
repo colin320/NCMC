@@ -1,0 +1,107 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import FaqList from '../../components/FaqList.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import ConfirmNote from '../../components/ConfirmNote.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { business, telHref } from '../../data/business';
+import { serviceSchema, faqSchema } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+  return services.map((s) => ({ params: { slug: s.id }, props: { service: s } }));
+}
+
+const { service } = Astro.props;
+const d = service.data;
+const { Content } = await render(service);
+const all = await getCollection('services');
+const related = d.related.map((id) => all.find((s) => s.id === id)).filter(Boolean);
+const projects = (await getCollection('projects')).filter((p) => p.data.services.some((s) => d.projectTags.includes(s)));
+const url = new URL(Astro.url.pathname, Astro.site).toString();
+
+const formPreselect: Record<string, string> = {
+  'docks-piers': 'dock', 'floating-docks': 'floating-dock', 'boat-lifts': 'boat-lift',
+  'jet-ski-lifts': 'pwc-lift', 'seawalls-bulkheads': 'seawall', 'dock-repair': 'repair',
+};
+---
+<BaseLayout
+  title={d.metaTitle}
+  description={d.metaDescription}
+  breadcrumbs={[{ name: 'Services', href: '/services/' }, { name: d.name, href: `/services/${service.id}/` }]}
+  schema={[serviceSchema({ name: d.name, serviceType: d.serviceType, url, description: d.answer }), faqSchema(d.faqs)]}
+  ogImage={d.image}
+>
+  <ConfirmNote note={d.confirmNote} />
+  <section class="container-x grid gap-10 py-10 md:grid-cols-5 md:py-14">
+    <div class="md:col-span-3">
+      <h1 class="text-4xl md:text-6xl">{d.h1}</h1>
+      <p class="answer-first mt-5">{d.answer}</p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href={telHref()} class="btn-primary" data-event="click_to_call" data-location="service_hero"><Icon name="phone" />Call {business.phones.office.display}</a>
+        <a href="#estimate" class="btn-secondary" data-event="estimate_cta" data-location="service_hero">Free Estimate</a>
+      </div>
+    </div>
+    {d.image && (
+      <div class="md:col-span-2">
+        <Image src={d.image} alt={d.imageAlt ?? ''} widths={[400, 740]} sizes="(min-width: 768px) 40vw, 100vw" loading="eager" class="aspect-[4/3] w-full rounded-xl object-cover shadow-md" />
+      </div>
+    )}
+  </section>
+
+  <section class="bg-white">
+    <div class="container-x grid gap-10 py-12 md:grid-cols-2">
+      <div>
+        <h2 class="text-3xl">What's included?</h2>
+        <ul class="mt-4 space-y-2">
+          {d.included.map((i) => <li class="flex gap-2"><Icon name="check" class="mt-0.5 h-5 w-5 shrink-0 text-accent" />{i}</li>)}
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-3xl">How much does it cost?</h2>
+        <p class="mt-3">Every waterfront is different, so we price each project after a free site visit. <span class="todo">TODO_CONFIRM: publishable price range or "starting at" figure</span></p>
+        <h3 class="mt-5 text-xl">What drives the price?</h3>
+        <ul class="mt-2 list-disc space-y-1 pl-6">
+          {d.costDrivers.map((c) => <li>{c}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-x py-12">
+    <div class="prose-ncmc"><Content /></div>
+    <aside class="mt-10 max-w-3xl rounded-lg border-l-4 border-navy-700 bg-navy-100/50 p-5">
+      <h2 class="text-2xl">Do I need a permit?</h2>
+      <p class="mt-2">Most marine construction in North Carolina's 20 coastal counties falls under the Coastal Area Management Act (CAMA), administered by the NC Division of Coastal Management. Some storm and wear replacements to the prior footprint are now exempt. We explain the permit path for your property at the estimate visit. <a href="/faq/#permits" class="underline">Read our permit FAQs</a>. This is general information, not legal advice.</p>
+    </aside>
+  </section>
+
+  {projects.length > 0 && (
+    <section class="bg-sand-100">
+      <div class="container-x py-12">
+        <h2 class="text-3xl">Related projects</h2>
+        <div class="mt-6 grid gap-5 md:grid-cols-3">
+          {projects.map((p) => <ProjectCard href={`/projects/${p.id}/`} title={p.data.title} town={p.data.town} summary={p.data.summary} photo={p.data.photos[0]} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <div class="container-x grid gap-12 py-12 lg:grid-cols-2">
+    <FaqList faqs={d.faqs} heading={`${d.name} FAQs`} />
+    <div><EstimateForm variant="short" preselect={formPreselect[service.id]} /></div>
+  </div>
+
+  <section class="container-x pb-14">
+    <h2 class="text-3xl">Related services</h2>
+    <ul class="mt-4 flex flex-wrap gap-3">
+      {related.map((r) => r && <li><a href={`/services/${r.id}/`} class="btn-secondary">{r.data.name}</a></li>)}
+    </ul>
+  </section>
+
+  <CtaBand />
+</BaseLayout>

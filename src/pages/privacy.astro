@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { business } from '../data/business';
+---
+<BaseLayout title="Privacy Policy | NC Marine Construction" description="How NC Marine Construction collects and uses information submitted through this website." breadcrumbs={[{ name: 'Privacy', href: '/privacy/' }]}>
+  <section class="container-x prose-ncmc py-10 md:py-14">
+    <h1 class="text-4xl md:text-5xl">Privacy Policy</h1>
+    <p><span class="todo">TODO_CONFIRM: have the client (and their counsel, if any) review and approve this policy before launch.</span></p>
+    <p>This policy explains how {business.legalName} handles information you share through this website.</p>
+    <h2>What we collect</h2>
+    <p>When you request an estimate we collect the details you enter: name, phone, email, property town, project type, project description, preferred contact method and whether you agree to receive text messages. Our website also uses analytics tools that collect standard usage data such as pages visited, device type and approximate location.</p>
+    <h2>How we use it</h2>
+    <p>We use your details to respond to your request, schedule a site visit and prepare an estimate. We use analytics data to understand how the site is used and improve it.</p>
+    <h2>Text messages</h2>
+    <p>If you opt in, we may text you about your estimate or project. Message and data rates may apply. Reply STOP to opt out at any time. We do not sell or share mobile numbers or text opt-in data with third parties for their marketing.</p>
+    <h2>Service providers</h2>
+    <p>Form submissions are delivered through service providers that help us manage customer communications and host this website. They process data only to provide those services.</p>
+    <h2>Contact</h2>
+    <p>Questions about this policy: email <a href={`mailto:${business.email}`}>{business.email}</a> or call {business.phones.office.display}.</p>
+    <p>Last updated November 2026.</p>
+  </section>
+</BaseLayout>

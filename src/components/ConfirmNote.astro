@@ -1,0 +1,6 @@
+---
+/** Visible preview-only banner for unverified page content. Must be gone before launch. */
+interface Props { note?: string; }
+const { note } = Astro.props;
+---
+{note && <div class="container-x mt-4"><p class="rounded border-l-4 border-yellow-500 bg-yellow-50 p-3 text-sm"><span class="todo">TODO_CONFIRM</span> {note}</p></div>}

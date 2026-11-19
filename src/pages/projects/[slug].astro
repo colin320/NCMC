@@ -1,0 +1,88 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image, getImage } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ConfirmNote from '../../components/ConfirmNote.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Fact from '../../components/Fact.astro';
+import { ORG_ID } from '../../lib/schema';
+import { isConfirmed } from '../../data/business';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((p) => ({ params: { slug: p.id }, props: { project: p } }));
+}
+const { project } = Astro.props;
+const d = project.data;
+const { Content } = await render(project);
+const services = (await getCollection('services')).filter((s) => d.services.includes(s.id));
+const site = Astro.site!.toString().replace(/\/$/, '');
+const url = new URL(Astro.url.pathname, Astro.site).toString();
+
+const images = await Promise.all(
+  d.photos.map(async (p) => ({ '@type': 'ImageObject', contentUrl: new URL((await getImage({ src: p.src, format: 'jpeg', width: 1200 })).src, Astro.site).toString(), caption: p.alt })),
+);
+const article = {
+  '@type': 'Article',
+  headline: d.title,
+  description: d.summary,
+  url,
+  author: { '@id': ORG_ID },
+  publisher: { '@id': ORG_ID },
+  about: services.map((s) => ({ '@type': 'Service', name: s.data.name, url: `${site}/services/${s.id}/` })),
+  contentLocation: { '@type': 'Place', name: `${d.town}, NC` },
+  ...(images.length ? { image: images } : {}),
+  ...(isConfirmed(d.year) ? { dateCreated: d.year } : {}),
+};
+---
+<BaseLayout
+  title={d.metaTitle}
+  description={d.metaDescription}
+  breadcrumbs={[{ name: 'Projects', href: '/projects/' }, { name: d.town, href: `/projects/${project.id}/` }]}
+  schema={[article]}
+  ogImage={d.photos[0]?.src}
+>
+  <ConfirmNote note={d.confirmNote} />
+  <article class="container-x py-10 md:py-14">
+    <p class="eyebrow">{d.town}, NC</p>
+    <h1 class="mt-2 text-4xl md:text-6xl">{d.title}</h1>
+    <p class="answer-first mt-5">{d.summary}</p>
+
+    <div class="mt-10 grid gap-10 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        {d.photos.length ? (
+          <div class="grid gap-4 sm:grid-cols-2">
+            {d.photos.map((p, i) => <Image src={p.src} alt={p.alt} widths={[400, 740]} sizes="(min-width: 640px) 50vw, 100vw" loading={i === 0 ? 'eager' : 'lazy'} class="w-full rounded-lg object-cover" />)}
+          </div>
+        ) : (
+          <div class="flex aspect-[16/9] items-center justify-center rounded-lg bg-navy-800 p-6 text-center text-navy-100">Project photos coming soon <span class="todo ml-1">TODO_CONFIRM: before/after photos</span></div>
+        )}
+        <div class="prose-ncmc mt-8"><Content /></div>
+      </div>
+      <aside class="space-y-6">
+        <div class="rounded-xl border border-sand-200 bg-white p-5">
+          <h2 class="text-2xl">Project specs</h2>
+          <table class="mt-3 w-full text-left text-sm">
+            <tbody>
+              {d.specs.map((s) => <tr class="border-b border-sand-200 last:border-0"><th scope="row" class="py-2 pr-3 font-semibold text-navy-900">{s.label}</th><td class="py-2">{s.value}</td></tr>)}
+              <tr><th scope="row" class="py-2 pr-3 font-semibold text-navy-900">Location</th><td class="py-2">{d.town}, NC</td></tr>
+              <tr><th scope="row" class="py-2 pr-3 font-semibold text-navy-900">Completed</th><td class="py-2"><Fact value={d.year} /></td></tr>
+            </tbody>
+          </table>
+        </div>
+        {d.suppliers.length > 0 && (
+          <div class="rounded-xl border border-sand-200 bg-white p-5">
+            <h2 class="text-2xl">Materials &amp; suppliers</h2>
+            <ul class="mt-3 list-disc space-y-1 pl-5 text-sm">{d.suppliers.map((s) => <li>{s}</li>)}</ul>
+          </div>
+        )}
+        <div class="rounded-xl border border-sand-200 bg-white p-5">
+          <h2 class="text-2xl">Services on this project</h2>
+          <ul class="mt-3 space-y-1 text-sm">{services.map((s) => <li><a href={`/services/${s.id}/`} class="font-medium text-navy-700 underline">{s.data.name}</a></li>)}</ul>
+        </div>
+        <p class="text-xs text-muted">{d.source}</p>
+      </aside>
+    </div>
+  </article>
+  <CtaBand heading="Planning a similar project?" />
+</BaseLayout>

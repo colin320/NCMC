@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { gallery } from '../../data/gallery';
+const projects = await getCollection('projects');
+---
+<BaseLayout
+  title="Dock, Lift & Seawall Projects | NC Marine Construction"
+  description="Real docks, boat lifts and seawalls built by NC Marine Construction on the southeastern NC coast, with specs. Call (910) 465-1712 for an estimate."
+  breadcrumbs={[{ name: 'Projects', href: '/projects/' }]}
+>
+  <section class="container-x py-10 md:py-14">
+    <h1 class="text-4xl md:text-6xl">Our Projects</h1>
+    <p class="answer-first mt-5">These are real docks, lifts and seawalls built by NC Marine Construction on the southeastern North Carolina coast. Each case study lists what we built, the materials and the equipment, so you can see the kind of work we do before you call.</p>
+
+    <h2 class="mt-12 text-3xl">Case studies</h2>
+    <div class="mt-6 grid gap-5 md:grid-cols-3">
+      {projects.map((p) => <ProjectCard href={`/projects/${p.id}/`} title={p.data.title} town={p.data.town} summary={p.data.summary} photo={p.data.photos[0]} />)}
+    </div>
+
+    <h2 class="mt-14 text-3xl">Recent work</h2>
+    <p class="mt-2 text-muted">More case studies with full specs are on the way. <span class="todo">TODO_CONFIRM: town and details for each photo</span></p>
+    <ul class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {gallery.map((g) => (
+        <li>
+          <figure>
+            <Image src={g.src} alt={g.alt} widths={[400, 740]} sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" class="aspect-[4/5] w-full rounded-lg object-cover" />
+            <figcaption class="mt-2 text-sm text-muted">{g.caption}</figcaption>
+          </figure>
+        </li>
+      ))}
+    </ul>
+  </section>
+  <CtaBand heading="Want something like this at your place?" />
+</BaseLayout>
