@@ -8,11 +8,11 @@ export type Faq = { q: string; a: string };
 export const generalFaqs: Faq[] = [
   {
     q: 'What areas do you serve?',
-    a: 'We build docks, lifts and seawalls in Hampstead, Surf City, Topsail Beach and North Topsail Beach. Call to confirm we cover your property.',
+    a: 'We build docks, lifts and seawalls in Hampstead, Surf City, Topsail Beach and North Topsail Beach. Give us a call to confirm we cover your property.',
   },
   {
     q: 'Do you offer free estimates?',
-    a: 'Yes. We visit your property, look at the shoreline, water depth and access, and give you a written estimate at no cost.',
+    a: 'Yes. We come out to the property, look at the shoreline, the water depth and the access, and give you a written estimate at no charge.',
   },
   {
     q: 'Are you licensed and insured?',
@@ -24,7 +24,7 @@ export const generalFaqs: Faq[] = [
   },
   {
     q: 'What is the best material for a bulkhead on the NC coast?',
-    a: 'Many property owners now choose vinyl sheet piling because it does not rot and is not attacked by marine borers the way wood can be. Wood can cost less up front. We will price both so you can compare.',
+    a: 'Many owners now pick vinyl sheet piling. It doesn\'t rot, and marine borers don\'t attack it the way they can attack wood. Wood can cost less up front, so we will price both if you want to compare.',
   },
 ];
 
@@ -39,18 +39,18 @@ export const permitFaqs: Faq[] = [
   },
   {
     q: 'Who applies for the permit?',
-    a: 'We explain the permit path for your project during the estimate visit and can help you through the process. Ask us how we handle permits for your specific project.',
+    a: 'We explain the permit path for your project at the estimate visit and can help you through the process. Ask us how permits will be handled on your job.',
   },
 ];
 
 export const processFaqs: Faq[] = [
   {
     q: 'How long does a dock or seawall project take?',
-    a: 'Permitting and scheduling usually take longer than construction itself. After the site visit we give you a realistic timeline for your property.',
+    a: 'Permits and scheduling usually take longer than the construction. After the site visit we give you a realistic timeline for your property.',
   },
   {
     q: 'What happens at the estimate visit?',
-    a: 'We walk the shoreline with you, check water depth and access, talk through how you want to use the water, and explain options, permits and next steps. You get a written estimate afterward.',
+    a: 'We walk the shoreline with you and check the water depth and access. We talk about how you want to use the water, then go over the options, the permits and what happens next. You get a written estimate afterward.',
   },
 ];
 

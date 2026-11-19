@@ -2,53 +2,55 @@
 name: Docks & Piers
 serviceType: Dock and pier construction
 order: 1
-h1: Docks & Piers in Hampstead & Topsail Island, NC
-metaTitle: Dock Builder | Topsail Island & Hampstead, NC | NCMC
-metaDescription: Docks, piers and covered platforms built to engineered plans in Hampstead, Surf City & Topsail Beach, NC. Free estimates. Call (910) 465-1712.
-cardSummary: Fixed docks, piers, walkways and covered platforms built on engineered plans.
-answer: NC Marine Construction builds fixed docks and piers for homeowners in Hampstead, Surf City, Topsail Beach and North Topsail Beach. We handle the full job, from site visit and engineered plans to pilings, framing, decking and finish details like covered platforms and benches. Every project starts with a free on-site estimate, and we explain the CAMA permit path up front.
+h1: Dock & Pier Builder in Hampstead & Topsail Island, NC
+metaTitle: Dock & Pier Builder | Topsail Island & Hampstead, NC
+metaDescription: "Fixed docks, piers and covered platforms built from engineered plans in Surf City, Hampstead and Topsail Beach, NC. Call (910) 465-1712."
+cardSummary: Fixed docks, piers, walkways and covered platforms, built from engineered plans.
+answer: We build fixed docks and piers in Surf City, Hampstead, Topsail Beach and North Topsail Beach. Each job starts with a free visit to your shoreline and engineered plans. Then we set the pilings, frame and deck the pier, and add the covered platform, benches or lift you want. You will know the CAMA permit path before you commit.
 image: ../../assets/photos/pier-gazebo-marsh-view.webp
 imageAlt: Covered pier platform with a hip roof, built-in benches and composite decking overlooking a coastal marsh in Topsail Beach, NC
 included:
-  - Free site visit and shoreline assessment
-  - Engineered plans for the pier, platform and any lift
-  - Treated timber pilings set to the depth the site needs
-  - Framing, decking (pressure treated or composite) and railings
-  - Covered platforms, benches, stairs and fish-cleaning or storage stations
-  - Help with the CAMA and local permit process
+  - A free site visit to look at the shoreline and the water depth
+  - Engineered plans for the pier, the platform and any lift
+  - Treated timber pilings set to the depth the site calls for
+  - Framing, railings and decking in pressure treated pine or composite
+  - Covered platforms, stairs, benches, and fish-cleaning or storage stations
+  - A clear explanation of the CAMA and local permit steps
 costDrivers:
-  - Total length of the walkway to reach usable water depth
-  - Platform size and whether it is covered
-  - Decking material (pressure treated pine vs. composite)
-  - Number and depth of pilings
-  - Water access for equipment (barge work vs. land access)
-  - Add-ons such as lifts, lighting, water and power
+  - How far the walkway has to run to reach usable water
+  - Platform size, and whether it has a roof
+  - Decking material (pressure treated pine or composite)
+  - How many pilings it takes, and how deep they go
+  - Equipment access by barge or from land
+  - Add-ons like lifts, lighting, water and power
 faqs:
   - q: How long does it take to build a dock on Topsail Island or in Hampstead?
-    a: Most of the timeline is permitting and scheduling, not construction. Once permits are in hand, a typical residential pier is usually built in a matter of weeks. We give you a realistic schedule for your property at the estimate visit.
+    a: Permits and scheduling take up most of the time. Once the permits are in hand, a typical residential pier usually goes up in a matter of weeks. We give you a realistic schedule for your property at the estimate visit.
   - q: Do I need a permit to build a new dock in North Carolina?
-    a: Yes. New docks and piers in the 20 coastal counties go through the NC Division of Coastal Management (CAMA), usually under a general permit for standard residential docks. Local building permits may also apply. We walk you through the process during the estimate.
+    a: Yes. New docks and piers in North Carolina's 20 coastal counties go through the NC Division of Coastal Management under CAMA, usually on a general permit for a standard residential dock. Local building permits can apply as well. We walk you through it during the estimate.
   - q: Should I choose composite or pressure treated decking?
-    a: Pressure treated pine costs less up front. Composite costs more but stays cooler underfoot in many colors, resists splintering and needs less upkeep. We can show you both and price each option.
+    a: Pressure treated pine costs less up front. Composite costs more, but it resists splintering and needs less upkeep, and many of the colors stay cooler underfoot. We can price the dock both ways so you can compare.
   - q: Can you add a roof or covered platform to my existing dock?
-    a: Often, yes, if the existing pilings and framing can carry the load. We inspect the structure first and tell you honestly whether it can be added to or needs reinforcement.
+    a: Often, yes, as long as the existing pilings and framing can carry the extra load. We inspect the structure first and tell you plainly if it needs reinforcing.
   - q: Do you offer free estimates?
-    a: Yes. We visit the property, look at water depth, shoreline and access, and give you a written estimate at no cost.
+    a: Yes. We come out, look at the water depth, the shoreline and the access, and give you a written estimate at no charge.
 related: [floating-docks, boat-lifts, dock-repair]
 projectTags: [docks-piers]
 ---
 
-## What makes a good dock on the coast?
+## What a dock on Topsail Sound or the ICW needs
 
-A good coastal dock reaches water that is deep enough at low tide for your boat, is built on pilings sized for the soil and current, and uses fasteners and hardware that stand up to salt. The layout should fit how you use the water: a long walkway to a platform for fishing and sunsets, a lower landing for boarding, room for a lift, or all three.
+The dock has to reach water deep enough for your boat at low tide. The pilings have to be sized for the soil and the current, and the fasteners and hardware have to hold up to salt. After that, the layout should match how you actually use the water. Some owners want a long walkway out to a platform for fishing and watching the sunset. Others need a low landing for boarding or room for a lift. Plenty want all of it.
 
-## Fixed dock or floating dock?
+## Fixed dock vs. floating dock
 
-A fixed dock stays at one height and works well for piers, platforms and lifts on the Intracoastal Waterway and Topsail Sound. A floating dock rises and falls with the tide so the boarding height never changes. Many properties use both: a fixed pier and platform with a floating dock attached by a gangway. See our [floating docks](/services/floating-docks/) page for more.
+A fixed dock stays at one height. It is the usual choice for piers, platforms and lifts on the Intracoastal Waterway and Topsail Sound. A floating dock rises and falls with the tide, so the step down to the boat stays the same. A lot of properties use both, with a floating dock tied to the fixed pier by a gangway. Our [floating docks](/services/floating-docks/) page covers that setup.
 
-## How does the process work?
+## How a dock project works
 
-1. **Site visit.** We look at depth, shoreline, neighbors and access.
-2. **Design and permits.** Engineered plans, then the CAMA and local permit applications.
-3. **Build.** Pilings, framing, decking and finish work.
-4. **Walk-through.** We review the finished dock with you and answer questions about care.
+1. **Site visit.** We check the depth and the shoreline, look at the neighboring docks, and work out how equipment will get in.
+2. **Plans and permits.** Engineered plans come first, then the CAMA and local permit applications.
+3. **Build.** Pilings, framing and decking, then the finish work.
+4. **Walk-through.** We go over the finished dock with you and talk about upkeep.
+
+If you already have a dock that needs work, see [dock repair](/services/dock-repair/).

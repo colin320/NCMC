@@ -7,13 +7,13 @@ import { business, telHref, smsHref } from '../data/business';
 const B = business;
 ---
 <BaseLayout
-  title="Contact & Free Estimate | NC Marine Construction"
-  description="Request a free on-site estimate for a dock, boat lift or seawall in Hampstead, Surf City or Topsail Beach, NC. Call (910) 465-1712 or send the form."
+  title="Contact NC Marine Construction | Free On-Site Estimate"
+  description="Request a free on-site estimate for a dock, boat lift or seawall in Surf City, Hampstead or Topsail Beach, NC. Call (910) 465-1712 or use the form."
   breadcrumbs={[{ name: 'Contact', href: '/contact/' }]}
 >
   <section class="container-x py-10 md:py-14">
-    <h1 class="text-4xl md:text-6xl">Get a Free Estimate</h1>
-    <p class="answer-first mt-5">The fastest way to reach NC Marine Construction is to call {B.phones.office.display}. You can also send the form below. We will set up a free on-site visit to look at your shoreline and water depth and talk through your dock, lift or seawall project.</p>
+    <h1 class="text-4xl md:text-6xl">Request a Free On-Site Estimate</h1>
+    <p class="answer-first mt-5">Calling {B.phones.office.display} is the quickest way to reach NC Marine Construction. You can also use the form below. We'll set up a time to come out, look at your shoreline and water depth, and talk through the dock, lift or seawall you have in mind.</p>
 
     <div id="form-error" class="mt-6 hidden max-w-3xl rounded-sm border-l-4 border-red-600 bg-red-950/50 p-4" role="alert">
       Sorry, your request did not go through. Please call <a class="font-semibold underline" href={telHref()}>{B.phones.office.display}</a> or try the form again.

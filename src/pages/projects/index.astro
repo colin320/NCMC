@@ -12,13 +12,13 @@ const galleryLd = imageGallerySchema('NC Marine Construction project photos', ne
 ---
 <BaseLayout
   title="Dock, Lift & Seawall Projects | NC Marine Construction"
-  description="Real docks, boat lifts and seawalls built by NC Marine Construction in Hampstead and on Topsail Island, with specs. Call (910) 465-1712 for an estimate."
+  description="Docks, boat lifts and seawalls built by NC Marine Construction in Hampstead and on Topsail Island, with the specs for each job. (910) 465-1712"
   breadcrumbs={[{ name: 'Projects', href: '/projects/' }]}
   schema={[galleryLd]}
 >
   <section class="container-x py-10 md:py-14">
-    <h1 class="text-4xl md:text-6xl">Our Projects</h1>
-    <p class="answer-first mt-5">These are real docks, lifts and seawalls built by NC Marine Construction in Hampstead, Surf City, Topsail Beach and North Topsail Beach. Each case study lists what we built, the materials and the equipment, so you can see the kind of work we do before you call.</p>
+    <h1 class="text-4xl md:text-6xl">Dock, Lift &amp; Seawall Projects</h1>
+    <p class="answer-first mt-5">NC Marine Construction built the docks, lifts and seawalls on this page in Hampstead, Surf City, Topsail Beach and North Topsail Beach. Each case study lists what we built and the materials and equipment we used.</p>
 
     <h2 class="mt-12 text-3xl">Case studies</h2>
     <div class="mt-6 grid gap-5 md:grid-cols-3">
@@ -26,7 +26,7 @@ const galleryLd = imageGallerySchema('NC Marine Construction project photos', ne
     </div>
 
     <h2 class="mt-14 text-3xl">Recent work</h2>
-    <p class="mt-2 text-muted">More case studies with full specs are on the way. <span class="todo">TODO_CONFIRM: every photo is NCMC's own work</span></p>
+    <p class="mt-2 text-muted">More case studies are coming. <span class="todo">TODO_CONFIRM: every photo is NCMC's own work</span></p>
     <ul class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {gallery.map((g) => (
         <li>
@@ -38,5 +38,5 @@ const galleryLd = imageGallerySchema('NC Marine Construction project photos', ne
       ))}
     </ul>
   </section>
-  <CtaBand heading="Want something like this at your place?" />
+  <CtaBand heading="Get a price on a project like this." />
 </BaseLayout>

@@ -28,7 +28,7 @@ export const business = {
   url: SITE_URL,
   tagline: 'Docks, boat lifts, floating docks and seawalls for Hampstead and Topsail Island.',
   positioning: 'Licensed and insured marine contractor',
-  differentiator: 'Engineered plans and quality marine craftsmanship',
+  differentiator: 'We build from engineered plans',
 
   phones: {
     /** Primary, shown everywhere. Source: current site + Facebook. */
