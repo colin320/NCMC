@@ -6,31 +6,34 @@ import { business, telHref } from '../data/business';
 import { nav } from '../data/nav';
 const path = Astro.url.pathname;
 ---
-<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-white focus:p-3">Skip to content</a>
-<header class="sticky top-0 z-40 border-b border-sand-200 bg-sand-50/95 backdrop-blur">
-  <div class="container-x flex h-16 items-center justify-between gap-3 md:h-20">
-    <a href="/" class="flex shrink-0 items-center gap-2 no-underline" aria-label={`${business.name} home`}>
-      <Image src={logo} alt="" width={56} height={55} densities={[1.5, 2, 3]} class="h-11 w-auto md:h-14" loading="eager" />
-      <span class="hidden font-display text-xl font-bold leading-none text-navy-900 sm:block">NC Marine<br />Construction</span>
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:bg-white focus:p-3">Skip to content</a>
+<header class="sticky top-0 z-40 border-b border-ink/15 bg-paper/95 backdrop-blur">
+  <div class="container-x flex h-16 items-center justify-between gap-3 md:h-[5.25rem]">
+    <a href="/" class="flex shrink-0 items-center gap-3 no-underline" aria-label={`${business.name} home`}>
+      <Image src={logo} alt="" width={64} height={63} densities={[1.5, 2, 3]} class="h-11 w-auto md:h-16" loading="eager" />
+      <span class="hidden flex-col sm:flex">
+        <span class="font-display text-[1.05rem] font-extrabold uppercase leading-none tracking-[0.04em] text-ink [font-stretch:125%]">NC Marine Construction</span>
+        <span class="mt-1.5 font-mono text-[0.65rem] uppercase leading-none tracking-[0.2em] text-muted">Docks · Seawalls · Boatlifts</span>
+      </span>
     </a>
     <nav aria-label="Main" class="hidden lg:block">
-      <ul class="flex items-center gap-6 text-[0.95rem] font-medium">
-        {nav.map((n) => (
-          <li><a href={n.href} class:list={['py-2 no-underline hover:text-accent', path.startsWith(n.href) ? 'text-accent' : 'text-navy-900']} aria-current={path.startsWith(n.href) ? 'page' : undefined}>{n.label}</a></li>
-        ))}
+      <ul class="flex items-center gap-7 text-[0.95rem]">
+        {nav.map((n) => {
+          const on = path.startsWith(n.href);
+          return <li><a href={n.href} class:list={['py-2 no-underline decoration-2 underline-offset-[10px] hover:underline', on ? 'font-semibold text-ink underline' : 'text-ink/80']} aria-current={on ? 'page' : undefined}>{n.label}</a></li>;
+        })}
       </ul>
     </nav>
     <div class="flex items-center gap-2">
       <a href={telHref()} class="btn-primary px-3 sm:px-5" data-event="click_to_call" data-location="header">
-        <Icon name="phone" /><span>{business.phones.office.display}</span>
+        <Icon name="phone" /><span class="tabular-nums">{business.phones.office.display}</span>
       </a>
-      <a href="/contact/#estimate" class="btn-secondary hidden md:inline-flex" data-event="estimate_cta" data-location="header">Free Estimate</a>
       <details class="relative lg:hidden">
-        <summary class="btn list-none border-2 border-navy-900 px-3 text-navy-900 [&::-webkit-details-marker]:hidden" aria-label="Menu">Menu</summary>
-        <nav aria-label="Mobile" class="absolute right-0 mt-2 w-60 rounded-lg border border-sand-200 bg-white p-2 shadow-xl">
+        <summary class="btn list-none border border-ink px-3 text-ink [&::-webkit-details-marker]:hidden" aria-label="Menu">Menu</summary>
+        <nav aria-label="Mobile" class="absolute right-0 mt-2 w-64 border border-ink/15 bg-paper p-2 shadow-xl">
           <ul>
-            {nav.map((n) => <li><a href={n.href} class="block min-h-11 rounded px-3 py-3 font-medium text-navy-900 no-underline hover:bg-sand-100">{n.label}</a></li>)}
-            <li><a href="/contact/#estimate" class="mt-1 block min-h-11 rounded bg-accent px-3 py-3 font-semibold text-white no-underline">Free Estimate</a></li>
+            {nav.map((n) => <li><a href={n.href} class="block min-h-11 px-3 py-3 font-medium text-ink no-underline hover:bg-shallow">{n.label}</a></li>)}
+            <li><a href="/contact/#estimate" class="mt-1 block min-h-11 bg-ink px-3 py-3 font-semibold text-white no-underline">Free Estimate</a></li>
           </ul>
         </nav>
       </details>

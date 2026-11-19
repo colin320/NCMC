@@ -27,7 +27,7 @@ const projects = await getCollection('projects');
       {gallery.map((g) => (
         <li>
           <figure>
-            <Image src={g.src} alt={g.alt} widths={[400, 740]} sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" class="aspect-[4/5] w-full rounded-lg object-cover" />
+            <Image src={g.src} alt={g.alt} widths={[400, 740]} sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" class="aspect-[4/5] w-full rounded-sm object-cover" />
             <figcaption class="mt-2 text-sm text-muted">{g.caption}</figcaption>
           </figure>
         </li>

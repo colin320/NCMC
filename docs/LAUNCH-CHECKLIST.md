@@ -28,6 +28,7 @@ Launch gate: `npm run build && npm run check:placeholders` must report zero `TOD
 | SMS consent wording | `src/components/EstimateForm.astro` | Per counsel |
 | Privacy policy approval | `src/pages/privacy.astro` | Client/counsel review |
 | Dredging still offered? | `src/content/services/dredging.md` | If no, delete the file (links update automatically) |
+| Home plan schematic (`src/components/PlanSchematic.astro`) is illustrative only; replace with real plan or drone photo | `PlanSchematic.astro` | |
 | North Topsail project: year, photos, permission to name town, challenge/solution/timeline | `src/content/projects/north-topsail-beach-seawall-dock-lifts.md` | Client quote only if real |
 | Tide Tamer as the lift brand on that project | `boat-lifts.md` FAQ | Brief lists Tide Tamer as a supplier credit; confirm |
 | "Recent work" photos: town, year, what was built | `src/data/gallery.ts`, `src/pages/projects/index.astro` | 4 photos supplied in chat; also confirm they are NCMC's own work |
@@ -38,7 +39,7 @@ Launch gate: `npm run build && npm run check:placeholders` must report zero `TOD
 - [ ] Can the office line (910) 465-1712 receive texts? It powers the "Text" button (`phones.text`). If not, point it at a textable number.
 - [ ] Branded email on the site domain (currently ncmarineinc@gmail.com).
 - [ ] www vs apex: `src/data/site-url.mjs`, then enforce with a Cloudflare redirect rule.
-- [ ] Brand palette and type (proposed navy/sand/orange, Barlow Condensed + Inter) vs. logo/truck wrap.
+- [ ] Brand palette and type (proposed ink/chart-blue with marker-yellow CTA; Archivo Expanded, Public Sans, IBM Plex Mono) vs. logo/truck wrap.
 - [ ] Higher resolution photos. Supplied photos are 740 px wide; the home hero needs ~1600 px+.
 - [ ] Photo upload on the estimate form (brief: optional). Not built yet: needs storage (e.g. Cloudflare R2) decided first.
 - [ ] Brands they install regularly beyond CMI, WaveArmor, Tide Tamer (decking, float drums, lift brands).

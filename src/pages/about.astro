@@ -19,7 +19,7 @@ const B = business;
         <h2 class="text-3xl">Our story</h2>
         <p class="mt-3"><Fact value={B.owner.bio} /></p>
         <p class="mt-3">Owner: <Fact value={B.owner.name} /></p>
-        <div class="mt-6 flex aspect-[16/9] items-center justify-center rounded-lg bg-navy-800 text-navy-100">Owner or crew photo <span class="todo ml-1">TODO_CONFIRM: headshot or crew photo</span></div>
+        <div class="mt-6 flex aspect-[16/9] items-center justify-center rounded-sm bg-tide text-white/80">Owner or crew photo <span class="todo ml-1">TODO_CONFIRM: headshot or crew photo</span></div>
 
         <h2 class="mt-12 text-3xl">How we work</h2>
         <ul class="mt-3 list-disc space-y-2 pl-6">
@@ -29,7 +29,7 @@ const B = business;
           <li><strong>Real photos.</strong> Every project on this site is our own work.</li>
         </ul>
       </div>
-      <aside class="rounded-xl border border-sand-200 bg-white p-6">
+      <aside class="rounded-sm border border-rule bg-white p-6">
         <h2 class="text-2xl">Credentials</h2>
         <dl class="mt-3 space-y-3 text-sm">
           <div><dt class="font-semibold">Legal name</dt><dd>{B.legalName}</dd></div>
