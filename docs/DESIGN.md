@@ -1,6 +1,12 @@
 # NCMC design system (v4, SaaS direction, proposed, pending client approval)
 
-## v5: "SaaS company meets construction" (2026-11-19, current)
+## v6: dark theme + photo hero (2026-11-19, current)
+
+- Whole site is dark. Tokens: paper #0e0d0c (page), shallow #161412, card #1c1a18, night #23201d (raised panels, text on gold), rule #2e2a27, ink #f4f2ef (text), muted #a8a29e, sea #8fd3c9 (teal text accent), tide #134e4a (teal fill), marker #e7c989 (gold CTA). `ink` means TEXT; use `night` for dark fills.
+- Home hero is a full-bleed photo (twin boat lifts, Surf City) with the nav overlaid, glass estimate bar, credentials and a dark glass spec card. Rest of v5 layout unchanged.
+- Logo is inverted (white) everywhere. Gold buttons use dark `night` text.
+
+## v5: "SaaS company meets construction" (2026-11-19)
 
 Mix of v3 (photos shown full color, no dark overlays) and v4 (SaaS components, Outfit + Work Sans, gold CTA).
 - Solid sticky header (gold "Free estimate" + ink phone button). The overlay header variant still exists but is unused.

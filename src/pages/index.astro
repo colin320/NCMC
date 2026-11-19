@@ -1,8 +1,8 @@
 ---
 /**
  * Home, v5: "SaaS company meets construction".
- * Split hero on a drafting-grid ground: headline + estimate bar left, full-color photo right
- * with two product-style cards (spec sheet of what is in the photo, project tracker).
+ * Dark theme. Full-bleed photo hero with the nav overlaid: headline, glass estimate bar,
+ * credentials, and a spec-sheet card listing only what is visible in the photo.
  * Then: supplier strip (SaaS "trusted by" row, from verified project credits), service
  * feature cards with clean photos, fixed-vs-floating comparison table, recent-work slider,
  * process, towns, FAQ, estimate card.
@@ -12,6 +12,7 @@
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
 import Icon from '../components/Icon.astro';
 import FaqList from '../components/FaqList.astro';
 import EstimateForm from '../components/EstimateForm.astro';
@@ -75,81 +76,69 @@ const quickTypes = projectTypes.filter((p) => p.value !== 'other');
   title="Dock & Boat Lift Builder | Topsail Island & Hampstead, NC"
   description="Licensed, insured marine contractor building docks, boat lifts and seawalls in Surf City, Hampstead, Topsail Beach & North Topsail. Call (910) 465-1712."
   schema={[faqSchema(homeFaqs), galleryLd]}
+  overlayHeader
 >
-  <!-- 1. Split hero -->
-  <section class="drafting-grid border-b border-rule">
-    <div class="container-x grid gap-12 pb-16 pt-12 lg:grid-cols-[1fr_1.15fr] lg:items-center lg:gap-12 lg:pb-24 lg:pt-16">
-      <div class="min-w-0">
-        <h1 class="text-[2.6rem] font-semibold leading-[1.02] sm:text-6xl lg:text-[4.1rem]">Docks, lifts &amp; seawalls for Topsail Island and Hampstead</h1>
-        <p class="mt-6 max-w-[46ch] text-lg text-muted">Licensed and insured marine contractor serving Surf City, Hampstead, Topsail Beach and North Topsail Beach. Engineered plans on every build.</p>
+  <!-- 1. Photo hero with overlay nav -->
+  <section class="relative isolate overflow-hidden bg-night">
+    <Image src={hero.src} alt={hero.alt} widths={[828, 1280, 1600, 2000]} sizes="100vw" loading="eager" fetchpriority="high" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-night/65 via-night/30 to-paper" aria-hidden="true"></div>
+    <div class="absolute inset-0 -z-10 hidden bg-gradient-to-r from-night/80 via-night/30 to-transparent lg:block" aria-hidden="true"></div>
 
-        <form action="/contact/" method="get" class="mt-8 grid gap-1 rounded-[16px] border border-rule bg-white p-2 shadow-[0_8px_30px_rgb(28_25_23/0.06)] sm:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)_auto] sm:items-stretch" aria-label="Start a free estimate">
-          <label for="hero-project" class="flex flex-col px-3 py-2 sm:border-r sm:border-rule">
-            <span class="text-xs text-muted">Project</span>
+    <Header variant="overlay" />
+
+    <div class="container-x grid gap-10 pb-16 pt-14 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:pb-24 lg:pt-28">
+      <div class="min-w-0">
+        <h1 class="text-[2.6rem] font-semibold leading-[1.02] text-white sm:text-6xl lg:text-[4.1rem]">Docks, lifts &amp; seawalls for Topsail Island and Hampstead</h1>
+        <p class="mt-6 max-w-[46ch] text-lg text-white/85">Licensed and insured marine contractor serving Surf City, Hampstead, Topsail Beach and North Topsail Beach. Engineered plans on every build.</p>
+
+        <form action="/contact/" method="get" class="glass mt-8 grid gap-1 rounded-[16px] p-2 text-white sm:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)_auto] sm:items-stretch lg:max-w-[640px]" aria-label="Start a free estimate">
+          <label for="hero-project" class="flex flex-col px-3 py-2 sm:border-r sm:border-white/20">
+            <span class="text-xs text-white/75">Project</span>
             <span class="relative block">
-              <select id="hero-project" name="project" class="mt-0.5 min-h-8 w-full appearance-none bg-transparent pr-8 font-medium text-ink outline-none">
+              <select id="hero-project" name="project" class="mt-0.5 min-h-8 w-full appearance-none bg-transparent pr-8 font-medium text-white outline-none [&>option]:bg-night">
                 {quickTypes.map((t) => <option value={t.value}>{t.label}</option>)}
               </select>
-              <Icon name="chevron" class="pointer-events-none absolute right-1 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" />
+              <Icon name="chevron" class="pointer-events-none absolute right-1 top-1/2 h-4 w-4 -translate-y-1/2 text-white/75" />
             </span>
           </label>
           <label for="hero-town" class="flex flex-col px-3 py-2">
-            <span class="text-xs text-muted">Property town</span>
+            <span class="text-xs text-white/75">Property town</span>
             <span class="relative block">
-              <select id="hero-town" name="town" class="mt-0.5 min-h-8 w-full appearance-none bg-transparent pr-8 font-medium text-ink outline-none">
+              <select id="hero-town" name="town" class="mt-0.5 min-h-8 w-full appearance-none bg-transparent pr-8 font-medium text-white outline-none [&>option]:bg-night">
                 {B.areas.map((a) => <option value={a.name}>{a.name}</option>)}
               </select>
-              <Icon name="chevron" class="pointer-events-none absolute right-1 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" />
+              <Icon name="chevron" class="pointer-events-none absolute right-1 top-1/2 h-4 w-4 -translate-y-1/2 text-white/75" />
             </span>
           </label>
           <button type="submit" class="btn-primary" data-event="estimate_cta" data-location="hero_bar">Get free estimate</button>
         </form>
-        <p class="mt-4 text-sm text-muted">Prefer to talk? Call <a href={telHref()} class="font-semibold text-ink underline underline-offset-2" data-event="click_to_call" data-location="hero">{B.phones.office.display}</a></p>
+        <p class="mt-4 text-sm text-white/80">Prefer to talk? Call <a href={telHref()} class="font-semibold text-white underline underline-offset-2" data-event="click_to_call" data-location="hero">{B.phones.office.display}</a></p>
 
-        <dl class="mt-10 grid grid-cols-3 gap-4 border-t border-rule pt-6 text-sm">
-          <div><dt class="text-muted">License</dt><dd class="mt-1 font-semibold">{isConfirmed(B.license.number) ? `NC GC #${B.license.number}` : <span class="todo">TODO_CONFIRM</span>}</dd></div>
-          <div><dt class="text-muted">Insured</dt><dd class="mt-1 font-semibold">Fully insured</dd></div>
-          <div><dt class="text-muted">Since</dt><dd class="mt-1 font-semibold">{isConfirmed(B.yearFounded) ? B.yearFounded : <span class="todo">TODO_CONFIRM</span>}</dd></div>
+        <dl class="mt-10 grid max-w-[640px] grid-cols-3 gap-4 border-t border-white/15 pt-6 text-sm">
+          <div><dt class="text-white/65">License</dt><dd class="mt-1 font-semibold text-white">{isConfirmed(B.license.number) ? `NC GC #${B.license.number}` : <span class="todo">TODO_CONFIRM</span>}</dd></div>
+          <div><dt class="text-white/65">Insured</dt><dd class="mt-1 font-semibold text-white">Fully insured</dd></div>
+          <div><dt class="text-white/65">Since</dt><dd class="mt-1 font-semibold text-white">{isConfirmed(B.yearFounded) ? B.yearFounded : <span class="todo">TODO_CONFIRM</span>}</dd></div>
         </dl>
       </div>
 
-      <!-- Photo with product-style cards -->
-      <div class="relative min-w-0 lg:pb-12 lg:pl-8">
-        <Image src={hero.src} alt={hero.alt} widths={[640, 960, 1280, 1600]} sizes="(min-width: 1024px) 560px, 100vw" loading="eager" fetchpriority="high" class="aspect-[4/3.3] w-full rounded-[22px] object-cover shadow-[0_20px_60px_rgb(28_25_23/0.18)]" />
-
-        <!-- Spec sheet card -->
-        <a href="/services/boat-lifts/" class="group relative mx-4 -mt-14 block rounded-[16px] border border-rule bg-white p-4 no-underline shadow-[0_12px_40px_rgb(28_25_23/0.16)] sm:mx-auto sm:max-w-sm lg:absolute lg:bottom-0 lg:left-0 lg:mx-0 lg:mt-0 lg:w-[17rem]">
-          <span class="flex items-center justify-between">
-            <span class="text-xs font-semibold uppercase tracking-[0.12em] text-tide">Recent build</span>
-            <Icon name="arrow" class="h-4 w-4 -rotate-45 text-ink transition-transform duration-200 group-hover:rotate-0" />
-          </span>
-          <span class="mt-2 block font-display text-xl font-semibold text-ink">Twin boat lifts</span>
-          <span class="block text-sm text-muted">{hero.town}, NC</span>
-          <span class="mt-3 block divide-y divide-rule border-t border-rule text-sm">
-            {heroSpecs.map((r) => <span class="flex justify-between gap-4 py-1.5"><span class="text-muted">{r.k}</span><span class="font-medium text-ink">{r.v}</span></span>)}
-          </span>
-        </a>
-
-        <!-- Project tracker card (desktop) -->
-        <div class="absolute -right-6 -top-6 hidden w-56 rounded-[16px] border border-rule bg-white p-4 shadow-[0_12px_40px_rgb(28_25_23/0.16)] xl:block" aria-hidden="true">
-          <span class="text-xs font-semibold uppercase tracking-[0.12em] text-tide">Your project</span>
-          <ol class="mt-3 space-y-2.5 text-sm">
-            {steps.map((s, i) => (
-              <li class="flex items-center gap-3">
-                <span class:list={['flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-semibold', i === 0 ? 'bg-marker text-ink' : 'border border-rule text-muted']}>{i + 1}</span>
-                <span class:list={[i === 0 ? 'font-semibold text-ink' : 'text-muted']}>{s.t}</span>
-                {s.tag && <span class="ml-auto rounded-full bg-shallow px-2 py-0.5 text-xs font-medium text-ink">{s.tag}</span>}
-              </li>
-            ))}
-          </ol>
-        </div>
-      </div>
+      <!-- Spec sheet card: only what is visible in the photo -->
+      <a href="/services/boat-lifts/" class="group block w-full max-w-sm rounded-[18px] border border-white/15 bg-night/70 p-5 text-white no-underline backdrop-blur-md transition-colors duration-200 hover:bg-night/85 lg:justify-self-end">
+        <span class="flex items-center justify-between">
+          <span class="text-xs font-semibold uppercase tracking-[0.12em] text-marker">Recent build</span>
+          <Icon name="arrow" class="h-4 w-4 -rotate-45 transition-transform duration-200 group-hover:rotate-0" />
+        </span>
+        <span class="mt-2 block font-display text-2xl font-semibold">Twin boat lifts</span>
+        <span class="block text-sm text-white/70">{hero.town}, NC</span>
+        <span class="mt-4 block divide-y divide-white/10 border-t border-white/10 text-sm">
+          {heroSpecs.map((r) => <span class="flex justify-between gap-4 py-2"><span class="text-white/65">{r.k}</span><span class="font-medium">{r.v}</span></span>)}
+        </span>
+      </a>
     </div>
   </section>
 
   <!-- 2. Supplier strip -->
   {suppliers.length > 0 && (
-    <section aria-labelledby="suppliers-heading" class="border-b border-rule bg-white">
+    <section aria-labelledby="suppliers-heading" class="border-b border-rule bg-card">
       <div class="container-x flex flex-col gap-4 py-8 md:flex-row md:items-center md:gap-10">
         <h2 id="suppliers-heading" class="shrink-0 font-sans text-sm font-medium tracking-normal text-muted">Materials &amp; suppliers on recent projects</h2>
         <ul class="flex flex-wrap items-center gap-x-10 gap-y-3">
@@ -170,7 +159,7 @@ const quickTypes = projectTypes.filter((p) => p.value !== 'other');
         const ph = servicePhotos[s.id];
         return (
           <li>
-            <a href={`/services/${s.id}/`} class="group flex h-full flex-col overflow-hidden rounded-[18px] border border-rule bg-white no-underline transition-shadow duration-200 hover:shadow-[0_12px_40px_rgb(28_25_23/0.10)]">
+            <a href={`/services/${s.id}/`} class="group flex h-full flex-col overflow-hidden rounded-[18px] border border-rule bg-card no-underline transition-shadow duration-200 hover:shadow-[0_12px_40px_rgb(28_25_23/0.10)]">
               {ph ? (
                 <Image src={ph.src} alt={ph.alt} widths={[400, 740]} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" class="aspect-[16/10] w-full object-cover" />
               ) : (
@@ -181,7 +170,7 @@ const quickTypes = projectTypes.filter((p) => p.value !== 'other');
               <span class="flex flex-1 flex-col p-5">
                 <span class="flex items-start justify-between gap-3">
                   <h3 class="text-xl">{s.data.name}</h3>
-                  <Icon name="arrow" class="mt-1 h-4 w-4 shrink-0 -rotate-45 text-tide transition-transform duration-200 group-hover:rotate-0" />
+                  <Icon name="arrow" class="mt-1 h-4 w-4 shrink-0 -rotate-45 text-sea transition-transform duration-200 group-hover:rotate-0" />
                 </span>
                 <p class="mt-2 text-[0.95rem] text-muted">{s.data.cardSummary}</p>
               </span>
@@ -190,7 +179,7 @@ const quickTypes = projectTypes.filter((p) => p.value !== 'other');
         );
       })}
       <li class="lg:col-span-2">
-        <a href="#estimate" class="flex h-full min-h-56 flex-col justify-between rounded-[18px] bg-ink p-6 text-white no-underline" data-event="estimate_cta" data-location="services_card">
+        <a href="#estimate" class="flex h-full min-h-56 flex-col justify-between rounded-[18px] bg-night p-6 text-white no-underline" data-event="estimate_cta" data-location="services_card">
           <span class="font-display text-2xl font-semibold leading-tight">Not sure what you need?</span>
           <span>
             <span class="block text-white/80">We'll look at the site and tell you. The estimate is free.</span>
@@ -212,14 +201,14 @@ const quickTypes = projectTypes.filter((p) => p.value !== 'other');
           <a href="/services/floating-docks/" class="link">Floating docks</a>
         </div>
       </div>
-      <div class="min-w-0 overflow-x-auto rounded-[18px] border border-rule bg-white">
+      <div class="min-w-0 overflow-x-auto rounded-[18px] border border-rule bg-card">
         <table class="w-full min-w-[34rem] text-left text-[0.95rem]">
           <caption class="sr-only">Fixed dock compared with floating dock</caption>
           <thead>
             <tr class="border-b border-rule">
               <th scope="col" class="w-[30%] p-4 font-medium text-muted"><span class="sr-only">Feature</span></th>
               <th scope="col" class="p-4 font-display text-lg font-semibold">Fixed dock</th>
-              <th scope="col" class="bg-ink/[0.03] p-4 font-display text-lg font-semibold">Floating dock</th>
+              <th scope="col" class="bg-white/[0.04] p-4 font-display text-lg font-semibold">Floating dock</th>
             </tr>
           </thead>
           <tbody>
@@ -227,7 +216,7 @@ const quickTypes = projectTypes.filter((p) => p.value !== 'other');
               <tr class="border-b border-rule last:border-0">
                 <th scope="row" class="p-4 font-medium text-muted">{r.k}</th>
                 <td class="p-4">{r.fixed}</td>
-                <td class="bg-ink/[0.03] p-4">{r.floating}</td>
+                <td class="bg-white/[0.04] p-4">{r.floating}</td>
               </tr>
             ))}
           </tbody>
@@ -254,10 +243,10 @@ const quickTypes = projectTypes.filter((p) => p.value !== 'other');
       <h2 class="max-w-[20ch] text-4xl md:text-5xl">From first call to finished dock</h2>
       <ol class="relative mt-12 grid gap-4 md:grid-cols-4">
         {steps.map((s, i) => (
-          <li class="rounded-[18px] border border-rule bg-white p-6">
+          <li class="rounded-[18px] border border-rule bg-card p-6">
             <span class="flex items-center justify-between">
-              <span class="flex h-9 w-9 items-center justify-center rounded-full bg-ink font-display text-sm font-semibold text-white">{i + 1}</span>
-              {s.tag && <span class="rounded-full bg-marker px-2.5 py-0.5 text-xs font-semibold text-ink">{s.tag}</span>}
+              <span class="flex h-9 w-9 items-center justify-center rounded-full bg-night font-display text-sm font-semibold text-white">{i + 1}</span>
+              {s.tag && <span class="rounded-full bg-marker px-2.5 py-0.5 text-xs font-semibold text-night">{s.tag}</span>}
             </span>
             <h3 class="mt-5 text-xl">{s.t}</h3>
             <p class="mt-2 text-[0.95rem] text-muted">{s.d}</p>
@@ -291,7 +280,7 @@ const quickTypes = projectTypes.filter((p) => p.value !== 'other');
         <h2 class="text-4xl">What waterfront homeowners say</h2>
         <div class="mt-10 grid gap-4 md:grid-cols-3">
           {B.reviews.slice(0, 5).map((r) => (
-            <figure class="rounded-[18px] border border-rule bg-white p-6">
+            <figure class="rounded-[18px] border border-rule bg-card p-6">
               <blockquote class="text-lg">"{r.text}"</blockquote>
               <figcaption class="mt-4 text-sm font-semibold">{r.name}, {r.town} <span class="font-normal text-muted">via {r.source}</span></figcaption>
             </figure>
@@ -314,7 +303,7 @@ const quickTypes = projectTypes.filter((p) => p.value !== 'other');
 
   <!-- 9. Estimate card -->
   <div class="p-2 sm:p-3">
-    <section class="chart-grid rounded-[22px] bg-ink text-white">
+    <section class="chart-grid rounded-[22px] bg-night text-white">
       <div class="container-x grid gap-12 py-16 lg:grid-cols-[1fr_1.1fr] lg:py-20">
         <div>
           <h2 class="text-4xl text-white md:text-5xl">Tell us what you want to do with your waterfront</h2>

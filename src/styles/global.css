@@ -11,18 +11,22 @@
  *   Surface  Glassmorphism for photo overlays only (blur 16px, white 16%, 1px white/25 border)
  *   Color    Stone ink + deep teal (Real Estate/Property row); one bright CTA fill. No orange.
  *
- * Contrast (WCAG): ink/paper 16.7; ink/marker 10.9; white/teal 9.5; teal/paper 9; muted/paper 7.3.
+ * Dark theme. Contrast (WCAG): ink/paper 17; muted/paper 7.9; sea/paper 10; night text on gold 10+; white/tide 9.5.
  * The gold marker is a fill color only: never use it as text on light grounds.
  */
 @theme {
-  --color-ink: #1c1917;          /* text, dark bands */
-  --color-paper: #fafaf9;        /* page ground */
-  --color-shallow: #f2f1ef;      /* alternate section ground */
-  --color-rule: #e2e0dd;         /* borders */
-  --color-muted: #57534e;        /* secondary text */
-  --color-marker: #e7c989;       /* light brass/gold: primary CTA fill, ink text (10.9:1) */
+  /* Dark theme (site-wide). "ink" is the TEXT color; "night" is the dark FILL for panels. */
+  --color-paper: #0e0d0c;        /* page ground */
+  --color-shallow: #161412;      /* alternate section ground */
+  --color-card: #1c1a18;         /* cards */
+  --color-night: #23201d;        /* raised dark panels, footer, text on gold */
+  --color-rule: #2e2a27;         /* borders */
+  --color-ink: #f4f2ef;          /* primary text (17:1 on paper) */
+  --color-muted: #a8a29e;        /* secondary text (7.9:1 on paper) */
+  --color-marker: #e7c989;       /* gold: primary CTA fill, dark text */
   --color-marker-dark: #dcb66a;
-  --color-tide: #134e4a;         /* deep teal: labels, links, accents on light */
+  --color-sea: #8fd3c9;          /* teal text accent on dark (10:1 on paper) */
+  --color-tide: #134e4a;         /* deep teal fill (white text 9.5:1) */
   --color-tide-soft: #0f766e;
   --color-todo: #ffb3e6;         /* review-only placeholder highlight */
 
@@ -35,6 +39,7 @@
 
 @layer base {
   html {
+    color-scheme: dark;
     -webkit-text-size-adjust: 100%;
     scroll-padding-top: 6rem;
   }
@@ -51,7 +56,7 @@
   h3 { line-height: 1.2; letter-spacing: -0.01em; }
   a, button, summary, label[for], input[type='checkbox'], input[type='radio'], select { cursor: pointer; }
   :focus-visible {
-    outline: 3px solid var(--color-tide-soft);
+    outline: 3px solid var(--color-sea);
     outline-offset: 2px;
   }
   @media (prefers-reduced-motion: reduce) {
@@ -68,22 +73,22 @@
   @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-sm px-6 py-3 text-[0.95rem] font-semibold no-underline transition-colors duration-200;
 }
 
-/* Primary on light grounds: ink */
+/* Primary: gold fill, dark text */
 @utility btn-primary {
-  @apply btn bg-ink text-white hover:bg-tide;
+  @apply btn bg-marker text-night hover:bg-marker-dark;
 }
 
 /* Primary CTA (gold fill, ink text): hero, dark bands, mobile bar */
 @utility btn-marker {
-  @apply btn bg-marker text-ink hover:bg-marker-dark;
+  @apply btn bg-marker text-night hover:bg-marker-dark;
 }
 
 @utility btn-secondary {
-  @apply btn border border-ink/80 text-ink hover:bg-ink hover:text-white;
+  @apply btn border border-ink/40 text-ink hover:border-ink hover:bg-ink hover:text-night;
 }
 
 @utility btn-ghost-light {
-  @apply btn border border-white/60 text-white hover:bg-white hover:text-ink;
+  @apply btn border border-white/60 text-white hover:bg-white hover:text-night;
 }
 
 /* Frosted glass panel for overlays on photos */
@@ -96,7 +101,7 @@
 
 /* Eyebrow label */
 @utility label-note {
-  @apply font-sans text-xs font-semibold uppercase text-tide;
+  @apply font-sans text-xs font-semibold uppercase text-sea;
   letter-spacing: 0.14em;
 }
 
@@ -105,7 +110,7 @@
 }
 
 @utility link {
-  @apply font-medium text-tide underline decoration-1 underline-offset-[3px] transition-colors duration-200 hover:text-ink;
+  @apply font-medium text-sea underline decoration-1 underline-offset-[3px] transition-colors duration-200 hover:text-ink;
 }
 
 @utility prose-ncmc {
@@ -120,8 +125,8 @@
   .prose-ncmc h2 { @apply mt-12 mb-3 text-3xl; }
   .prose-ncmc h3 { @apply mt-8 mb-2 text-xl; }
   .prose-ncmc p { @apply my-4; }
-  .prose-ncmc ul { @apply my-4 list-disc space-y-1 pl-6 marker:text-tide; }
-  .prose-ncmc ol { @apply my-4 list-decimal space-y-2 pl-6 marker:font-semibold marker:text-tide; }
+  .prose-ncmc ul { @apply my-4 list-disc space-y-1 pl-6 marker:text-sea; }
+  .prose-ncmc ol { @apply my-4 list-decimal space-y-2 pl-6 marker:font-semibold marker:text-sea; }
   .prose-ncmc a { @apply link; }
   .prose-ncmc table { @apply my-6 block w-full overflow-x-auto border-collapse text-left text-[0.95rem] sm:table; }
   .prose-ncmc th { @apply border-b-2 border-ink p-2 pl-0 text-xs font-semibold uppercase tracking-wider text-muted; }
@@ -130,8 +135,8 @@
   /* Drafting-paper grid for light hero grounds (construction plans nod) */
   .drafting-grid {
     background-image:
-      linear-gradient(to right, rgb(28 25 23 / 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgb(28 25 23 / 0.05) 1px, transparent 1px);
+      linear-gradient(to right, rgb(255 255 255 / 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.035) 1px, transparent 1px);
     background-size: 32px 32px;
   }
 

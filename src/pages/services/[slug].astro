@@ -64,7 +64,7 @@ const formPreselect: Record<string, string> = {
       <div class="min-w-0">
         <h2 class="text-3xl">What's included?</h2>
         <ul class="mt-5 border-t border-ink/20">
-          {d.included.map((i) => <li class="flex gap-3 border-b border-ink/20 py-3"><Icon name="check" class="mt-1 h-4 w-4 shrink-0 text-tide" />{i}</li>)}
+          {d.included.map((i) => <li class="flex gap-3 border-b border-ink/20 py-3"><Icon name="check" class="mt-1 h-4 w-4 shrink-0 text-sea" />{i}</li>)}
         </ul>
       </div>
       <div class="min-w-0">
@@ -73,7 +73,7 @@ const formPreselect: Record<string, string> = {
         {d.image && (
           <Fragment>
             <h3 class="mt-6 text-lg">What drives the price?</h3>
-            <ul class="mt-2 list-disc space-y-1 pl-6 marker:text-tide">
+            <ul class="mt-2 list-disc space-y-1 pl-6 marker:text-sea">
               {d.costDrivers.map((c) => <li>{c}</li>)}
             </ul>
           </Fragment>

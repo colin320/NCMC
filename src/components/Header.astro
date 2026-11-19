@@ -15,11 +15,11 @@ const { variant = 'solid' } = Astro.props;
 const overlay = variant === 'overlay';
 const path = Astro.url.pathname;
 ---
-<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded-sm focus:bg-white focus:p-3">Skip to content</a>
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded-sm focus:bg-card focus:p-3">Skip to content</a>
 <header class:list={[overlay ? 'relative z-30' : 'sticky top-0 z-40 border-b border-rule bg-paper/90 backdrop-blur']}>
-  <div class:list={['flex items-center justify-between gap-3', overlay ? 'h-20 px-4 sm:px-6 lg:px-8' : 'container-x h-16 md:h-[4.5rem]']}>
+  <div class:list={['flex items-center justify-between gap-3', overlay ? 'container-x h-20' : 'container-x h-16 md:h-[4.5rem]']}>
     <a href="/" class="flex shrink-0 items-center gap-3 no-underline" aria-label={`${business.name} home`}>
-      <Image src={logo} alt="" width={56} height={55} densities={[1.5, 2, 3]} class:list={['h-11 w-auto md:h-12', overlay && 'invert']} loading="eager" />
+      <Image src={logo} alt="" width={56} height={55} densities={[1.5, 2, 3]} class="h-11 w-auto invert md:h-12" loading="eager" />
       <span class:list={['hidden font-display text-lg font-semibold leading-tight sm:block', overlay ? 'text-white' : 'text-ink']}>NC Marine<br />Construction</span>
     </a>
 
@@ -47,7 +47,7 @@ const path = Astro.url.pathname;
       {!overlay && <a href="/contact/#estimate" class="btn-marker hidden md:inline-flex" data-event="estimate_cta" data-location="header">Free estimate</a>}
       <a
         href={telHref()}
-        class:list={['btn px-4 sm:px-5', overlay ? 'bg-white text-ink hover:bg-marker' : 'bg-ink text-white hover:bg-tide']}
+        class:list={['btn px-4 sm:px-5', 'bg-white text-night hover:bg-marker']}
         data-event="click_to_call"
         data-location="header"
       >
@@ -58,7 +58,7 @@ const path = Astro.url.pathname;
         <nav aria-label="Mobile" class="absolute right-0 mt-2 w-64 rounded-sm border border-rule bg-paper p-2 shadow-xl">
           <ul>
             {nav.map((n) => <li><a href={n.href} class="block min-h-11 rounded-sm px-3 py-3 font-medium text-ink no-underline hover:bg-shallow">{n.label}</a></li>)}
-            <li><a href="/contact/#estimate" class="mt-1 block min-h-11 rounded-sm bg-marker px-3 py-3 font-semibold text-ink no-underline">Free estimate</a></li>
+            <li><a href="/contact/#estimate" class="mt-1 block min-h-11 rounded-sm bg-marker px-3 py-3 font-semibold text-night no-underline">Free estimate</a></li>
           </ul>
         </nav>
       </details>
