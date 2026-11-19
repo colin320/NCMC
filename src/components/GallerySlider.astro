@@ -1,0 +1,96 @@
+---
+/**
+ * Photo slider. All images are in the static HTML (crawlable); JS only drives the
+ * prev/next buttons. No autoplay, per UI/UX Pro Max carousel guidance: user-controlled,
+ * keyboard operable (track is focusable, arrow keys scroll), touch swipe via scroll-snap,
+ * reduced motion respected (instant scroll).
+ */
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+
+interface Props {
+  photos: { src: ImageMetadata; alt: string; caption: string }[];
+  id?: string;
+  label?: string;
+}
+const { photos, id = 'gallery', label = 'Project photos' } = Astro.props;
+---
+<div class="gallery-slider" data-slider>
+  <div class="flex items-center justify-end gap-2">
+    <button type="button" class="slider-btn" data-prev aria-controls={`${id}-track`} aria-label="Previous photo">
+      <Icon name="arrow" class="h-5 w-5 rotate-180" />
+    </button>
+    <button type="button" class="slider-btn" data-next aria-controls={`${id}-track`} aria-label="Next photo">
+      <Icon name="arrow" class="h-5 w-5" />
+    </button>
+  </div>
+  <ul
+    id={`${id}-track`}
+    data-track
+    tabindex="0"
+    aria-label={`${label}, ${photos.length} photos. Scroll or use the arrow keys.`}
+    class="mt-5 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-4 [scrollbar-width:thin] motion-reduce:scroll-auto"
+  >
+    {photos.map((p, i) => (
+      <li class="shrink-0 snap-start" aria-label={`Photo ${i + 1} of ${photos.length}`}>
+        <figure>
+          <Image
+            src={p.src}
+            alt={p.alt}
+            widths={[480, 740, 976]}
+            sizes="(min-width: 768px) 620px, 85vw"
+            loading={i < 2 ? 'eager' : 'lazy'}
+            class="h-[280px] w-auto max-w-[85vw] rounded-sm object-cover sm:h-[360px] md:h-[440px]"
+          />
+          <figcaption class="mt-3 max-w-[85vw] text-sm text-muted sm:max-w-[36ch]">{p.caption}</figcaption>
+        </figure>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .slider-btn {
+    display: inline-flex;
+    height: 2.75rem;
+    width: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-rule);
+    background: #fff;
+    color: var(--color-ink);
+    transition: background-color 200ms, border-color 200ms, opacity 200ms;
+  }
+  .slider-btn:hover:not(:disabled) { border-color: var(--color-brass); color: var(--color-brass); }
+  .slider-btn:disabled { opacity: 0.35; cursor: default; }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-slider]').forEach((root) => {
+    const track = root.querySelector<HTMLElement>('[data-track]')!;
+    const prev = root.querySelector<HTMLButtonElement>('[data-prev]')!;
+    const next = root.querySelector<HTMLButtonElement>('[data-next]')!;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const step = () => {
+      const first = track.querySelector<HTMLElement>('li');
+      return first ? first.getBoundingClientRect().width + 16 : track.clientWidth * 0.8;
+    };
+    const go = (dir: number) => track.scrollBy({ left: dir * step(), behavior: reduce ? 'auto' : 'smooth' });
+    const sync = () => {
+      prev.disabled = track.scrollLeft <= 4;
+      next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+    };
+
+    prev.addEventListener('click', () => go(-1));
+    next.addEventListener('click', () => go(1));
+    track.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+    });
+    track.addEventListener('scroll', sync, { passive: true });
+    window.addEventListener('resize', sync);
+    sync();
+  });
+</script>

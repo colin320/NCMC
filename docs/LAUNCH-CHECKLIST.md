@@ -28,10 +28,9 @@ Launch gate: `npm run build && npm run check:placeholders` must report zero `TOD
 | SMS consent wording | `src/components/EstimateForm.astro` | Per counsel |
 | Privacy policy approval | `src/pages/privacy.astro` | Client/counsel review |
 | Dredging still offered? | `src/content/services/dredging.md` | If no, delete the file (links update automatically) |
-| Home plan schematic (`src/components/PlanSchematic.astro`) is illustrative only; replace with real plan or drone photo | `PlanSchematic.astro` | |
 | North Topsail project: year, photos, permission to name town, challenge/solution/timeline | `src/content/projects/north-topsail-beach-seawall-dock-lifts.md` | Client quote only if real |
 | Tide Tamer as the lift brand on that project | `boat-lifts.md` FAQ | Brief lists Tide Tamer as a supplier credit; confirm |
-| "Recent work" photos: town, year, what was built | `src/data/gallery.ts`, `src/pages/projects/index.astro` | 4 photos supplied in chat; also confirm they are NCMC's own work |
+| "Recent work" photos: town, year, what was built | `src/data/gallery.ts` (home slider + projects page) | 7 photos supplied in chat; confirm all are NCMC's own work. The long-pier-with-two-lifts photo looks professionally shot: confirm photographer permission or credit |
 
 ## 2. Other decisions (not rendered as placeholders)
 
