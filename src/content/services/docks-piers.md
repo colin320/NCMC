@@ -8,7 +8,7 @@ metaDescription: Fixed docks, piers and covered platforms built to engineered pl
 cardSummary: Fixed docks, piers, walkways and covered platforms built on engineered plans.
 answer: NC Marine Construction builds fixed docks and piers for waterfront homeowners in Wilmington and southeastern North Carolina. We handle the full job, from site visit and engineered plans to pilings, framing, decking and finish details like covered platforms and benches. Every project starts with a free on-site estimate, and we explain the CAMA permit path up front.
 image: ../../assets/photos/pier-gazebo-marsh-view.webp
-imageAlt: Covered pier platform with a hip roof, built-in benches and composite decking overlooking a coastal marsh
+imageAlt: Covered pier platform with a hip roof, built-in benches and composite decking overlooking a coastal marsh in southeastern NC
 included:
   - Free site visit and shoreline assessment
   - Engineered plans for the pier, platform and any lift
