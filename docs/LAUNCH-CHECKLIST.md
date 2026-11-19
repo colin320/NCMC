@@ -39,7 +39,7 @@ Launch gate: `npm run build && npm run check:placeholders` must report zero `TOD
 - [ ] Can the office line (910) 465-1712 receive texts? It powers the "Text" button (`phones.text`). If not, point it at a textable number.
 - [ ] Branded email on the site domain (currently ncmarineinc@gmail.com).
 - [ ] www vs apex: `src/data/site-url.mjs`, then enforce with a Cloudflare redirect rule.
-- [ ] Brand palette and type (proposed ink/chart-blue with marker-yellow CTA; Archivo Expanded, Public Sans, IBM Plex Mono) vs. logo/truck wrap.
+- [ ] Brand palette and type: proposed v3 in docs/DESIGN.md (stone ink, brass CTA, deep teal; Playfair Display + Inter). Confirm against logo/truck wrap.
 - [ ] Higher resolution photos. Supplied photos are 740 px wide; the home hero needs ~1600 px+.
 - [ ] Photo upload on the estimate form (brief: optional). Not built yet: needs storage (e.g. Cloudflare R2) decided first.
 - [ ] Brands they install regularly beyond CMI, WaveArmor, Tide Tamer (decking, float drums, lift brands).

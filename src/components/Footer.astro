@@ -21,7 +21,7 @@ const h = 'label-note text-white/60';
       <address class="mt-4 space-y-2 text-sm not-italic">
         <p class="font-semibold text-white">{B.legalName}</p>
         <p><Fact value={B.address.street} /><br /><Fact value={B.address.city} />, {B.address.region} <Fact value={B.address.postalCode} /></p>
-        <p><a class="font-display text-xl font-bold text-white no-underline tabular-nums hover:underline" href={telHref()} data-event="click_to_call" data-location="footer">{B.phones.office.display}</a></p>
+        <p><a class="font-display text-2xl text-white no-underline tabular-nums hover:underline" href={telHref()} data-event="click_to_call" data-location="footer">{B.phones.office.display}</a></p>
         {B.phones.publishMobile && <p>Mobile: <a class="text-white underline" href={telHref(B.phones.mobile)} data-event="click_to_call" data-location="footer_mobile">{B.phones.mobile.display}</a></p>}
         <p><a class="text-white underline underline-offset-2" href={`mailto:${B.email}`}>{B.email}</a></p>
       </address>

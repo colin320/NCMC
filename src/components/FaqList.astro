@@ -1,15 +1,15 @@
 ---
 /** Visible FAQ. Pair with faqSchema() using the SAME array so schema matches visible text exactly. */
-interface Props { faqs: { q: string; a: string }[]; heading?: string; headingLevel?: 'h2' | 'h3'; id?: string; }
-const { faqs, heading = 'Common questions', headingLevel = 'h2', id = 'faq' } = Astro.props;
+interface Props { faqs: { q: string; a: string }[]; heading?: string; headingLevel?: 'h2' | 'h3'; id?: string; hideHeading?: boolean; }
+const { faqs, heading = 'Common questions', headingLevel = 'h2', id = 'faq', hideHeading = false } = Astro.props;
 const H = headingLevel;
 ---
 <section aria-labelledby={`${id}-heading`}>
-  <H id={`${id}-heading`} class="text-3xl md:text-4xl">{heading}</H>
-  <dl class="mt-6 border-t border-ink">
+  <H id={`${id}-heading`} class:list={[hideHeading ? 'sr-only' : 'text-3xl md:text-4xl']}>{heading}</H>
+  <dl class:list={[hideHeading ? '' : 'mt-6', 'border-t border-ink']}>
     {faqs.map((f) => (
       <div class="border-b border-rule py-6">
-        <dt class="font-display text-lg font-bold leading-snug text-ink">{f.q}</dt>
+        <dt class="font-display text-xl font-semibold leading-snug text-ink">{f.q}</dt>
         <dd class="mt-2 max-w-[65ch] text-ink/85">{f.a}</dd>
       </div>
     ))}

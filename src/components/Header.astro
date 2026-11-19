@@ -7,24 +7,25 @@ import { nav } from '../data/nav';
 const path = Astro.url.pathname;
 ---
 <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:bg-white focus:p-3">Skip to content</a>
-<header class="sticky top-0 z-40 border-b border-ink/15 bg-paper/95 backdrop-blur">
+<header class="sticky top-0 z-40 border-b border-rule bg-paper/95 backdrop-blur">
   <div class="container-x flex h-16 items-center justify-between gap-3 md:h-[5.25rem]">
     <a href="/" class="flex shrink-0 items-center gap-3 no-underline" aria-label={`${business.name} home`}>
       <Image src={logo} alt="" width={64} height={63} densities={[1.5, 2, 3]} class="h-11 w-auto md:h-16" loading="eager" />
       <span class="hidden flex-col sm:flex">
-        <span class="font-display text-[1.05rem] font-extrabold uppercase leading-none tracking-[0.04em] text-ink [font-stretch:125%]">NC Marine Construction</span>
-        <span class="mt-1.5 font-mono text-[0.65rem] uppercase leading-none tracking-[0.2em] text-muted">Docks · Seawalls · Boatlifts</span>
+        <span class="font-display text-xl font-semibold leading-none text-ink">NC Marine Construction</span>
+        <span class="mt-1.5 text-[0.68rem] font-semibold uppercase leading-none tracking-[0.18em] text-muted">Docks · Seawalls · Boat Lifts</span>
       </span>
     </a>
     <nav aria-label="Main" class="hidden lg:block">
       <ul class="flex items-center gap-7 text-[0.95rem]">
         {nav.map((n) => {
           const on = path.startsWith(n.href);
-          return <li><a href={n.href} class:list={['py-2 no-underline decoration-2 underline-offset-[10px] hover:underline', on ? 'font-semibold text-ink underline' : 'text-ink/80']} aria-current={on ? 'page' : undefined}>{n.label}</a></li>;
+          return <li><a href={n.href} class:list={['py-2 text-[0.95rem] no-underline decoration-brass decoration-2 underline-offset-[10px] transition-colors duration-200 hover:text-ink hover:underline', on ? 'font-semibold text-ink underline' : 'text-ink/75']} aria-current={on ? 'page' : undefined}>{n.label}</a></li>;
         })}
       </ul>
     </nav>
     <div class="flex items-center gap-2">
+      <a href="/contact/#estimate" class="btn-secondary hidden xl:inline-flex" data-event="estimate_cta" data-location="header">Free estimate</a>
       <a href={telHref()} class="btn-primary px-3 sm:px-5" data-event="click_to_call" data-location="header">
         <Icon name="phone" /><span class="tabular-nums">{business.phones.office.display}</span>
       </a>

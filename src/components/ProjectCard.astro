@@ -4,7 +4,7 @@ interface Props { href: string; title: string; town: string; summary: string; ph
 const { href, title, town, summary, photo } = Astro.props;
 ---
 <a href={href} class="group flex h-full flex-col no-underline">
-  {photo ? <Image src={photo.src} alt={photo.alt} widths={[400, 740]} sizes="(min-width: 768px) 33vw, 100vw" class="aspect-[4/3] w-full object-cover" />
+  {photo ? <Image src={photo.src} alt={photo.alt} widths={[400, 740]} sizes="(min-width: 768px) 33vw, 100vw" class="aspect-[4/3] w-full rounded-sm object-cover" />
     : <div class="chart-grid flex aspect-[4/3] items-center justify-center bg-tide p-4 text-center text-sm text-white/80">Project photos coming soon <span class="todo ml-1">TODO_CONFIRM: photos</span></div>}
   <p class="label-note mt-4">{town}, NC</p>
   <h3 class="mt-1 text-xl group-hover:underline group-hover:decoration-2 group-hover:underline-offset-4">{title}</h3>

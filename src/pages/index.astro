@@ -1,14 +1,18 @@
 ---
+/**
+ * Home. Layout follows the UI/UX Pro Max "Hero-Centric + Trust & Authority" pattern:
+ * full-bleed hero > proof strip > services > visuals-first project grid > case study >
+ * process > area > FAQ > low-friction form. See docs/DESIGN.md.
+ */
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
 import Fact from '../components/Fact.astro';
-import ServiceCard from '../components/ServiceCard.astro';
 import FaqList from '../components/FaqList.astro';
-import CtaBand from '../components/CtaBand.astro';
+import EstimateForm from '../components/EstimateForm.astro';
 import PlanSchematic from '../components/PlanSchematic.astro';
-import { business, telHref } from '../data/business';
+import { business, telHref, isConfirmed } from '../data/business';
 import { homeFaqs } from '../data/faqs';
 import { gallery } from '../data/gallery';
 import { faqSchema } from '../lib/schema';
@@ -17,10 +21,17 @@ const B = business;
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 const projects = await getCollection('projects');
 const featured = projects.find((p) => p.id === 'north-topsail-beach-seawall-dock-lifts')!;
-const [hero, ...recent] = gallery;
+const [hero, marsh, composite, cabinet] = gallery;
+
+const proof = [
+  { k: 'Licensed & insured', v: isConfirmed(B.license.number) ? `NC GC #${B.license.number}` : null },
+  { k: 'Engineered plans', v: 'On every build' },
+  { k: 'Free on-site estimates', v: 'Shoreline, depth & permits' },
+  { k: 'Since', v: isConfirmed(B.yearFounded) ? B.yearFounded : null },
+];
 
 const steps = [
-  { t: 'Site visit', d: 'We walk the shoreline with you, check depth at low tide and access for equipment, and talk about how you use the water.' },
+  { t: 'Site visit', d: 'We walk the shoreline with you, check depth at low tide and equipment access, and talk about how you use the water.' },
   { t: 'Plans & permits', d: 'Engineered plans, a written estimate, and a clear path through CAMA and local permits.' },
   { t: 'Build', d: 'Pilings, framing, decking, lifts and finish work by our own crew.' },
   { t: 'Walk-through', d: 'We go over the finished work with you and cover care and maintenance.' },
@@ -31,119 +42,135 @@ const steps = [
   description="Licensed and insured marine contractor building docks, boat lifts, floating docks and seawalls in Wilmington and coastal NC. Call (910) 465-1712."
   schema={[faqSchema(homeFaqs)]}
 >
-  <!-- Hero: real work, plainly stated -->
-  <section class="container-x grid gap-10 pb-14 pt-10 md:grid-cols-[1.2fr_1fr] md:items-center md:gap-14 md:pb-20 md:pt-16">
-    <div class="min-w-0">
-      <p class="label-note">Marine contractor · Wilmington to Topsail</p>
-      <h1 class="mt-4 text-[2.5rem] sm:text-[3.25rem] lg:text-[3.6rem]">Docks, boat lifts &amp; seawalls built for the Carolina coast.</h1>
-      <p class="mt-6 max-w-[48ch] text-lg text-ink/85">
-        Licensed and insured. We build from engineered plans and handle the job from the first piling to the last deck board.
-      </p>
+  <!-- 1. Full-bleed hero -->
+  <section class="relative isolate flex min-h-[560px] items-end overflow-hidden bg-ink md:min-h-[640px]">
+    <Image src={hero.src} alt={hero.alt} widths={[740]} sizes="100vw" loading="eager" fetchpriority="high" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+    <div class="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/60 to-ink/10 md:bg-gradient-to-r md:from-ink/90 md:via-ink/55 md:to-transparent"></div>
+    <div class="container-x pb-12 pt-32 md:pb-20">
+      <p class="label-note text-marker">Marine contractor · Wilmington to Topsail</p>
+      <h1 class="mt-4 max-w-[17ch] text-[2.6rem] text-white sm:text-6xl lg:text-[4.5rem]">Docks, lifts &amp; seawalls built for the Carolina coast</h1>
+      <p class="mt-5 max-w-[48ch] text-lg text-white/85">Licensed and insured. Engineered plans and quality marine craftsmanship, from the first piling to the last deck board.</p>
       <div class="mt-8 flex flex-wrap gap-3">
-        <a href={telHref()} class="btn-primary text-lg" data-event="click_to_call" data-location="hero"><Icon name="phone" /><span class="tabular-nums">Call {B.phones.office.display}</span></a>
-        <a href="/contact/#estimate" class="btn-secondary text-lg" data-event="estimate_cta" data-location="hero">Get a free estimate</a>
+        <a href={telHref()} class="btn-marker text-base" data-event="click_to_call" data-location="hero"><Icon name="phone" /><span class="tabular-nums">Call {B.phones.office.display}</span></a>
+        <a href="#estimate" class="btn-ghost-light text-base" data-event="estimate_cta" data-location="hero">Get a free estimate</a>
       </div>
-      <dl class="mt-10 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-ink pt-5 sm:grid-cols-4">
-        <div><dt class="label-note">License</dt><dd class="mt-1 text-sm font-semibold">NC GC #<Fact value={B.license.number} /></dd></div>
-        <div><dt class="label-note">Insured</dt><dd class="mt-1 text-sm font-semibold">Fully insured</dd></div>
-        <div><dt class="label-note">Since</dt><dd class="mt-1 text-sm font-semibold"><Fact value={B.yearFounded} /></dd></div>
-        <div><dt class="label-note">Google</dt><dd class="mt-1 text-sm font-semibold">{B.googleRating ? `${B.googleRating.rating} ★ (${B.googleRating.count})` : <span class="todo">TODO_CONFIRM: rating</span>}</dd></div>
-      </dl>
     </div>
-    <figure class="relative min-w-0">
-      <Image src={hero.src} alt={hero.alt} widths={[560, 740]} sizes="(min-width: 768px) 48vw, 100vw" loading="eager" fetchpriority="high" class="aspect-[4/3] w-full object-cover" />
-      <figcaption class="mt-3 flex justify-between gap-4 font-mono text-xs text-muted"><span>{hero.caption}</span><span class="todo shrink-0">TODO_CONFIRM: town</span></figcaption>
-    </figure>
   </section>
 
-  <!-- Services -->
-  <section class="border-t border-rule bg-paper">
-    <div class="container-x grid gap-10 py-16 md:grid-cols-[0.8fr_2fr] md:py-20">
+  <!-- 2. Proof strip -->
+  <section aria-label="Credentials" class="border-b border-white/10 bg-ink text-white">
+    <ul class="container-x grid grid-cols-2 gap-x-6 gap-y-6 py-8 md:grid-cols-4">
+      {proof.map((p) => (
+        <li class="flex gap-3">
+          <Icon name="check" class="mt-0.5 h-5 w-5 shrink-0 text-marker" />
+          <div>
+            <p class="font-semibold">{p.k}</p>
+            <p class="text-sm text-white/70">{p.v ?? <span class="todo">TODO_CONFIRM</span>}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- 3. Services -->
+  <section class="container-x py-20 md:py-24">
+    <div class="grid gap-6 md:grid-cols-2 md:items-end">
       <div>
         <p class="label-note">What we build</p>
-        <h2 class="mt-3 text-4xl md:text-5xl">Everything between the yard and the channel.</h2>
-        <p class="mt-4 text-muted">One crew for the seawall, the pier, the lift and the repairs later on.</p>
+        <h2 class="mt-3 text-4xl md:text-5xl">Everything between the yard and the channel</h2>
       </div>
-      <div class="grid gap-x-8 sm:grid-cols-2">
-        {services.map((s) => <ServiceCard href={`/services/${s.id}/`} name={s.data.name} summary={s.data.cardSummary} />)}
+      <p class="max-w-[52ch] text-muted md:justify-self-end">One crew handles the seawall, the pier, the lift and the repairs later on, so nothing falls between contractors.</p>
+    </div>
+    <ul class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {services.map((s) => (
+        <li>
+          <a href={`/services/${s.id}/`} class="group flex h-full flex-col rounded-sm border border-rule bg-white p-6 no-underline transition-colors duration-200 hover:border-brass">
+            <h3 class="text-xl">{s.data.name}</h3>
+            <p class="mt-2 flex-1 text-[0.95rem] text-muted">{s.data.cardSummary}</p>
+            <span class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brass">Learn more<span class="sr-only"> about {s.data.name}</span><Icon name="arrow" class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" /></span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- 4. Visuals-first portfolio grid -->
+  <section class="bg-shallow">
+    <div class="container-x py-20 md:py-24">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p class="label-note">Recent work</p>
+          <h2 class="mt-3 text-4xl md:text-5xl">Built by our crew</h2>
+        </div>
+        <a href="/projects/" class="link">See all projects</a>
       </div>
+      <ul class="mt-10 grid gap-4 md:grid-cols-[2fr_1fr_1fr]">
+        {[marsh, composite, cabinet].map((g) => (
+          <li class="min-w-0">
+            <figure>
+              <Image src={g.src} alt={g.alt} widths={[400, 740]} sizes="(min-width: 768px) 40vw, 100vw" class="h-72 w-full rounded-sm object-cover md:h-[420px]" />
+              <figcaption class="mt-3 text-sm text-muted">{g.caption}</figcaption>
+            </figure>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-4 text-sm"><span class="todo">TODO_CONFIRM: town for each photo</span></p>
     </div>
   </section>
 
-  <!-- Featured project as a plan sheet -->
-  <section class="bg-shallow">
-    <div class="container-x grid gap-10 py-16 md:grid-cols-[1.25fr_1fr] md:items-start md:py-20">
-      <div class="min-w-0 border border-ink/20 bg-paper p-3 sm:p-5">
+  <!-- 5. Case study -->
+  <section class="bg-tide text-white">
+    <div class="container-x grid gap-12 py-20 md:grid-cols-[1.2fr_1fr] md:items-center md:py-24">
+      <div class="min-w-0 rounded-sm bg-white p-3 sm:p-5">
         <PlanSchematic />
       </div>
       <div class="min-w-0">
-        <p class="label-note">Project · {featured.data.town}, NC</p>
-        <h2 class="mt-3 text-3xl md:text-4xl">{featured.data.title}</h2>
-        <p class="mt-4 text-ink/85">{featured.data.summary}</p>
-        <table class="mt-6 w-full text-left text-[0.95rem]">
-          <tbody>
-            {featured.data.specs.map((s) => (
-              <tr class="border-t border-ink/20"><th scope="row" class="w-32 py-2.5 pr-4 align-top font-mono text-xs font-medium uppercase tracking-[0.1em] text-tide">{s.label}</th><td class="py-2.5">{s.value}</td></tr>
-            ))}
-          </tbody>
-        </table>
-        <a href={`/projects/${featured.id}/`} class="btn-primary mt-8">Read the project</a>
+        <p class="label-note text-marker">Case study · {featured.data.town}, NC</p>
+        <h2 class="mt-3 text-3xl text-white md:text-4xl">{featured.data.title}</h2>
+        <dl class="mt-8 divide-y divide-white/15 border-y border-white/15">
+          {featured.data.specs.map((s) => (
+            <div class="grid grid-cols-[8rem_1fr] gap-4 py-3">
+              <dt class="text-sm font-semibold uppercase tracking-[0.12em] text-marker">{s.label}</dt>
+              <dd class="text-white/90">{s.value}</dd>
+            </div>
+          ))}
+        </dl>
+        <a href={`/projects/${featured.id}/`} class="btn-marker mt-8">Read the case study</a>
       </div>
     </div>
   </section>
 
-  <!-- Process: a real sequence -->
-  <section class="container-x py-16 md:py-20">
+  <!-- 6. Process -->
+  <section class="container-x py-20 md:py-24">
     <p class="label-note">How a project runs</p>
-    <h2 class="mt-3 max-w-[22ch] text-4xl md:text-5xl">From first call to the finished dock.</h2>
-    <ol class="mt-10 grid gap-8 md:grid-cols-4 md:gap-6">
+    <h2 class="mt-3 max-w-[20ch] text-4xl md:text-5xl">From first call to finished dock</h2>
+    <ol class="relative mt-14 grid gap-10 md:grid-cols-4 md:gap-8">
+      <span aria-hidden="true" class="absolute left-0 right-0 top-[7px] hidden h-px bg-rule md:block"></span>
       {steps.map((s, i) => (
-        <li class="border-t-2 border-ink pt-4">
-          <span class="font-mono text-xs uppercase tracking-[0.12em] text-tide">Step {i + 1}</span>
-          <h3 class="mt-2 text-xl">{s.t}</h3>
+        <li class="relative">
+          <span aria-hidden="true" class="block h-[15px] w-[15px] rounded-full border-2 border-brass bg-paper"></span>
+          <p class="mt-5 text-sm font-semibold text-brass">Step {i + 1}</p>
+          <h3 class="mt-1 text-2xl">{s.t}</h3>
           <p class="mt-2 text-[0.95rem] text-muted">{s.d}</p>
         </li>
       ))}
     </ol>
   </section>
 
-  <!-- Recent work -->
+  <!-- 7. Service area -->
   <section class="border-t border-rule">
-    <div class="container-x py-16 md:py-20">
-      <div class="flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <p class="label-note">Recent work</p>
-          <h2 class="mt-3 text-4xl md:text-5xl">Built by our crew.</h2>
-        </div>
-        <a href="/projects/" class="link">All projects</a>
-      </div>
-      <ul class="mt-8 grid gap-6 sm:grid-cols-3">
-        {recent.map((g) => (
-          <li class="min-w-0">
-            <figure>
-              <Image src={g.src} alt={g.alt} widths={[400, 740]} sizes="(min-width: 640px) 33vw, 100vw" class="aspect-[4/5] w-full object-cover" />
-              <figcaption class="mt-2 text-sm text-muted">{g.caption}</figcaption>
-            </figure>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
-
-  <!-- Service area -->
-  <section class="bg-tide text-white">
-    <div class="container-x grid gap-10 py-16 md:grid-cols-[1fr_1.2fr] md:py-20">
+    <div class="container-x grid gap-10 py-20 md:grid-cols-[1fr_1.3fr] md:py-24">
       <div>
-        <p class="label-note text-white/70">Service area</p>
-        <h2 class="mt-3 text-4xl text-white md:text-5xl">Cape Fear River to the New River.</h2>
-        <p class="mt-4 max-w-[46ch] text-white/80">We build on the Intracoastal Waterway, the sounds and the tidal creeks of southeastern North Carolina.</p>
+        <p class="label-note">Service area</p>
+        <h2 class="mt-3 text-4xl md:text-5xl">Cape Fear River to the New River</h2>
+        <p class="mt-4 max-w-[46ch] text-muted">We build on the Intracoastal Waterway, the sounds and the tidal creeks of southeastern North Carolina.</p>
       </div>
       <div>
-        <ul class="grid grid-cols-1 border-t border-white/30 sm:grid-cols-2 sm:gap-x-8">
+        <ul class="flex flex-wrap gap-2">
           {B.areas.map((a) => (
-            <li class="border-b border-white/30 py-3">
-              {a.areaPage ? <a href={a.areaPage} class="font-semibold text-white">{a.name}</a> : <span class="font-semibold">{a.name}</span>}
-              {a.note && <span class="block text-sm text-white/70">{a.note}</span>}
+            <li class="rounded-sm border border-rule bg-white px-4 py-2.5 text-[0.95rem]">
+              {a.areaPage ? <a href={a.areaPage} class="link">{a.name}</a> : a.name}
+              {a.note && <span class="text-muted"> ({a.note})</span>}
             </li>
           ))}
         </ul>
@@ -153,28 +180,45 @@ const steps = [
   </section>
 
   {B.reviews.length > 0 && (
-    <section class="container-x py-16">
-      <p class="label-note">Reviews</p>
-      <h2 class="mt-3 text-4xl">What waterfront homeowners say</h2>
-      <div class="mt-8 grid gap-8 md:grid-cols-3">
-        {B.reviews.slice(0, 5).map((r) => (
-          <figure class="border-t-2 border-ink pt-4">
-            <blockquote class="text-[0.95rem]">"{r.text}"</blockquote>
-            <figcaption class="mt-3 text-sm font-semibold">{r.name}, {r.town} <span class="font-normal text-muted">via {r.source}</span></figcaption>
-          </figure>
-        ))}
+    <section class="bg-shallow">
+      <div class="container-x py-20">
+        <p class="label-note">Reviews</p>
+        <h2 class="mt-3 text-4xl">What waterfront homeowners say</h2>
+        <div class="mt-10 grid gap-6 md:grid-cols-3">
+          {B.reviews.slice(0, 5).map((r) => (
+            <figure class="rounded-sm border border-rule bg-white p-6">
+              <blockquote class="font-display text-lg">"{r.text}"</blockquote>
+              <figcaption class="mt-4 text-sm font-semibold">{r.name}, {r.town} <span class="font-normal text-muted">via {r.source}</span></figcaption>
+            </figure>
+          ))}
+        </div>
       </div>
     </section>
   )}
 
-  <!-- FAQ -->
-  <section class="container-x grid gap-10 py-16 md:grid-cols-[0.8fr_2fr] md:py-20">
-    <div>
-      <p class="label-note">Before you call</p>
-      <p class="mt-3 text-sm text-muted">Permit answers are general information, not legal advice. <a href="/faq/" class="link">All questions</a></p>
+  <!-- 8. FAQ -->
+  <section class="bg-shallow">
+    <div class="container-x grid gap-10 py-20 md:grid-cols-[1fr_2fr] md:py-24">
+      <div>
+        <p class="label-note">Before you call</p>
+        <h2 class="mt-3 text-4xl">Common questions</h2>
+        <p class="mt-4 text-sm text-muted">Permit answers are general information, not legal advice. <a href="/faq/" class="link">All questions</a></p>
+      </div>
+      <FaqList faqs={homeFaqs} heading="Frequently asked questions about docks and permits" id="home-faq" hideHeading />
     </div>
-    <FaqList faqs={homeFaqs} />
   </section>
 
-  <CtaBand />
+  <!-- 9. Low-friction form -->
+  <section class="bg-ink text-white">
+    <div class="container-x grid gap-12 py-20 lg:grid-cols-[1fr_1.1fr] lg:py-24">
+      <div>
+        <p class="label-note text-marker">Free on-site estimate</p>
+        <h2 class="mt-3 text-4xl text-white md:text-5xl">Tell us what you want to do with your waterfront</h2>
+        <p class="mt-5 max-w-[46ch] text-white/80">We come out, walk the shoreline with you, check the water depth and explain the permit path. The estimate is free.</p>
+        <a href={telHref()} class="mt-8 inline-flex items-center gap-3 font-display text-3xl text-white no-underline hover:text-marker" data-event="click_to_call" data-location="home_form"><Icon name="phone" class="h-7 w-7 text-marker" /><span class="tabular-nums">{B.phones.office.display}</span></a>
+        <p class="mt-2 text-sm text-white/70">Calling is the fastest way to reach us.</p>
+      </div>
+      <div class="text-ink"><EstimateForm variant="short" /></div>
+    </div>
+  </section>
 </BaseLayout>
