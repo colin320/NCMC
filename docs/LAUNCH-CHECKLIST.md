@@ -27,7 +27,7 @@ Launch gate: `npm run build && npm run check:placeholders` must report zero `TOD
 | Publishable price ranges | Service page template `src/pages/services/[slug].astro` ("How much does it cost?") | Per-service figures; consider a `priceRange` field in each service file |
 | SMS consent wording | `src/components/EstimateForm.astro` | Per counsel |
 | Privacy policy approval | `src/pages/privacy.astro` | Client/counsel review |
-| Dredging still offered? | `src/content/services/dredging.md` | If no, delete the file (links update automatically) |
+| Dredging | removed 2026-11-19 | Client does not offer dredging. Do not add it back |
 | North Topsail project: year, photos, permission to name town, challenge/solution/timeline | `src/content/projects/north-topsail-beach-seawall-dock-lifts.md` | Client quote only if real |
 | Tide Tamer as the lift brand on that project | `boat-lifts.md` FAQ | Brief lists Tide Tamer as a supplier credit; confirm |
 | "Recent work" photos: confirm all are NCMC's own work. Towns per photo were provided by Dyno on 2026-11-19 (Hampstead: seawall pier, cabinet, composite covered pier; Topsail Beach: marsh gazebo, walkway build, gangway/floating dock; Surf City: long pier with lifts, twin lifts x2, pier bench); have the client verify | `src/data/gallery.ts` (home slider + projects page) | 7 photos supplied in chat; confirm all are NCMC's own work. The long-pier-with-two-lifts photo looks professionally shot: confirm photographer permission or credit |
