@@ -127,6 +127,14 @@
   .prose-ncmc th { @apply border-b-2 border-ink p-2 pl-0 text-xs font-semibold uppercase tracking-wider text-muted; }
   .prose-ncmc td { @apply border-b border-rule p-2 pl-0 align-top; }
 
+  /* Drafting-paper grid for light hero grounds (construction plans nod) */
+  .drafting-grid {
+    background-image:
+      linear-gradient(to right, rgb(28 25 23 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(28 25 23 / 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
   /* Subtle dot texture on dark grounds */
   .chart-grid {
     background-image: radial-gradient(rgb(255 255 255 / 0.06) 1px, transparent 1px);

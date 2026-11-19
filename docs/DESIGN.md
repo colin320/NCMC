@@ -1,6 +1,16 @@
 # NCMC design system (v4, SaaS direction, proposed, pending client approval)
 
-## v4 changes (2026-11-19)
+## v5: "SaaS company meets construction" (2026-11-19, current)
+
+Mix of v3 (photos shown full color, no dark overlays) and v4 (SaaS components, Outfit + Work Sans, gold CTA).
+- Solid sticky header (gold "Free estimate" + ink phone button). The overlay header variant still exists but is unused.
+- Split hero on a faint drafting-paper grid: headline, white quick-estimate bar (prefills /contact/), credentials row; right side a full-color photo with two product-style cards: a spec sheet listing only what is visible in the photo, and a 4-step project tracker.
+- Supplier strip ("trusted by" pattern) from the verified North Topsail project credits.
+- Service feature cards with clean photos (UI/UX Pro Max "Bento Grid Showcase"), plus an ink "Not sure what you need?" card.
+- Fixed vs floating comparison table (skill "Comparison Table Focus": factual only; same statements as the service pages). Also good for AI answer extraction.
+- No eyebrow labels or pill badges above headings (reviewer: reads as AI-generated).
+
+## v4 changes (2026-11-19, superseded)
 
 Reviewer asked for a less "AI" feel, closer to a SaaS landing page (reference: automotive SaaS hero).
 - Home hero: rounded inset photo (22px radius, 8 to 12px page margin), nav overlaid on the photo, uppercase Outfit headline bottom-left, frosted-glass quick-estimate bar (project + town selects, lime CTA) that prefills the contact form via `?project=&town=`, floating glass project tag.

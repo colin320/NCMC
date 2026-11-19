@@ -1,15 +1,17 @@
 ---
 /**
- * Home, v4 (SaaS direction). Rounded inset photo hero with overlay nav, uppercase
- * headline, glass quick-estimate bar and a floating project tag; then proof row, service
- * bento, recent-work slider, process, towns, FAQ and an inset estimate card.
- * Patterns from the UI/UX Pro Max skill (Hero-Centric + Trust & Authority, glassmorphism
- * for overlays only). See docs/DESIGN.md.
+ * Home, v5: "SaaS company meets construction".
+ * Split hero on a drafting-grid ground: headline + estimate bar left, full-color photo right
+ * with two product-style cards (spec sheet of what is in the photo, project tracker).
+ * Then: supplier strip (SaaS "trusted by" row, from verified project credits), service
+ * feature cards with clean photos, fixed-vs-floating comparison table, recent-work slider,
+ * process, towns, FAQ, estimate card.
+ * Skill patterns (UI/UX Pro Max): Bento Grid Showcase, Comparison Table ("be factual"),
+ * Trust & Authority. See docs/DESIGN.md.
  */
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
 import Icon from '../components/Icon.astro';
 import FaqList from '../components/FaqList.astro';
 import EstimateForm from '../components/EstimateForm.astro';
@@ -23,6 +25,7 @@ import { galleryImageUrls } from '../lib/gallery-images';
 
 const B = business;
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const project = (await getCollection('projects')).find((p) => p.id === 'north-topsail-beach-seawall-dock-lifts');
 const byFile = (name: string) => gallery.find((g) => g.src.src.includes(name))!;
 const hero = byFile('twin-boat-lifts');
 const slides = [
@@ -31,27 +34,39 @@ const slides = [
 ].map(byFile);
 const galleryLd = imageGallerySchema('Recent work by NC Marine Construction', new URL('/', Astro.site).toString(), await galleryImageUrls(Astro.site!));
 
-// Service bento: the three core services get a real photo; the rest are compact cards.
-const featuredPhotos: Record<string, ReturnType<typeof byFile>> = {
+// Feature cards: every service gets a real photo where we have one that shows it.
+const servicePhotos: Record<string, ReturnType<typeof byFile>> = {
   'docks-piers': byFile('pier-gazebo-marsh'),
+  'floating-docks': byFile('fixed-pier-gangway'),
   'boat-lifts': byFile('boat-lifts-side-view'),
   'seawalls-bulkheads': byFile('covered-pier-gazebo-vinyl'),
+  'dock-repair': byFile('pier-walkway-decking'),
+  pilings: byFile('covered-pier-composite'),
 };
-const featuredServices = services.filter((s) => s.id in featuredPhotos);
-const otherServices = services.filter((s) => !(s.id in featuredPhotos));
 
-const proof = [
-  { k: 'Licensed & insured', v: isConfirmed(B.license.number) ? `NC GC #${B.license.number}` : null },
-  { k: 'Engineered plans', v: 'On every build' },
-  { k: 'Free on-site estimates', v: 'Shoreline, depth & permits' },
-  { k: 'In business since', v: isConfirmed(B.yearFounded) ? B.yearFounded : null },
+// Supplier strip: names from the verified North Topsail project credits.
+const suppliers = project?.data.suppliers.map((s) => s.replace(/\s*\(.*\)$/, '')) ?? [];
+
+// Spec card: only what is visible in the hero photo.
+const heroSpecs = [
+  { k: 'Boat lifts', v: '2' },
+  { k: 'Decking', v: 'Composite' },
+  { k: 'Walkway', v: 'Grated center strip' },
 ];
 
 const steps = [
-  { t: 'Site visit', d: 'We walk the shoreline with you, check depth at low tide and equipment access, and talk about how you use the water.' },
+  { t: 'Site visit', d: 'We walk the shoreline with you, check depth at low tide and equipment access, and talk about how you use the water.', tag: 'Free' },
   { t: 'Plans & permits', d: 'Engineered plans, a written estimate, and a clear path through CAMA and local permits.' },
   { t: 'Build', d: 'Pilings, framing, decking, lifts and finish work by our own crew.' },
   { t: 'Walk-through', d: 'We go over the finished work with you and cover care and maintenance.' },
+];
+
+// Comparison facts: same statements as the Floating Docks and Docks & Piers pages.
+const compare = [
+  { k: 'How it sits', fixed: 'On pilings at one height', floating: 'On floats, rises and falls with the tide' },
+  { k: 'Step down to the boat', fixed: 'Changes with the tide', floating: 'Same at every tide' },
+  { k: 'Best for', fixed: 'Piers, platforms and boat lifts', floating: 'Low boats, kayaks, paddleboards and jet skis' },
+  { k: 'Often paired with', fixed: 'A floating dock on a gangway', floating: 'A fixed pier and gangway' },
 ];
 
 const quickTypes = projectTypes.filter((p) => p.value !== 'other');
@@ -60,160 +75,220 @@ const quickTypes = projectTypes.filter((p) => p.value !== 'other');
   title="Dock & Boat Lift Builder | Topsail Island & Hampstead, NC"
   description="Licensed, insured marine contractor building docks, boat lifts and seawalls in Surf City, Hampstead, Topsail Beach & North Topsail. Call (910) 465-1712."
   schema={[faqSchema(homeFaqs), galleryLd]}
-  overlayHeader
 >
-  <!-- 1. Hero: rounded inset photo, overlay nav, glass quick-estimate bar -->
-  <div class="p-2 sm:p-3">
-    <section class="relative isolate flex min-h-[640px] flex-col overflow-hidden rounded-[22px] bg-ink md:min-h-[min(800px,92vh)]">
-      <Image src={hero.src} alt={hero.alt} widths={[828, 1280, 1600, 2000]} sizes="100vw" loading="eager" fetchpriority="high" class="absolute inset-0 -z-10 h-full w-full object-cover" />
-      <div class="absolute inset-0 -z-10 bg-gradient-to-b from-ink/60 via-ink/45 to-ink/90 lg:via-ink/25"></div>
-      <div class="absolute inset-0 -z-10 hidden bg-gradient-to-r from-ink/75 via-ink/25 to-transparent lg:block"></div>
+  <!-- 1. Split hero -->
+  <section class="drafting-grid border-b border-rule">
+    <div class="container-x grid gap-12 pb-16 pt-12 lg:grid-cols-[1fr_1.15fr] lg:items-center lg:gap-12 lg:pb-24 lg:pt-16">
+      <div class="min-w-0">
+        <h1 class="text-[2.6rem] font-semibold leading-[1.02] sm:text-6xl lg:text-[4.1rem]">Docks, lifts &amp; seawalls for Topsail Island and Hampstead</h1>
+        <p class="mt-6 max-w-[46ch] text-lg text-muted">Licensed and insured marine contractor serving Surf City, Hampstead, Topsail Beach and North Topsail Beach. Engineered plans on every build.</p>
 
-      <Header variant="overlay" />
-
-      <!-- Floating project tag (desktop) -->
-      <a href="/projects/" class="glass group absolute right-6 top-[38%] hidden w-56 rounded-[18px] p-5 text-white no-underline transition-colors duration-200 hover:bg-white/25 lg:block xl:right-10">
-        <span class="absolute -left-1.5 top-6 h-3 w-3 rounded-full bg-marker ring-4 ring-marker/30" aria-hidden="true"></span>
-        <span class="flex justify-end"><span class="flex h-9 w-9 items-center justify-center rounded-full bg-marker text-ink transition-transform duration-200 group-hover:rotate-45"><Icon name="arrow" class="h-4 w-4 -rotate-45" /></span></span>
-        <span class="mt-4 block font-display text-2xl font-semibold leading-tight">Twin boat lifts</span>
-        <span class="mt-1 block text-sm text-white/80">Surf City, NC</span>
-      </a>
-
-      <div class="mt-auto px-4 pb-6 sm:px-6 md:pb-10 lg:px-10">
-        <h1 class="max-w-[20ch] text-[2.1rem] font-medium uppercase leading-[1.04] tracking-[-0.01em] text-white sm:text-5xl lg:text-[3.6rem]">Docks, lifts &amp; seawalls for Topsail Island &amp; Hampstead</h1>
-
-        <form action="/contact/" method="get" class="glass mt-6 grid gap-1 rounded-[16px] p-2 text-white sm:grid-cols-[1fr_1fr_auto] sm:items-stretch md:mt-8 md:max-w-[720px]" aria-label="Start a free estimate">
-          <label for="hero-project" class="flex flex-col px-3 py-2 sm:border-r sm:border-white/25">
-            <span class="text-xs text-white/80">Project</span>
+        <form action="/contact/" method="get" class="mt-8 grid gap-1 rounded-[16px] border border-rule bg-white p-2 shadow-[0_8px_30px_rgb(28_25_23/0.06)] sm:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)_auto] sm:items-stretch" aria-label="Start a free estimate">
+          <label for="hero-project" class="flex flex-col px-3 py-2 sm:border-r sm:border-rule">
+            <span class="text-xs text-muted">Project</span>
             <span class="relative block">
-              <select id="hero-project" name="project" class="mt-0.5 min-h-8 w-full appearance-none bg-transparent pr-8 font-medium text-white outline-none [&>option]:text-ink">
-              {quickTypes.map((t) => <option value={t.value}>{t.label}</option>)}
-            </select>
-              <Icon name="chevron" class="pointer-events-none absolute right-1 top-1/2 h-4 w-4 -translate-y-1/2 text-white/80" />
+              <select id="hero-project" name="project" class="mt-0.5 min-h-8 w-full appearance-none bg-transparent pr-8 font-medium text-ink outline-none">
+                {quickTypes.map((t) => <option value={t.value}>{t.label}</option>)}
+              </select>
+              <Icon name="chevron" class="pointer-events-none absolute right-1 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" />
             </span>
           </label>
           <label for="hero-town" class="flex flex-col px-3 py-2">
-            <span class="text-xs text-white/80">Property town</span>
+            <span class="text-xs text-muted">Property town</span>
             <span class="relative block">
-              <select id="hero-town" name="town" class="mt-0.5 min-h-8 w-full appearance-none bg-transparent pr-8 font-medium text-white outline-none [&>option]:text-ink">
-              {B.areas.map((a) => <option value={a.name}>{a.name}</option>)}
-            </select>
-              <Icon name="chevron" class="pointer-events-none absolute right-1 top-1/2 h-4 w-4 -translate-y-1/2 text-white/80" />
+              <select id="hero-town" name="town" class="mt-0.5 min-h-8 w-full appearance-none bg-transparent pr-8 font-medium text-ink outline-none">
+                {B.areas.map((a) => <option value={a.name}>{a.name}</option>)}
+              </select>
+              <Icon name="chevron" class="pointer-events-none absolute right-1 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" />
             </span>
           </label>
-          <button type="submit" class="btn-marker" data-event="estimate_cta" data-location="hero_bar">Get free estimate</button>
+          <button type="submit" class="btn-primary" data-event="estimate_cta" data-location="hero_bar">Get free estimate</button>
         </form>
-        <p class="mt-3 text-sm text-white/85">Or call <a href={telHref()} class="font-semibold text-white underline underline-offset-2" data-event="click_to_call" data-location="hero">{B.phones.office.display}</a></p>
-      </div>
-    </section>
-  </div>
+        <p class="mt-4 text-sm text-muted">Prefer to talk? Call <a href={telHref()} class="font-semibold text-ink underline underline-offset-2" data-event="click_to_call" data-location="hero">{B.phones.office.display}</a></p>
 
-  <!-- 2. Proof row -->
-  <section aria-label="Credentials" class="container-x">
-    <ul class="grid grid-cols-2 gap-x-6 gap-y-6 border-b border-rule py-10 md:grid-cols-4">
-      {proof.map((p) => (
-        <li>
-          <p class="font-display text-lg font-semibold">{p.k}</p>
-          <p class="mt-1 text-sm text-muted">{p.v ?? <span class="todo">TODO_CONFIRM</span>}</p>
-        </li>
-      ))}
-    </ul>
+        <dl class="mt-10 grid grid-cols-3 gap-4 border-t border-rule pt-6 text-sm">
+          <div><dt class="text-muted">License</dt><dd class="mt-1 font-semibold">{isConfirmed(B.license.number) ? `NC GC #${B.license.number}` : <span class="todo">TODO_CONFIRM</span>}</dd></div>
+          <div><dt class="text-muted">Insured</dt><dd class="mt-1 font-semibold">Fully insured</dd></div>
+          <div><dt class="text-muted">Since</dt><dd class="mt-1 font-semibold">{isConfirmed(B.yearFounded) ? B.yearFounded : <span class="todo">TODO_CONFIRM</span>}</dd></div>
+        </dl>
+      </div>
+
+      <!-- Photo with product-style cards -->
+      <div class="relative min-w-0 lg:pb-12 lg:pl-8">
+        <Image src={hero.src} alt={hero.alt} widths={[640, 960, 1280, 1600]} sizes="(min-width: 1024px) 560px, 100vw" loading="eager" fetchpriority="high" class="aspect-[4/3.3] w-full rounded-[22px] object-cover shadow-[0_20px_60px_rgb(28_25_23/0.18)]" />
+
+        <!-- Spec sheet card -->
+        <a href="/services/boat-lifts/" class="group relative mx-4 -mt-14 block rounded-[16px] border border-rule bg-white p-4 no-underline shadow-[0_12px_40px_rgb(28_25_23/0.16)] sm:mx-auto sm:max-w-sm lg:absolute lg:bottom-0 lg:left-0 lg:mx-0 lg:mt-0 lg:w-[17rem]">
+          <span class="flex items-center justify-between">
+            <span class="text-xs font-semibold uppercase tracking-[0.12em] text-tide">Recent build</span>
+            <Icon name="arrow" class="h-4 w-4 -rotate-45 text-ink transition-transform duration-200 group-hover:rotate-0" />
+          </span>
+          <span class="mt-2 block font-display text-xl font-semibold text-ink">Twin boat lifts</span>
+          <span class="block text-sm text-muted">{hero.town}, NC</span>
+          <span class="mt-3 block divide-y divide-rule border-t border-rule text-sm">
+            {heroSpecs.map((r) => <span class="flex justify-between gap-4 py-1.5"><span class="text-muted">{r.k}</span><span class="font-medium text-ink">{r.v}</span></span>)}
+          </span>
+        </a>
+
+        <!-- Project tracker card (desktop) -->
+        <div class="absolute -right-6 -top-6 hidden w-56 rounded-[16px] border border-rule bg-white p-4 shadow-[0_12px_40px_rgb(28_25_23/0.16)] xl:block" aria-hidden="true">
+          <span class="text-xs font-semibold uppercase tracking-[0.12em] text-tide">Your project</span>
+          <ol class="mt-3 space-y-2.5 text-sm">
+            {steps.map((s, i) => (
+              <li class="flex items-center gap-3">
+                <span class:list={['flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-semibold', i === 0 ? 'bg-marker text-ink' : 'border border-rule text-muted']}>{i + 1}</span>
+                <span class:list={[i === 0 ? 'font-semibold text-ink' : 'text-muted']}>{s.t}</span>
+                {s.tag && <span class="ml-auto rounded-full bg-shallow px-2 py-0.5 text-xs font-medium text-ink">{s.tag}</span>}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- 3. Services bento -->
+  <!-- 2. Supplier strip -->
+  {suppliers.length > 0 && (
+    <section aria-labelledby="suppliers-heading" class="border-b border-rule bg-white">
+      <div class="container-x flex flex-col gap-4 py-8 md:flex-row md:items-center md:gap-10">
+        <h2 id="suppliers-heading" class="shrink-0 font-sans text-sm font-medium tracking-normal text-muted">Materials &amp; suppliers on recent projects</h2>
+        <ul class="flex flex-wrap items-center gap-x-10 gap-y-3">
+          {suppliers.map((s) => <li class="font-display text-xl font-semibold tracking-tight text-ink/55">{s}</li>)}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <!-- 3. Services: feature cards with clean photos -->
   <section class="container-x py-20 md:py-24">
     <div class="flex flex-wrap items-end justify-between gap-6">
-      <div>
-        <p class="label-note">What we build</p>
-        <h2 class="mt-3 max-w-[18ch] text-4xl md:text-5xl">Everything between the yard and the channel</h2>
-      </div>
+      <h2 class="max-w-[18ch] text-4xl md:text-5xl">Everything between the yard and the channel</h2>
       <a href="/services/" class="btn-secondary">All services</a>
     </div>
-
-    <ul class="mt-12 grid gap-4 md:grid-cols-3">
-      {featuredServices.map((s) => {
-        const ph = featuredPhotos[s.id];
+    <ul class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {services.map((s) => {
+        const ph = servicePhotos[s.id];
         return (
           <li>
-            <a href={`/services/${s.id}/`} class="group relative isolate flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-[18px] p-5 text-white no-underline">
-              <Image src={ph.src} alt={ph.alt} widths={[400, 740]} sizes="(min-width: 768px) 33vw, 100vw" class="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
-              <span class="absolute inset-0 -z-10 bg-gradient-to-t from-ink/85 via-ink/20 to-transparent" aria-hidden="true"></span>
-              <span class="glass absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full" aria-hidden="true"><Icon name="arrow" class="h-4 w-4 -rotate-45" /></span>
-              <h3 class="text-2xl text-white">{s.data.name}</h3>
-              <p class="mt-1 text-sm text-white/85">{s.data.cardSummary}</p>
+            <a href={`/services/${s.id}/`} class="group flex h-full flex-col overflow-hidden rounded-[18px] border border-rule bg-white no-underline transition-shadow duration-200 hover:shadow-[0_12px_40px_rgb(28_25_23/0.10)]">
+              {ph ? (
+                <Image src={ph.src} alt={ph.alt} widths={[400, 740]} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" class="aspect-[16/10] w-full object-cover" />
+              ) : (
+                <span class="drafting-grid flex aspect-[16/10] w-full items-center justify-center bg-shallow p-5 text-sm text-muted">
+                  Project photos coming soon
+                </span>
+              )}
+              <span class="flex flex-1 flex-col p-5">
+                <span class="flex items-start justify-between gap-3">
+                  <h3 class="text-xl">{s.data.name}</h3>
+                  <Icon name="arrow" class="mt-1 h-4 w-4 shrink-0 -rotate-45 text-tide transition-transform duration-200 group-hover:rotate-0" />
+                </span>
+                <p class="mt-2 text-[0.95rem] text-muted">{s.data.cardSummary}</p>
+              </span>
             </a>
           </li>
         );
       })}
-    </ul>
-    <ul class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {otherServices.map((s) => (
-        <li>
-          <a href={`/services/${s.id}/`} class="group flex h-full flex-col rounded-[18px] bg-shallow p-5 no-underline transition-colors duration-200 hover:bg-rule">
-            <span class="flex items-start justify-between gap-3">
-              <h3 class="text-lg">{s.data.name}</h3>
-              <Icon name="arrow" class="mt-1 h-4 w-4 shrink-0 -rotate-45 text-tide transition-transform duration-200 group-hover:rotate-0" />
-            </span>
-            <p class="mt-2 text-sm text-muted">{s.data.cardSummary}</p>
-          </a>
-        </li>
-      ))}
+      <li class="lg:col-span-2">
+        <a href="#estimate" class="flex h-full min-h-56 flex-col justify-between rounded-[18px] bg-ink p-6 text-white no-underline" data-event="estimate_cta" data-location="services_card">
+          <span class="font-display text-2xl font-semibold leading-tight">Not sure what you need?</span>
+          <span>
+            <span class="block text-white/80">We'll look at the site and tell you. The estimate is free.</span>
+            <span class="btn-marker mt-5">Book a site visit</span>
+          </span>
+        </a>
+      </li>
     </ul>
   </section>
 
-  <!-- 4. Recent work slider -->
+  <!-- 4. Comparison table -->
   <section class="bg-shallow">
-    <div class="container-x py-20 md:py-24">
-      <div class="flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <p class="label-note">Recent work</p>
-          <h2 class="mt-3 text-4xl md:text-5xl">Built by our crew</h2>
+    <div class="container-x grid gap-10 py-20 md:py-24 lg:grid-cols-[0.8fr_1.4fr] lg:items-start">
+      <div>
+        <h2 class="text-4xl md:text-5xl">Fixed dock or floating dock?</h2>
+        <p class="mt-4 max-w-[40ch] text-muted">The most common question we get. Many properties use both: a fixed pier with a floating dock on a gangway.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="/services/docks-piers/" class="link">Fixed docks &amp; piers</a>
+          <a href="/services/floating-docks/" class="link">Floating docks</a>
         </div>
-        <a href="/projects/" class="link">See all projects</a>
       </div>
-      <div class="mt-6">
-        <GallerySlider photos={slides} id="home-gallery" label="Recent work" />
+      <div class="min-w-0 overflow-x-auto rounded-[18px] border border-rule bg-white">
+        <table class="w-full min-w-[34rem] text-left text-[0.95rem]">
+          <caption class="sr-only">Fixed dock compared with floating dock</caption>
+          <thead>
+            <tr class="border-b border-rule">
+              <th scope="col" class="w-[30%] p-4 font-medium text-muted"><span class="sr-only">Feature</span></th>
+              <th scope="col" class="p-4 font-display text-lg font-semibold">Fixed dock</th>
+              <th scope="col" class="bg-ink/[0.03] p-4 font-display text-lg font-semibold">Floating dock</th>
+            </tr>
+          </thead>
+          <tbody>
+            {compare.map((r) => (
+              <tr class="border-b border-rule last:border-0">
+                <th scope="row" class="p-4 font-medium text-muted">{r.k}</th>
+                <td class="p-4">{r.fixed}</td>
+                <td class="bg-ink/[0.03] p-4">{r.floating}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-      <p class="mt-2 text-sm"><span class="todo">TODO_CONFIRM: every photo is NCMC's own work (and photographer permission where needed)</span></p>
     </div>
   </section>
 
-  <!-- 5. Process -->
+  <!-- 5. Recent work -->
   <section class="container-x py-20 md:py-24">
-    <p class="label-note">How a project runs</p>
-    <h2 class="mt-3 max-w-[20ch] text-4xl md:text-5xl">From first call to finished dock</h2>
-    <ol class="mt-12 grid gap-4 md:grid-cols-4">
-      {steps.map((s, i) => (
-        <li class="rounded-[18px] border border-rule bg-white p-6">
-          <span class="flex h-9 w-9 items-center justify-center rounded-full bg-ink font-display text-sm font-semibold text-white">{i + 1}</span>
-          <h3 class="mt-5 text-xl">{s.t}</h3>
-          <p class="mt-2 text-[0.95rem] text-muted">{s.d}</p>
-        </li>
-      ))}
-    </ol>
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <h2 class="text-4xl md:text-5xl">Built by our crew</h2>
+      <a href="/projects/" class="link">See all projects</a>
+    </div>
+    <div class="mt-6">
+      <GallerySlider photos={slides} id="home-gallery" label="Recent work" />
+    </div>
+    <p class="mt-2 text-sm"><span class="todo">TODO_CONFIRM: every photo is NCMC's own work (and photographer permission where needed)</span></p>
   </section>
 
-  <!-- 6. Towns -->
+  <!-- 6. Process -->
+  <section class="border-t border-rule">
+    <div class="container-x py-20 md:py-24">
+      <h2 class="max-w-[20ch] text-4xl md:text-5xl">From first call to finished dock</h2>
+      <ol class="relative mt-12 grid gap-4 md:grid-cols-4">
+        {steps.map((s, i) => (
+          <li class="rounded-[18px] border border-rule bg-white p-6">
+            <span class="flex items-center justify-between">
+              <span class="flex h-9 w-9 items-center justify-center rounded-full bg-ink font-display text-sm font-semibold text-white">{i + 1}</span>
+              {s.tag && <span class="rounded-full bg-marker px-2.5 py-0.5 text-xs font-semibold text-ink">{s.tag}</span>}
+            </span>
+            <h3 class="mt-5 text-xl">{s.t}</h3>
+            <p class="mt-2 text-[0.95rem] text-muted">{s.d}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- 7. Towns -->
   <section class="container-x pb-20 md:pb-24">
-    <div class="rounded-[22px] bg-tide px-6 py-12 text-white sm:px-10 md:py-16">
-      <p class="label-note text-white/75">Where we build</p>
-      <ul class="mt-6 grid gap-x-10 sm:grid-cols-2">
+    <div class="grid gap-8 rounded-[22px] bg-tide px-6 py-12 text-white sm:px-10 md:grid-cols-[1fr_1.4fr] md:py-14">
+      <div>
+        <h2 class="text-3xl text-white md:text-4xl">Where we build</h2>
+        <p class="mt-4 max-w-[40ch] text-white/85">Along Topsail Sound, the Intracoastal Waterway and the creeks and canals of Hampstead and Topsail Island.</p>
+      </div>
+      <ul class="grid gap-x-8 sm:grid-cols-2">
         {B.areas.map((a) => (
-          <li class="flex items-center justify-between border-b border-white/20 py-4 font-display text-3xl font-medium md:text-4xl">
+          <li class="flex items-center justify-between border-b border-white/20 py-4 font-display text-2xl font-medium md:text-3xl">
             {a.areaPage ? <a href={a.areaPage} class="text-white no-underline hover:underline">{a.name}</a> : <span>{a.name}</span>}
             <span class="text-sm font-normal text-white/65">NC</span>
           </li>
         ))}
       </ul>
-      <p class="mt-6 max-w-[56ch] text-white/85">Docks, lifts and seawalls along Topsail Sound, the Intracoastal Waterway and the creeks and canals of Hampstead and Topsail Island.</p>
     </div>
   </section>
 
   {B.reviews.length > 0 && (
     <section class="bg-shallow">
       <div class="container-x py-20">
-        <p class="label-note">Reviews</p>
-        <h2 class="mt-3 text-4xl">What waterfront homeowners say</h2>
+        <h2 class="text-4xl">What waterfront homeowners say</h2>
         <div class="mt-10 grid gap-4 md:grid-cols-3">
           {B.reviews.slice(0, 5).map((r) => (
             <figure class="rounded-[18px] border border-rule bg-white p-6">
@@ -226,25 +301,23 @@ const quickTypes = projectTypes.filter((p) => p.value !== 'other');
     </section>
   )}
 
-  <!-- 7. FAQ -->
+  <!-- 8. FAQ -->
   <section class="border-t border-rule">
     <div class="container-x grid gap-10 py-20 md:grid-cols-[1fr_2fr] md:py-24">
       <div>
-        <p class="label-note">Before you call</p>
-        <h2 class="mt-3 text-4xl">Common questions</h2>
+        <h2 class="text-4xl">Common questions</h2>
         <p class="mt-4 text-sm text-muted">Permit answers are general information, not legal advice. <a href="/faq/" class="link">All questions</a></p>
       </div>
       <FaqList faqs={homeFaqs} heading="Frequently asked questions about docks and permits" id="home-faq" hideHeading />
     </div>
   </section>
 
-  <!-- 8. Estimate card -->
+  <!-- 9. Estimate card -->
   <div class="p-2 sm:p-3">
     <section class="chart-grid rounded-[22px] bg-ink text-white">
       <div class="container-x grid gap-12 py-16 lg:grid-cols-[1fr_1.1fr] lg:py-20">
         <div>
-          <p class="label-note text-white/70">Free on-site estimate</p>
-          <h2 class="mt-3 text-4xl text-white md:text-5xl">Tell us what you want to do with your waterfront</h2>
+          <h2 class="text-4xl text-white md:text-5xl">Tell us what you want to do with your waterfront</h2>
           <p class="mt-5 max-w-[46ch] text-white/80">We come out, walk the shoreline with you, check the water depth and explain the permit path. The estimate is free.</p>
           <a href={telHref()} class="btn-marker mt-8 text-lg" data-event="click_to_call" data-location="home_form"><Icon name="phone" /><span class="tabular-nums">Call {B.phones.office.display}</span></a>
           <p class="mt-3 text-sm text-white/70">Calling is the fastest way to reach us.</p>
