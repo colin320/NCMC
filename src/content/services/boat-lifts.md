@@ -5,10 +5,10 @@ order: 3
 h1: Boat Lift Installation in Hampstead & Topsail Island, NC
 metaTitle: Boat Lift Installation | Topsail Island & Hampstead, NC
 metaDescription: "Boat lift installation on new or existing docks in Surf City, Hampstead and Topsail Beach, NC. Call (910) 465-1712."
-cardSummary: A lift that holds the boat's real weight, on pilings that can carry it.
+cardSummary: Boat lifts sized to the boat's loaded weight, on pilings that can carry it.
 image: ../../assets/photos/twin-boat-lifts-composite-dock-grated-walkway.webp
 imageAlt: Two center console boats raised on boat lifts on either side of a gray composite dock with a grated walkway in Surf City, NC
-answer: Salt water is hard on a hull that sits in it. We install boat lifts on new and existing docks in Surf City, Hampstead, Topsail Beach and North Topsail Beach. Before we pick one, we look at the boat's loaded weight, the depth at the slip, and the pilings it will hang from. If those pilings can't take the load, we add new ones.
+answer: We install boat lifts on new and existing docks in Surf City, Hampstead, Topsail Beach and North Topsail Beach. Before we recommend a lift, we look at the boat's loaded weight, the depth at the slip, and the pilings it will hang from. If those pilings can't take the load, we add new ones.
 included:
   - Lift sizing from the boat's loaded weight, length and beam
   - A lift type picked for your dock and the water depth at the slip
@@ -44,9 +44,9 @@ projectTags: [boat-lifts]
 | 4-post lift | Cables raise a cradle between four free-standing pilings | Larger boats and open water slips |
 | Cradle / beamless lift | A cradle sits between pilings with no overhead beams | Boats with towers or T-tops, or a cleaner look overhead |
 
-## Why keep the boat up
+## Keeping the boat out of the water
 
-A boat left in salt water between trips grows a film on the hull, and the metal under the waterline corrodes faster. Up on a lift it stays dry. Washdowns go quicker. It also isn't knocking the dock when the wind comes up or a wake rolls through.
+A boat left in salt water between trips picks up growth on the hull, and the metal below the waterline corrodes faster. On a lift it stays dry, washdowns go quicker, and it isn't hitting the dock when the wind or a wake comes through.
 
 ## Adding a lift to a dock you already have
 

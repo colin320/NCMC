@@ -8,11 +8,11 @@ export type Faq = { q: string; a: string };
 export const generalFaqs: Faq[] = [
   {
     q: 'What areas do you serve?',
-    a: 'Hampstead, Surf City, Topsail Beach and North Topsail Beach. If you\'re just outside that, call and we\'ll tell you.',
+    a: 'We build docks, lifts and seawalls in Hampstead, Surf City, Topsail Beach and North Topsail Beach. If your property is just outside that, call and we\'ll tell you whether we can cover it.',
   },
   {
     q: 'Do you offer free estimates?',
-    a: 'Yes. We come out, look at the shoreline and the depth, and write it up. No charge.',
+    a: 'Yes. We come out, look at the shoreline and the water depth, and give you a written estimate at no charge.',
   },
   {
     q: 'Are you licensed and insured?',
@@ -46,11 +46,11 @@ export const permitFaqs: Faq[] = [
 export const processFaqs: Faq[] = [
   {
     q: 'How long does a dock or seawall project take?',
-    a: 'The build is usually the short part. Permits and the schedule take longer. After we see the property, we tell you what the timing looks like for your job.',
+    a: 'Permits and scheduling usually take longer than the construction. After we see the property, we give you a timeline for your job.',
   },
   {
     q: 'What happens at the estimate visit?',
-    a: 'We walk the shoreline with you and check the depth. You tell us how you use the boat. Then we talk permits. A written estimate comes after.',
+    a: 'We come out to the property, check the water depth and how equipment will get in, and talk about how you use the boat. We also go over the permits. You get a written estimate afterward.',
   },
 ];
 

@@ -7,12 +7,12 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
 ---
 <BaseLayout
   title="Marine Construction Services | Topsail Island & Hampstead"
-  description="Dock builder in Surf City, Hampstead and Topsail Beach. We'll come look at the shoreline. Free estimate. (910) 465-1712"
+  description="Docks, piers, boat lifts and vinyl seawalls around Topsail Island and Hampstead, NC. (910) 465-1712"
   breadcrumbs={[{ name: 'Services', href: '/services/' }]}
 >
   <section class="container-x py-10 md:py-14">
     <h1 class="text-4xl md:text-6xl">Marine Construction Services</h1>
-    <p class="answer-first mt-5">The tide drops, and you find out if the boat still floats at the dock. A storm can leave the pier soft underfoot. We build docks for homes in Surf City, Hampstead, Topsail Beach and North Topsail Beach. Call us. We'll walk the shoreline with you and tell you what the job needs. The visit is free.</p>
+    <p class="answer-first mt-5">We build and repair docks, piers, boat lifts and vinyl seawalls for waterfront homes around Topsail Island and Hampstead. Each service below explains how we approach that kind of job.</p>
     <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {services.map((s) => <ServiceCard href={`/services/${s.id}/`} name={s.data.name} summary={s.data.cardSummary} />)}
     </div>

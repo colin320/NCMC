@@ -5,8 +5,8 @@ order: 2
 h1: Floating Dock Installation in Hampstead & Topsail Island, NC
 metaTitle: Floating Docks | Topsail Island & Hampstead, NC | NCMC
 metaDescription: "Floating docks and gangways for waterfront homes in Surf City, Hampstead and Topsail Beach, NC. Free estimates. (910) 465-1712"
-cardSummary: The step onto the boat stays the same, high tide or low.
-answer: Boarding a low boat gets awkward when the tide swings. A floating dock sits on sealed floats and moves with it, so the step stays put. We install them, and the gangway down from a fixed pier, in Surf City, Hampstead, Topsail Beach and North Topsail Beach. The free visit covers depth and current at your place.
+cardSummary: Floating docks that rise and fall with the tide, so the step to the boat stays the same.
+answer: We install floating docks, and the gangway from a fixed pier, in Surf City, Hampstead, Topsail Beach and North Topsail Beach. The dock sits on sealed floats and moves with the tide, so the step to the boat stays the same at high water and low. The free estimate covers depth and current at your site.
 included:
   - A site visit to check depth, tidal range and current
   - A float and frame layout sized for your boats
@@ -34,7 +34,7 @@ projectTags: [floating-docks]
 
 ## Who a floating dock suits
 
-If you board a low boat, or you launch kayaks, this is the one. The deck stays a set height above the water. The step down doesn't change when the tide does. It also helps anyone who doesn't want a ladder.
+A floating dock suits a low boat or a kayak launch. The deck stays a set height above the water, so the step down doesn't change with the tide. It also helps anyone who has trouble with a ladder.
 
 ## How a floating dock is built
 

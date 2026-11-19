@@ -5,8 +5,8 @@ order: 4
 h1: Jet Ski & PWC Lifts in Hampstead & Topsail Island, NC
 metaTitle: Jet Ski Lifts | Topsail Island & Hampstead, NC | NCMC
 metaDescription: "Jet ski lifts and drive-on floats in Surf City, Hampstead and Topsail Beach, NC. Free on-site estimates. (910) 465-1712"
-cardSummary: Get the jet ski out of the salt water, on a lift or a drive-on float.
-answer: A jet ski left in salt water pays for it. Hull and engine both. We install PWC lifts in Surf City, Hampstead, Topsail Beach and North Topsail Beach. A swinger lift mounts to the dock. A drive-on float is one you ride onto. We match it to the machine and the pier.
+cardSummary: Swinger lifts and drive-on floats that keep a jet ski out of the salt water.
+answer: We install jet ski and PWC lifts in Surf City, Hampstead, Topsail Beach and North Topsail Beach. A swinger lift mounts to the dock or a piling, and a drive-on float is a platform you ride onto. We match the lift to the machine and the dock. Keeping the machine out of salt water is easier on the hull and the engine.
 included:
   - A recommendation on swinger lift or drive-on float for your site
   - A lift or float rated for your PWC's weight

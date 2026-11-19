@@ -5,8 +5,8 @@ order: 1
 h1: Dock & Pier Builder in Hampstead & Topsail Island, NC
 metaTitle: Dock & Pier Builder | Topsail Island & Hampstead, NC
 metaDescription: "Fixed dock and pier builder in Surf City, Hampstead and Topsail Beach, NC. We check the depth before we price it. (910) 465-1712."
-cardSummary: A fixed pier with water under the boat when the tide is out.
-answer: Low tide tells you. If the boat doesn't float, the pier is short. We build fixed docks and piers in Surf City, Hampstead, Topsail Beach and North Topsail Beach. We come out, check the depth, and write the price. You'll know the CAMA steps before you sign.
+cardSummary: Fixed docks and piers, set on pilings sized for your slip and your boat.
+answer: We build fixed docks and piers in Surf City, Hampstead, Topsail Beach and North Topsail Beach. We come out, check the water depth, and give you a written price. You'll know the CAMA permit steps before you sign.
 image: ../../assets/photos/pier-gazebo-marsh-view.webp
 imageAlt: Covered pier platform with a hip roof, built-in benches and composite decking overlooking a coastal marsh in Topsail Beach, NC
 included:
@@ -32,14 +32,14 @@ faqs:
   - q: Can you add a roof or covered platform to my existing dock?
     a: Often, yes. The pilings and framing have to carry the extra weight. We look first and tell you if they need help.
   - q: Do you offer free estimates?
-    a: Yes. We come out, check the depth, the shoreline and how we'd get equipment in, and write the estimate. No charge.
+    a: Yes. We come out, check the depth, the shoreline and how we'd get equipment in, and give you a written estimate at no charge.
 related: [floating-docks, boat-lifts, dock-repair]
 projectTags: [docks-piers]
 ---
 
 ## What a dock on Topsail Sound or the ICW needs
 
-The boat has to float at low tide. That's the first thing we check. Pilings have to match the soil and the current, and the hardware has to live in salt. Then the layout should match how you use the water. Some people want a long walkway out to a fishing platform. Others just need a low landing so they can step onto the boat.
+A dock on Topsail Sound or the ICW has to reach water deep enough for the boat at low tide, and we check that first. The pilings have to match the soil and the current, and the hardware has to hold up in salt. Some owners want a long walkway out to a fishing platform. Others need a low landing so they can step onto the boat.
 
 ## Fixed dock vs. floating dock
 

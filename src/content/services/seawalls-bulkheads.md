@@ -5,8 +5,8 @@ order: 5
 h1: Seawall & Bulkhead Contractor in Hampstead & Topsail Island, NC
 metaTitle: Seawalls & Bulkheads | Topsail Island & Hampstead, NC
 metaDescription: "Vinyl seawalls and bulkhead replacement in Surf City, Hampstead and Topsail Beach, NC. We look at the wall first. (910) 465-1712."
-cardSummary: Hold the yard when the tide and the boat wakes hit the wall.
-answer: A failing bulkhead shows up in the yard first. Soil disappears behind the wall. We build new vinyl seawalls and replace old ones in Surf City, Hampstead, Topsail Beach and North Topsail Beach. Our North Topsail Beach job used 300 ft of CMI vinyl. You'll hear the CAMA steps before you commit.
+cardSummary: New vinyl seawalls and bulkhead replacement to hold the shoreline in place.
+answer: We build new vinyl seawalls and replace failing bulkheads in Surf City, Hampstead, Topsail Beach and North Topsail Beach. A bulkhead keeps the yard from washing out under tides, boat wakes and storms. Our North Topsail Beach job used 300 ft of CMI vinyl. You'll know the CAMA permit steps before you commit.
 image: ../../assets/photos/covered-pier-gazebo-vinyl-seawall.webp
 imageAlt: White vinyl seawall along a sandy waterfront yard with a covered pier and gazebo-style roof in Hampstead, NC
 included:

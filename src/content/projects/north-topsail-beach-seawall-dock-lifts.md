@@ -24,7 +24,7 @@ confirmNote: Confirm year, photos, and permission to name the town. Add the chal
 
 ## The project
 
-The yard needed to stay put, and they still needed a way out to the water. We built 300 ft of vinyl seawall with CMI sheet piling, then ran a 250 ft dock off it. Part of that dock is a bridge, so boats can still get past.
+This North Topsail Beach property needed the shoreline held and a way out to the water. We built 300 ft of vinyl seawall with CMI sheet piling, then ran a 250 ft dock off it. Part of that dock is a bridge section, so boats can still get past.
 
 Out at the end there's an elevator lift for the boat and a 1,500 lb swinger for one jet ski. The second jet ski sits on a WaveArmor drive-on float.
 
