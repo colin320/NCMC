@@ -13,7 +13,7 @@ included:
   - A free site visit to look at the shoreline and the water depth
   - Treated timber pilings set to the depth the site calls for
   - Framing, railings and decking in pressure treated pine or composite
-  - A covered platform or a bench, if that's part of the job
+  - Covered platforms, stairs, benches, and fish-cleaning or storage stations
   - A clear explanation of the CAMA and local permit steps
 costDrivers:
   - How far the walkway has to run to reach usable water
