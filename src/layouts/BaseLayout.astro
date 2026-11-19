@@ -20,8 +20,10 @@ interface Props {
   schema?: Record<string, unknown>[];
   noindex?: boolean;
   ogImage?: ImageMetadata;
+  /** Page renders <Header variant="overlay" /> inside its own hero (home). */
+  overlayHeader?: boolean;
 }
-const { title, description, breadcrumbs, schema = [], noindex = false, ogImage } = Astro.props;
+const { title, description, breadcrumbs, schema = [], noindex = false, ogImage, overlayHeader = false } = Astro.props;
 const site = Astro.site!.toString().replace(/\/$/, '');
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 
@@ -83,7 +85,7 @@ const { ga4Id, clarityId } = integrations;
     )}
   </head>
   <body>
-    <Header />
+    {!overlayHeader && <Header />}
     {crumbs && <Breadcrumbs items={crumbs} />}
     <main id="main">
       <slot />

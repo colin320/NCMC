@@ -1,39 +1,36 @@
 @import 'tailwindcss';
-@import '@fontsource-variable/playfair-display';
-@import '@fontsource-variable/inter';
+@import '@fontsource-variable/outfit';
+@import '@fontsource-variable/work-sans';
 
 /*
- * NCMC visual system v3 (proposed, pending client approval). Full rationale: docs/DESIGN.md
+ * NCMC visual system v4, SaaS direction (proposed, pending client approval). Rationale: docs/DESIGN.md
  * Built from the UI/UX Pro Max skill databases:
- *   Pattern  Hero-Centric + Trust & Authority (proof strip, case studies, low-friction form,
- *            accent reserved for CTAs) + Portfolio Grid (visuals first, neutral ground)
- *   Color    "Luxury/Premium: premium black + gold" (stone ink, brass accent) with deep teal
- *            from "Real Estate/Property" for water bands. No orange.
- *   Type     "Classic Elegant": Playfair Display headings + Inter body
+ *   Pattern  Hero-Centric + Trust & Authority (proof, case studies, low-friction form,
+ *            accent reserved for CTAs) + Portfolio (visuals first, neutral ground)
+ *   Type     "Geometric Modern": Outfit headings + Work Sans body
+ *   Surface  Glassmorphism for photo overlays only (blur 16px, white 16%, 1px white/25 border)
+ *   Color    Stone ink + deep teal (Real Estate/Property row); one bright CTA fill. No orange.
  *
- * Contrast (WCAG): ink/paper 16.7; white/brass 4.9; white/teal 9.5; ink/brass-light 10.9;
- * brass-light/teal 4.7+; muted/paper 7.3.
+ * Contrast (WCAG): ink/paper 16.7; ink/marker 13+; white/teal 9.5; teal/paper 9; muted/paper 7.3.
+ * The lime marker is a fill color only: never use it as text on light grounds.
  */
 @theme {
-  --color-ink: #1c1917;          /* premium black (stone-900) */
+  --color-ink: #1c1917;          /* text, dark bands */
   --color-paper: #fafaf9;        /* page ground */
   --color-shallow: #f2f1ef;      /* alternate section ground */
-  --color-rule: #d6d3d1;         /* borders */
+  --color-rule: #e2e0dd;         /* borders */
   --color-muted: #57534e;        /* secondary text */
-  --color-brass: #a16207;        /* CTA accent only (white text 4.9:1) */
-  --color-brass-dark: #854d0e;   /* CTA hover */
-  --color-marker: #e7c989;       /* light brass: CTA + labels on dark grounds */
-  --color-tide: #134e4a;         /* deep teal water bands */
+  --color-marker: #d9f05a;       /* sea-glass lime: primary CTA fill, ink text */
+  --color-marker-dark: #c6e03f;
+  --color-tide: #134e4a;         /* deep teal: labels, links, accents on light */
   --color-tide-soft: #0f766e;
   --color-todo: #ffb3e6;         /* review-only placeholder highlight */
 
-  --font-display: 'Playfair Display Variable', Georgia, 'Times New Roman', serif;
-  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
-  /* Utility face: the skill's pairing has no mono, so small labels use Inter. */
-  --font-mono: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Outfit Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Work Sans Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Work Sans Variable', ui-sans-serif, system-ui, sans-serif;
 
-  --radius-sm: 4px;
-  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --radius-sm: 10px;
 }
 
 @layer base {
@@ -47,11 +44,11 @@
   h1, h2, h3 {
     @apply font-display text-ink;
     font-weight: 600;
-    letter-spacing: -0.01em;
-    line-height: 1.1;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
     text-wrap: balance;
   }
-  h3 { line-height: 1.25; }
+  h3 { line-height: 1.2; letter-spacing: -0.01em; }
   a, button, summary, label[for], input[type='checkbox'], input[type='radio'], select { cursor: pointer; }
   :focus-visible {
     outline: 3px solid var(--color-tide-soft);
@@ -71,14 +68,14 @@
   @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-sm px-6 py-3 text-[0.95rem] font-semibold no-underline transition-colors duration-200;
 }
 
-/* Primary CTA on light grounds: brass */
+/* Primary on light grounds: ink */
 @utility btn-primary {
-  @apply btn bg-brass text-white hover:bg-brass-dark;
+  @apply btn bg-ink text-white hover:bg-tide;
 }
 
-/* Primary CTA on dark grounds: light brass with ink text */
+/* Primary CTA (lime fill, ink text): hero, dark bands, mobile bar */
 @utility btn-marker {
-  @apply btn bg-marker text-ink hover:bg-white;
+  @apply btn bg-marker text-ink hover:bg-marker-dark;
 }
 
 @utility btn-secondary {
@@ -89,10 +86,18 @@
   @apply btn border border-white/60 text-white hover:bg-white hover:text-ink;
 }
 
+/* Frosted glass panel for overlays on photos */
+@utility glass {
+  background: rgb(255 255 255 / 0.16);
+  border: 1px solid rgb(255 255 255 / 0.25);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  backdrop-filter: blur(16px) saturate(1.2);
+}
+
 /* Eyebrow label */
 @utility label-note {
-  @apply font-sans text-xs font-semibold uppercase text-brass;
-  letter-spacing: 0.16em;
+  @apply font-sans text-xs font-semibold uppercase text-tide;
+  letter-spacing: 0.14em;
 }
 
 @utility answer-first {
@@ -100,7 +105,7 @@
 }
 
 @utility link {
-  @apply font-medium text-tide underline decoration-1 underline-offset-[3px] transition-colors duration-200 hover:text-brass;
+  @apply font-medium text-tide underline decoration-1 underline-offset-[3px] transition-colors duration-200 hover:text-ink;
 }
 
 @utility prose-ncmc {
@@ -115,14 +120,14 @@
   .prose-ncmc h2 { @apply mt-12 mb-3 text-3xl; }
   .prose-ncmc h3 { @apply mt-8 mb-2 text-xl; }
   .prose-ncmc p { @apply my-4; }
-  .prose-ncmc ul { @apply my-4 list-disc space-y-1 pl-6 marker:text-brass; }
-  .prose-ncmc ol { @apply my-4 list-decimal space-y-2 pl-6 marker:font-semibold marker:text-brass; }
+  .prose-ncmc ul { @apply my-4 list-disc space-y-1 pl-6 marker:text-tide; }
+  .prose-ncmc ol { @apply my-4 list-decimal space-y-2 pl-6 marker:font-semibold marker:text-tide; }
   .prose-ncmc a { @apply link; }
   .prose-ncmc table { @apply my-6 block w-full overflow-x-auto border-collapse text-left text-[0.95rem] sm:table; }
   .prose-ncmc th { @apply border-b-2 border-ink p-2 pl-0 text-xs font-semibold uppercase tracking-wider text-muted; }
   .prose-ncmc td { @apply border-b border-rule p-2 pl-0 align-top; }
 
-  /* Kept for the CTA band; subtle texture on dark grounds */
+  /* Subtle dot texture on dark grounds */
   .chart-grid {
     background-image: radial-gradient(rgb(255 255 255 / 0.06) 1px, transparent 1px);
     background-size: 22px 22px;

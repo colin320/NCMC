@@ -1,40 +1,63 @@
 ---
+/**
+ * Site header.
+ * - solid (default): sticky bar on paper.
+ * - overlay: transparent, white text, placed inside the home hero photo (SaaS-style).
+ */
 import { Image } from 'astro:assets';
 import logo from '../assets/brand/ncmc-logo.png';
 import Icon from './Icon.astro';
 import { business, telHref } from '../data/business';
 import { nav } from '../data/nav';
+
+interface Props { variant?: 'solid' | 'overlay'; }
+const { variant = 'solid' } = Astro.props;
+const overlay = variant === 'overlay';
 const path = Astro.url.pathname;
 ---
-<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:bg-white focus:p-3">Skip to content</a>
-<header class="sticky top-0 z-40 border-b border-rule bg-paper/95 backdrop-blur">
-  <div class="container-x flex h-16 items-center justify-between gap-3 md:h-[5.25rem]">
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded-sm focus:bg-white focus:p-3">Skip to content</a>
+<header class:list={[overlay ? 'relative z-30' : 'sticky top-0 z-40 border-b border-rule bg-paper/90 backdrop-blur']}>
+  <div class:list={['flex items-center justify-between gap-3', overlay ? 'h-20 px-4 sm:px-6 lg:px-8' : 'container-x h-16 md:h-[4.5rem]']}>
     <a href="/" class="flex shrink-0 items-center gap-3 no-underline" aria-label={`${business.name} home`}>
-      <Image src={logo} alt="" width={64} height={63} densities={[1.5, 2, 3]} class="h-11 w-auto md:h-16" loading="eager" />
-      <span class="hidden flex-col sm:flex">
-        <span class="font-display text-xl font-semibold leading-none text-ink">NC Marine Construction</span>
-        <span class="mt-1.5 text-[0.68rem] font-semibold uppercase leading-none tracking-[0.18em] text-muted">Docks · Seawalls · Boat Lifts</span>
-      </span>
+      <Image src={logo} alt="" width={56} height={55} densities={[1.5, 2, 3]} class:list={['h-11 w-auto md:h-12', overlay && 'invert']} loading="eager" />
+      <span class:list={['hidden font-display text-lg font-semibold leading-tight sm:block', overlay ? 'text-white' : 'text-ink']}>NC Marine<br />Construction</span>
     </a>
+
     <nav aria-label="Main" class="hidden lg:block">
-      <ul class="flex items-center gap-7 text-[0.95rem]">
+      <ul class="flex items-center gap-8 text-[0.95rem]">
         {nav.map((n) => {
           const on = path.startsWith(n.href);
-          return <li><a href={n.href} class:list={['py-2 text-[0.95rem] no-underline decoration-brass decoration-2 underline-offset-[10px] transition-colors duration-200 hover:text-ink hover:underline', on ? 'font-semibold text-ink underline' : 'text-ink/75']} aria-current={on ? 'page' : undefined}>{n.label}</a></li>;
+          return (
+            <li>
+              <a
+                href={n.href}
+                aria-current={on ? 'page' : undefined}
+                class:list={[
+                  'py-2 no-underline transition-colors duration-200',
+                  overlay ? 'text-white/85 hover:text-white' : on ? 'font-semibold text-ink' : 'text-ink/70 hover:text-ink',
+                ]}
+              >{n.label}</a>
+            </li>
+          );
         })}
       </ul>
     </nav>
+
     <div class="flex items-center gap-2">
-      <a href="/contact/#estimate" class="btn-secondary hidden xl:inline-flex" data-event="estimate_cta" data-location="header">Free estimate</a>
-      <a href={telHref()} class="btn-primary px-3 sm:px-5" data-event="click_to_call" data-location="header">
+      <a
+        href={telHref()}
+        class:list={['btn px-4 sm:px-5', overlay ? 'bg-white text-ink hover:bg-marker' : 'bg-ink text-white hover:bg-tide']}
+        data-event="click_to_call"
+        data-location="header"
+      >
         <Icon name="phone" /><span class="tabular-nums">{business.phones.office.display}</span>
       </a>
       <details class="relative lg:hidden">
-        <summary class="btn list-none border border-ink px-3 text-ink [&::-webkit-details-marker]:hidden" aria-label="Menu">Menu</summary>
-        <nav aria-label="Mobile" class="absolute right-0 mt-2 w-64 border border-ink/15 bg-paper p-2 shadow-xl">
+        <summary class:list={['btn list-none px-3 [&::-webkit-details-marker]:hidden', overlay ? 'glass text-white' : 'border border-rule text-ink']} aria-label="Menu">Menu</summary>
+        <nav aria-label="Mobile" class="absolute right-0 mt-2 w-64 rounded-sm border border-rule bg-paper p-2 shadow-xl">
           <ul>
-            {nav.map((n) => <li><a href={n.href} class="block min-h-11 px-3 py-3 font-medium text-ink no-underline hover:bg-shallow">{n.label}</a></li>)}
-            <li><a href="/contact/#estimate" class="mt-1 block min-h-11 bg-ink px-3 py-3 font-semibold text-white no-underline">Free Estimate</a></li>
+            {nav.map((n) => <li><a href={n.href} class="block min-h-11 rounded-sm px-3 py-3 font-medium text-ink no-underline hover:bg-shallow">{n.label}</a></li>)}
+            <li><a href="/contact/#estimate" class="mt-1 block min-h-11 rounded-sm bg-marker px-3 py-3 font-semibold text-ink no-underline">Free estimate</a></li>
           </ul>
         </nav>
       </details>

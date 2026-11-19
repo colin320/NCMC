@@ -111,6 +111,16 @@ const label = 'block text-sm font-semibold text-ink';
   const tel = business.phones.office.e164;
 
   document.querySelectorAll<HTMLFormElement>('form.estimate-form').forEach((form) => {
+    // Prefill from the home hero quick-estimate bar (/contact/?project=dock&town=Surf+City).
+    const params = new URLSearchParams(location.search);
+    const project = params.get('project');
+    const town = params.get('town');
+    if (project) form.querySelectorAll<HTMLInputElement>('input[name=projectType]').forEach((c) => { if (c.value === project) c.checked = true; });
+    if (town) {
+      const sel = form.querySelector<HTMLSelectElement>('select[name=town]');
+      if (sel && [...sel.options].some((o) => o.value === town)) sel.value = town;
+    }
+
     const status = form.querySelector<HTMLElement>('.form-status')!;
     const btn = form.querySelector<HTMLButtonElement>('button[type=submit]')!;
 
