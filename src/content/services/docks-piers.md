@@ -5,8 +5,8 @@ order: 1
 h1: Dock & Pier Builder in Hampstead & Topsail Island, NC
 metaTitle: Dock & Pier Builder | Topsail Island & Hampstead, NC
 metaDescription: "Fixed dock and pier builder in Surf City, Hampstead and Topsail Beach, NC. We check the depth before we price it. (910) 465-1712."
-cardSummary: Fixed docks and piers, set on pilings sized for your slip and your boat.
-answer: We build fixed docks and piers for waterfront homes in Hampstead and on Topsail Island, from Surf City to Topsail Beach and North Topsail Beach. Every dock sits on pilings sized for your slip and your boat. Before you sign anything, we'll check the water depth, give you a price, and walk you through the CAMA permit.
+cardSummary: A dock that looks right with the house, and an easy way to get the boat out.
+answer: We build docks and piers for waterfront homes in Hampstead and on Topsail Island, from Surf City to Topsail Beach and North Topsail Beach. You get an easy way to get the boat out, a place to sit by the water at the end of the day, and a dock that looks like it belongs with your house.
 image: ../../assets/photos/pier-gazebo-marsh-view.webp
 imageAlt: Covered pier platform with a hip roof, built-in benches and composite decking overlooking a coastal marsh in Topsail Beach, NC
 included:

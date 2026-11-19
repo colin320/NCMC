@@ -56,10 +56,10 @@ const heroSpecs = [
 ];
 
 const steps = [
-  { t: 'Site visit', d: 'We meet you at the property, check the depth at low tide, see how the equipment gets in, and ask how you use the boat.', tag: 'Free' },
-  { t: 'Price and permits', d: 'You get a written price. We also explain the CAMA and local permit steps before you commit.' },
-  { t: 'Build', d: 'Pilings go in first. Then the framing, the deck, and whatever the boat needs on top.' },
-  { t: 'Walk-through', d: 'We walk the finished dock with you and show you what to watch for.' },
+  { t: 'Site visit', d: 'We come out and talk through how you want to use the water, and what you want the dock to do.', tag: 'Free' },
+  { t: 'Price', d: 'You get a price for that dock before you commit.' },
+  { t: 'Build', d: 'We build the dock so it looks right with the house and works for the boat.' },
+  { t: 'Walk-through', d: 'We walk the finished dock with you so you can start using it.' },
 ];
 
 // Comparison facts: same statements as the Floating Docks and Docks & Piers pages.
@@ -187,7 +187,7 @@ const quickTypes = projectTypes.filter((p) => p.value !== 'other');
         <a href="#estimate" class="flex h-full min-h-56 flex-col justify-between rounded-[18px] bg-night p-6 text-white no-underline" data-event="estimate_cta" data-location="services_card">
           <span class="font-display text-2xl font-semibold leading-tight">Request a free estimate</span>
           <span>
-            <span class="block text-white/80">Tell us about the dock and we'll come out to the property.</span>
+            <span class="block text-white/80">Tell us how you want to use the water, and we'll come look.</span>
             <span class="btn-marker mt-5">Request a free estimate</span>
           </span>
         </a>
@@ -200,7 +200,7 @@ const quickTypes = projectTypes.filter((p) => p.value !== 'other');
     <div class="container-x grid gap-10 py-20 md:py-24 lg:grid-cols-[0.8fr_1.4fr] lg:items-start">
       <div>
         <h2 class="text-4xl md:text-5xl">Fixed dock or floating dock?</h2>
-        <p class="mt-4 max-w-[40ch] text-muted">A fixed pier and a floating dock do different jobs. A lot of properties use both, with a gangway between them.</p>
+        <p class="mt-4 max-w-[40ch] text-muted">A fixed dock is where you sit and how you reach the boat. A floating dock moves with the tide, so getting on and off stays easy. A lot of homes use both.</p>
         <div class="mt-6 flex flex-wrap gap-3">
           <a href="/services/docks-piers/" class="link">Fixed docks &amp; piers</a>
           <a href="/services/floating-docks/" class="link">Floating docks</a>
@@ -312,7 +312,7 @@ const quickTypes = projectTypes.filter((p) => p.value !== 'other');
       <div class="container-x grid gap-12 py-16 lg:grid-cols-[1fr_1.1fr] lg:py-20">
         <div>
           <h2 class="text-4xl text-white md:text-5xl">Request a free estimate</h2>
-          <p class="mt-5 max-w-[46ch] text-white/80">Call us or use the form. We'll come out, look at the property, and send an estimate.</p>
+          <p class="mt-5 max-w-[46ch] text-white/80">Call us or use the form. Tell us about the dock you want, and we'll send an estimate.</p>
           <a href={telHref()} class="btn-marker mt-8 text-lg" data-event="click_to_call" data-location="home_form"><Icon name="phone" /><span class="tabular-nums">Call {B.phones.office.display}</span></a>
           <p class="mt-3 text-sm text-white/70">Calling is the fastest way to reach us.</p>
         </div>

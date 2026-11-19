@@ -5,8 +5,8 @@ order: 6
 h1: Dock & Pier Repair in Hampstead & Topsail Island, NC
 metaTitle: Dock Repair | Topsail Island & Hampstead, NC | NCMC
 metaDescription: "Dock and pier repair after storms or years of wear in Surf City, Hampstead and Topsail Beach, NC. Free on-site estimates. Call (910) 465-1712."
-cardSummary: Storm damage, soft boards and failing pilings, repaired or rebuilt.
-answer: We repair docks and piers in Hampstead and on Topsail Island that have taken storm damage or worn out over the years. Sometimes new decking or framing is all a dock needs, and sometimes the pilings have gone bad and rebuilding makes more sense, so we'll look at yours and tell you which it is.
+cardSummary: A dock that's solid underfoot and good-looking again.
+answer: We repair docks and piers in Hampstead and on Topsail Island that have taken a beating from storms or years of salt and sun. We'll get yours solid underfoot and good-looking again.
 included:
   - Inspection of the decking, framing, hardware and pilings
   - A plain recommendation on repair or replacement

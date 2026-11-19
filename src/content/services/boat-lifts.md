@@ -5,10 +5,10 @@ order: 3
 h1: Boat Lift Installation in Hampstead & Topsail Island, NC
 metaTitle: Boat Lift Installation | Topsail Island & Hampstead, NC
 metaDescription: "Boat lift installation on new or existing docks in Surf City, Hampstead and Topsail Beach, NC. Call (910) 465-1712."
-cardSummary: Boat lifts sized to the boat's loaded weight, on pilings that can carry it.
+cardSummary: Your boat stays up out of the salt water, and it's ready when you are.
 image: ../../assets/photos/twin-boat-lifts-composite-dock-grated-walkway.webp
 imageAlt: Two center console boats raised on boat lifts on either side of a gray composite dock with a grated walkway in Surf City, NC
-answer: We install boat lifts on new docks and on docks that are already in the water, for homes in Hampstead and on Topsail Island. Before we recommend a lift, we look at your boat's loaded weight, the depth at the slip and the pilings it will hang from, and if those pilings can't carry the load, we add new ones.
+answer: We install boat lifts for waterfront homes in Hampstead and on Topsail Island. Your boat stays up out of the salt water between trips, and it's ready to go when you are.
 included:
   - Lift sizing from the boat's loaded weight, length and beam
   - A lift type picked for your dock and the water depth at the slip

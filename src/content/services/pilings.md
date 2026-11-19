@@ -5,8 +5,8 @@ order: 7
 h1: Dock Piling Installation in Hampstead & Topsail Island, NC
 metaTitle: Dock Piling Installation | Topsail Island & Hampstead, NC
 metaDescription: "New and replacement dock pilings in Surf City, Hampstead and Topsail Beach, NC. Call (910) 465-1712."
-cardSummary: New and replacement pilings for docks, lifts and floating docks.
-answer: We drive new pilings and replace damaged ones under docks, lifts and platforms in Hampstead and on Topsail Island. How deep each piling goes depends on the soil and the load it carries, and we'll talk that through with you on site.
+cardSummary: The dock you already love stays steady and keeps looking good.
+answer: We replace worn-out and damaged pilings under docks and lifts in Hampstead and on Topsail Island, so the dock you already love stays steady and keeps looking good.
 included:
   - Piling layout for new docks, lifts and floating docks
   - Replacement of damaged or rotted pilings
